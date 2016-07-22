@@ -20,3 +20,6 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# Other settings file, should use example
+/config/database.yml
