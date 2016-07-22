@@ -1,10 +1,14 @@
-source 'https://rubygems.org'
+source 'https://gems.ruby-china.org'
+# source 'https://rubygems.org'
 
+ruby '2.3.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# Use pg as the database for Active Record
+gem 'pg'
+gem 'activerecord-import'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -23,16 +27,54 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 3.0'
+gem 'redis', '~> 3.0'
+gem 'hiredis'
+gem 'redis-namespace'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'rails-i18n'
+gem 'enumerize'
+gem "ransack"
+gem 'china_city'
+gem 'awesome_nested_set'
+gem "hstore_accessor"
+gem 'rails-settings-cached', "~> 0.5.6"
+gem 'dalli'
+gem 'second_level_cache'
+
+gem 'simple-navigation'
+gem 'tabs_on_rails', :git => "git://github.com/kenniz/tabs_on_rails.git", :branch => 'master'
+gem "breadcrumbs_on_rails"
+gem 'twitter-typeahead-rails'
+gem 'simple_form'
+gem 'nested_form'
+gem 'chosen-rails'
+
+gem 'browser'
+gem 'compass-rails'
+gem 'bootstrap-sass'
+gem 'font-awesome-rails'
+gem 'bourbon'
+gem 'slim'
+gem 'kaminari'
+gem 'momentjs-rails'
+gem 'bootstrap3-datetimepicker-rails'
+
+gem 'mini_magick'
+gem 'carrierwave'
+gem 'jquery-fileupload-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'pry-rails'
+  gem 'pry-doc'
+  gem 'guard-spork', '~> 1.5.1'
+  gem 'factory_girl_rails'
 end
 
 group :development do
@@ -42,8 +84,11 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'pry-rails'
-  gem 'pry-doc'
+  gem 'fontcustom'
+end
+
+group :production do
+  gem 'unicorn', '~> 4.6.1'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
