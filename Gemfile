@@ -36,6 +36,8 @@ gem 'redis-namespace'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'devise'
+gem 'devise-i18n'
 gem 'rails-i18n'
 gem 'enumerize'
 gem "ransack"
