@@ -9,6 +9,8 @@ html
   body
     = render 'layouts/application_header'
     main.main
+      - content_for? :banner
+        .banner= yield :banner
       section.main-content
         = yield
       aside.main-aside

@@ -1,3 +1,16 @@
 @import "bootstrap/variables";
 
-//override bootstrap variables
+// application
+$active-color-blue: #2a71b9;
+$active-color-green: #83db33;
+$top-bar-bg: #f3f3f3;
+
+
+// override bootstrap variables
+$text-color:                #666;
+$link-color:                $text-color;
+$link-hover-color:          $active-color-blue;
+
+$btn-border-radius-base:        0;
+$btn-border-radius-large:       0;
+$btn-border-radius-small:       0;

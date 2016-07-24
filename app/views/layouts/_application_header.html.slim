@@ -1,0 +1,36 @@
+header.header
+  .top-bar
+    .container.text-right
+      ul.lang
+        li.active= link_to '简', root_path
+        li= link_to '繁', root_path
+        li= link_to 'EN', root_path
+      .links
+        .link-picker
+          .text 协鑫新能源官网
+          span.arrow: i.fa.fa-caret-right
+          ul
+            li= link_to '协鑫新能源官网', root_path
+            li= link_to '协鑫新能源官网', root_path
+            li= link_to '协鑫新能源官网', root_path
+            li= link_to '协鑫新能源官网', root_path
+            li= link_to '协鑫新能源官网', root_path
+        span.btn.btn-xs.btn-enter 进入
+      .tiny-search
+        input.query placeholder='搜索内容'
+        = link_to '', root_path, class: 'fa fa-search search-btn'
+  .main-nav
+    .container
+      = link_to 'GCL', root_path, class: 'logo'
+      nav
+        ul
+          li
+            = link_to '首页', root_path
+          - (1..4).each do
+            li
+              = link_to '关于我们', root_path
+              .container.sub-menu
+                ul
+                  li= link_to '公司概况'
+                  li= link_to '公司概况'
+                  li= link_to '公司概况'
