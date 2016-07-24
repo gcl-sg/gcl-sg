@@ -3,6 +3,7 @@ zh-CN:
     attributes:
       user:
         current_password: "当前密码"
+        login: "账号"
         email: "电子邮箱"
         password: "密码"
         password_confirmation: "密码确认"
