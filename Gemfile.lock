@@ -1,4 +1,13 @@
 GIT
+  remote: git://github.com/globalize/globalize.git
+  revision: 51aa34b34ef6b00b8e6e307ac9145eeffade833c
+  specs:
+    globalize (5.1.0)
+      activemodel (>= 4.2, < 5.1)
+      activerecord (>= 4.2, < 5.1)
+      request_store (~> 1.0)
+
+GIT
   remote: git://github.com/kenniz/tabs_on_rails.git
   revision: 894b1ce164d8aad2219423f698e5768c8de47b5b
   branch: master
@@ -31,11 +40,18 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
+    active_hash (1.4.1)
+      activesupport (>= 2.2.2)
     activejob (5.0.0)
       activesupport (= 5.0.0)
       globalid (>= 0.3.6)
     activemodel (5.0.0)
       activesupport (= 5.0.0)
+    activemodel-serializers-xml (1.0.1)
+      activemodel (> 5.x)
+      activerecord (> 5.x)
+      activesupport (> 5.x)
+      builder (~> 3.1)
     activerecord (5.0.0)
       activemodel (= 5.0.0)
       activesupport (= 5.0.0)
@@ -47,6 +63,9 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    annotate (2.7.1)
+      activerecord (>= 3.2, < 6.0)
+      rake (>= 10.4, < 12.0)
     arel (7.1.0)
     autoprefixer-rails (6.3.7)
       execjs
@@ -248,6 +267,7 @@ GEM
     redis (3.3.1)
     redis-namespace (1.5.2)
       redis (~> 3.0, >= 3.0.4)
+    request_store (1.3.1)
     responders (2.2.0)
       railties (>= 4.2.0, < 5.1)
     sass (3.4.22)
@@ -316,7 +336,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_hash
+  activemodel-serializers-xml
   activerecord-import
+  annotate
   awesome_nested_set
   bootstrap-sass
   bootstrap3-datetimepicker-rails
@@ -336,6 +359,7 @@ DEPENDENCIES
   factory_girl_rails
   font-awesome-rails
   fontcustom
+  globalize!
   guard-spork (~> 1.5.1)
   hiredis
   hstore_accessor

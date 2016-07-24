@@ -36,6 +36,9 @@ gem 'redis-namespace'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'active_hash'
+gem 'globalize', github: 'globalize/globalize'
+gem 'activemodel-serializers-xml'
 gem 'devise'
 gem 'devise-i18n'
 gem 'rails-i18n'
@@ -86,6 +89,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'annotate'
   gem 'fontcustom'
 end
 
