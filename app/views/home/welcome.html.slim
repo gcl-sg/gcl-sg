@@ -1,1 +1,8 @@
 = link_to 'Logout', destroy_user_session_path, method: :delete if user_signed_in?
+
+.locale-select
+  .current
+    | 当前locale: #{I18n.locale}
+  - I18n.available_locales.each  do |locale|
+    .locale*{class: locale == I18n.locale ? 'selected' : ''}
+      = link_to I18n.t("locale.#{locale}"), params.merge(locale: locale).permit!

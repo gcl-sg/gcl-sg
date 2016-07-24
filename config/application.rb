@@ -13,5 +13,12 @@ module GclSg
     # -- all .rb files in that directory are automatically loaded.
     config.i18n.available_locales = [:en, :'zh-CN', :'zh-TW']
     config.i18n.default_locale = :'zh-CN'
+
+    # settings for subdomain_locale
+    config.default_locale = :'zh-CN'         # www.lvh.me
+    config.default_subdomain = 'www'
+    config.subdomain_locale['en'] = :en      # en.lvh.me
+    config.subdomain_locale['tc'] = :'zh-TW' # tc.lvh.me
+
   end
 end
