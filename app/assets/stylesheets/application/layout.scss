@@ -13,7 +13,6 @@
 
   a:hover {
     color: $active-color-green;
-    text-decoration: none;
   }
 
 }
@@ -215,4 +214,58 @@
 // main
 
 // footer
+.footer {
+  background-color: $footer-bg;
+  font-size: 12px;
+  .footer-links {
+    @include clearfix;
+    margin-bottom: 15px;
+    .group {
+      float: left;
+      width: 50%;
+      overflow: hidden;
+    }
+    dl {
+      float: left;
+      width: 30%;
+      margin-right: 3%;
+      margin-bottom: 0;
+      color: #333;
+    }
+    dt {
+      font-weight: bold;
+      border-bottom: 1px solid #8F8F8F;
+      margin: 18px 0;
+      padding-bottom: 20px;
+    }
+    dd {
+      line-height: 24px;
+      p {
+        margin: 0;
+      }
+    }
+  }
+  .footer-bottom {
+    .copyright {
+      padding: 11px 0;
+    }
+    .share {
+      float: right;
+    }
+  }
+}
 
+@media (max-width: 1000px) {
+
+  .footer {
+    .footer-links .group {
+      width: 100%;
+    }
+    dt {
+      font-size: 18px;
+    }
+    dd {
+      font-size: 16px;
+    }
+  }
+}
