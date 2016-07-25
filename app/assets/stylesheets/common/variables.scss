@@ -6,8 +6,13 @@ $active-color-green: #83db33;
 $top-bar-bg: #f3f3f3;
 $footer-bg: #f9f9f9;
 
+$z-content: 0;
+$z-popup: 100;
+$z-top: 1000;
+
 
 // override bootstrap variables
+$font-family-base: "Helvetica Neue", Helvetica, "\5FAE\8F6F\96C5\9ED1", Arial, sans-serif;
 $text-color:                #666;
 $link-color:                $text-color;
 $link-hover-color:          $active-color-blue;

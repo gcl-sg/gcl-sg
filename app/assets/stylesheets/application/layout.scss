@@ -92,6 +92,7 @@
       border: 1px solid #a0a0a0;
       border-top: none;
       background-color: white;
+      z-index: $z-popup;
     }
     .btn-enter {
       padding-top: 2px;
@@ -248,9 +249,48 @@
   .footer-bottom {
     .copyright {
       padding: 11px 0;
+      float: left;
     }
     .share {
       float: right;
+      .item {
+        display: inline-block;
+        position: relative;
+        width: 30px;
+        height: 30px;
+        margin-left: 19px;
+        img {
+          display: none;
+          position: absolute;
+          bottom: 120%;
+          left: 50%;
+          margin-left: -71px;
+        }
+        &:hover {
+          img {
+            display: block;
+          }
+        }
+
+        &.weixin {
+          background: image-url('weixin-icon.png') no-repeat;
+          &:hover {
+            background-image: image_url('weixin-icon-active.png');
+          }
+        }
+        &.weibo {
+          background: image-url('weibo-icon.png') no-repeat;
+          &:hover {
+            background-image: image_url('weibo-icon-active.png');
+          }
+        }
+        &.play {
+          background: image-url('play-icon.png') no-repeat;
+          &:hover {
+            background-image: image_url('play-icon-active.png');
+          }
+        }
+      }
     }
   }
 }
