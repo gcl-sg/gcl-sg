@@ -1,0 +1,46 @@
+.smart-tabs {
+  @include clearfix;
+  list-style: none;
+  padding: 0 10px;
+  line-height: 30px;
+  border-bottom: 1px solid #DEDEDE;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+
+  li {
+    float: left;
+    border-left: 1px solid white;
+    min-width: 117px;
+    a {
+      display: block;
+      background-color: #f1f1f1;
+      color: #333;
+      border-width: 2px 1px 0;
+      border-style: solid;
+      border-color: transparent;
+      &:hover {
+        color: #333;
+      }
+    }
+
+
+
+    &.active {
+      a {
+        background-color: white;
+        border-color: #2A71B9 #DEDEDE transparent #DEDEDE;
+
+      }
+    }
+  }
+
+  @media (max-width: $screen-narrow) {
+    li {
+      display: table-cell;
+      width: 1%;
+      min-width: 1px;
+      float: none;
+    }
+  }
+}

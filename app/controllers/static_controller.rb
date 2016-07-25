@@ -12,4 +12,16 @@ class StaticController < ApplicationController
 
   end
 
+  def news
+
+  end
+
+  def album
+
+  end
+
+  def videos
+
+  end
+
 end

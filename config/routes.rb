@@ -6,5 +6,8 @@ Rails.application.routes.draw do
 
   get 'static/index' => 'static#index'
   get 'static/about' => 'static#about'
+  get 'static/news' => 'static#news'
   get 'static/detail' => 'static#detail'
+  get 'static/album' => 'static#detail'
+  get 'static/videos' => 'static#detail'
 end

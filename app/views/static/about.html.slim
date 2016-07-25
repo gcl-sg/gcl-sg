@@ -1,3 +1,15 @@
 - content_for :banner do
   .banner-image
     = image_tag 'aboutus.jpg'
+
+section.main-section
+  .section-heading
+    .section-title 关于我们
+    .breadcrumb
+      = link_to '首页', root_path
+      | >
+      = link_to '关于我们', root_path
+      | >
+      span 公司介绍
+  .section-content
+      

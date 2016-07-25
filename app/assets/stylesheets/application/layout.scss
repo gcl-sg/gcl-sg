@@ -1,16 +1,9 @@
-@media (min-width: 1001px) {
+@media (min-width: $screen-wide) {
   .container {
-    width: 1000px !important;
+    width: 1010px !important;
   }
 }
-@media (max-width: 1000px) {
-  .container {
-    width: 100% !important;
-  }
-}
-html, body {
-  height: 100%;
-}
+
 body {
   position: relative;
   min-height: 600px;
@@ -105,6 +98,7 @@ body {
       width: 166px;
       text-align: left;
       background-color: white;
+      vertical-align: middle;
       .text {
         border: 1px solid #a0a0a0;
         height: 23px;
@@ -140,6 +134,7 @@ body {
       padding-top: 2px;
       width: 55px;
       margin-left: 13px;
+      vertical-align: middle;
     }
   }
 
@@ -275,16 +270,17 @@ body {
 // main
 .main {
   @include clearfix;
-  margin-bottom: 30px;
 }
 .main-content {
   float: right;
   width: 750px;
+  margin-bottom: 30px;
 }
 
 .main-aside {
   float: left;
   width: 200px;
+  margin-bottom: 30px;
 
   .side-nav {
     list-style: none;
@@ -414,9 +410,12 @@ body {
   }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: $screen-narrow) {
   body {
     overflow-x: hidden;
+  }
+  .container {
+    width: 100% !important;
   }
   .smart-header {
     display: block;
@@ -468,7 +467,28 @@ body {
     }
   }
 
+  .main-content {
+    float: none;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .main-aside {
+    float: none;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+
+    .side-widget {
+      display: none;
+    }
+  }
+
   .footer {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
     .footer-links .group {
       width: 100%;
     }

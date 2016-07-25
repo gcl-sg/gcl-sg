@@ -11,8 +11,11 @@ $z-popup: 100;
 $z-top: 1000;
 
 
+$screen-wide: 1011px;
+$screen-narrow: 1010px;
+
 // override bootstrap variables
-$font-family-base: "Helvetica Neue", Helvetica, "\5FAE\8F6F\96C5\9ED1", Arial, sans-serif;
+$font-family-base: "\5FAE\8F6F\96C5\9ED1", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $text-color:                #666;
 $link-color:                $text-color;
 $link-hover-color:          $active-color-blue;
@@ -20,3 +23,4 @@ $link-hover-color:          $active-color-blue;
 $btn-border-radius-base:        0;
 $btn-border-radius-large:       0;
 $btn-border-radius-small:       0;
+
