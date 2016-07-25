@@ -15,10 +15,11 @@ html
   body
     = render 'layouts/application_header'
     main.main
-      - content_for? :banner
+      - if content_for? :banner
         .banner= yield :banner
-      section.main-content
-        = yield
-      aside.main-aside
-        = render 'layouts/application_aside'
+      .container
+        section.main-content
+          = yield
+        aside.main-aside
+          = render 'layouts/application_aside'
     = render 'layouts/application_footer'

@@ -258,7 +258,79 @@ body {
 
 }
 
+// banner
+.banner {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 20px;
+  .banner-image {
+    width: 2560px;
+    position: relative;
+    left: 50%;
+    margin-left: -1280px;
+    text-align: center;
+  }
+}
+
 // main
+.main {
+  @include clearfix;
+  margin-bottom: 30px;
+}
+.main-content {
+  float: right;
+  width: 750px;
+}
+
+.main-aside {
+  float: left;
+  width: 200px;
+
+  .side-nav {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 40px;
+    > li {
+      > a {
+        display: block;
+        font-size: 16px;
+        font-weight: bold;
+        border-bottom: 3px solid #2A71B9;
+        padding: 0 0 12px 10px;
+        color: #2A71B9;
+      }
+      > ul {
+        list-style: none;
+        padding-left: 0;
+        font-size: 14px;
+        position: relative;
+        a {
+          display: block;
+          line-height: 37px;
+          border-bottom: 1px solid #E4E3E3;
+          text-indent: 10px;
+          @include transition(text-indent 0.5s);
+          &.active, &:hover {
+            text-indent: 20px;
+            color: $active-color-blue;
+            &:before {
+              content: '';
+              position: absolute;
+              left: 5px;
+              width: 4px;
+              height: 37px;
+              background: image_url("menu-arrow.png") no-repeat center center;
+
+            }
+          }
+        }
+      }
+    }
+  }
+  .side-widget {
+    margin-bottom: 40px;
+  }
+}
 
 // footer
 .footer {
