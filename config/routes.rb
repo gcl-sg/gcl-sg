@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   get 'static/detail' => 'static#detail'
   get 'static/album' => 'static#album'
   get 'static/videos' => 'static#videos'
+  get 'static/video_detail' => 'static#video_detail'
 end

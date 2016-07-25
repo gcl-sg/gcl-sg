@@ -24,4 +24,8 @@ class StaticController < ApplicationController
 
   end
 
+  def video_detail
+
+  end
+
 end
