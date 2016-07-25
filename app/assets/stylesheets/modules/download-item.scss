@@ -1,0 +1,51 @@
+.download-item {
+  font-size: 12px;
+  border-bottom: 1px solid #DCDCDC;
+  .cover {
+    background: image_url('bg-album-2.png') no-repeat;
+    width: 200px;
+    height: 265px;
+    padding: 1px 4px 6px 3px;
+  }
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  a {
+    display: block;
+  }
+  .title {
+    line-height: 34px;
+    position: relative;
+    padding-right: 15px;
+    @include text-overflow;
+    i {
+      position: absolute;
+      right: 5px;
+      top: 11px;
+    }
+  }
+  .info {
+    line-height: 34px;
+    time {
+      color: $active-color-blue;
+      font-size: 12px;
+    }
+    a {
+      float: right;
+    }
+  }
+}
+
+.download-items {
+  @include clearfix;
+  .download-item {
+    float: left;
+    margin: 0 50px 50px 0;
+    height: 345px;
+    .title {
+      font-size: 15px;
+    }
+  }
+}

@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   get 'static/about' => 'static#about'
   get 'static/news' => 'static#news'
   get 'static/detail' => 'static#detail'
-  get 'static/album' => 'static#detail'
-  get 'static/videos' => 'static#detail'
+  get 'static/album' => 'static#album'
+  get 'static/videos' => 'static#videos'
 end

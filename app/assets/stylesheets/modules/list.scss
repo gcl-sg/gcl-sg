@@ -15,6 +15,9 @@
         font-size: 14px;
         font-weight: bold;
         color: #333;
+        &:hover {
+          color: $active-color-blue;
+        }
       }
 
       time {
