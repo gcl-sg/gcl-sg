@@ -1,6 +1,13 @@
+.smart-header
+  = link_to 'GCL', root_path, class: 'logo'
+  .menu-icon
+    span
+    span
+    span
+.layer
 header.header
   .top-bar
-    .container.text-right
+    .container
       ul.lang
         li.active= link_to '简', root_path
         li= link_to '繁', root_path
@@ -16,6 +23,9 @@ header.header
             li= link_to '协鑫新能源官网', root_path
             li= link_to '协鑫新能源官网', root_path
         span.btn.btn-xs.btn-enter 进入
+      ul.tiny-nav
+        - (1..8).each do
+          li= link_to '首页', root_path
       .tiny-search
         input.query placeholder='搜索内容'
         = link_to '', root_path, class: 'fa fa-search search-btn'

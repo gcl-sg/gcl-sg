@@ -1,9 +1,48 @@
-@media (min-width: 1010px) {
+@media (min-width: 1001px) {
   .container {
-    width: 1010px !important;
+    width: 1000px !important;
   }
 }
-
+@media (max-width: 1000px) {
+  .container {
+    width: 100% !important;
+  }
+}
+html, body {
+  height: 100%;
+}
+body {
+  position: relative;
+  min-height: 600px;
+}
+//logo
+.logo {
+  display: block;
+  height: 80px;
+  text-indent: -9999px;
+  background: image_url('logo') no-repeat center center;
+  width: 180px;
+}
+// smart header
+.smart-header {
+  display: none;
+  height: 80px;
+  .logo {
+    float: left;
+  }
+  .menu-icon {
+    float: right;
+    width: 30px;
+    margin: 23px 30px 0 0;
+    cursor: pointer;
+    span {
+      display: block;
+      height: 5px;
+      margin-top: 4px;
+      background: #3776bc;
+    }
+  }
+}
 // header
 .header {
   ul {
@@ -20,8 +59,10 @@
   height: 31px;
   background-color: $top-bar-bg;
   font-size: 12px;
+  text-align: right;
   .lang {
     display: inline-block;
+    vertical-align: middle;
     color: #333;
     padding-top: 9px;
     margin-right: 5px;
@@ -47,6 +88,7 @@
   .links {
     position: relative;
     display: inline-block;
+    vertical-align: middle;
 
     a {
       display: block;
@@ -101,9 +143,14 @@
     }
   }
 
+  .tiny-nav {
+    display: none;
+  }
+
   .tiny-search {
-    float: right;
     position: relative;
+    display: inline-block;
+    vertical-align: middle;
     height: 31px;
     margin-left: 10px;
     line-height: 31px;
@@ -123,6 +170,7 @@
       color: white;
       text-align: center;
       cursor: pointer;
+      vertical-align: middle;
       &:hover {
         background-color: #3477b9;
       }
@@ -137,6 +185,7 @@
       border: none;
       background-color: #e2e2e2;
       outline: none;
+      vertical-align: middle;
       @include transition(width 0.3s)
     }
   }
@@ -146,10 +195,6 @@
   position: relative;
   .logo {
     float: left;
-    height: 80px;
-    text-indent: -9999px;
-    background: image_url('logo') no-repeat center center;
-    width: 180px;
   }
   nav {
     float: right;
@@ -195,6 +240,7 @@
       right: 0;
       background: image_url('bg-submenu.png');
       text-align: center;
+      z-index: $z-content + 1;
       li {
         border-left: 1px solid #3776bc;
         &:first-child {
@@ -218,6 +264,7 @@
 .footer {
   background-color: $footer-bg;
   font-size: 12px;
+  position: relative;
   .footer-links {
     @include clearfix;
     margin-bottom: 15px;
@@ -296,6 +343,58 @@
 }
 
 @media (max-width: 1000px) {
+  body {
+    overflow-x: hidden;
+  }
+  .smart-header {
+    display: block;
+  }
+
+  .header {
+    width: 290px;
+    position: absolute;
+    right: -290px;
+    top: 0;
+    bottom: 0;
+    padding-top: 5px;
+    z-index: $z-popup;
+    @include transition(right 500ms cubic-bezier(0.77,0,0.175,1));
+    background-color: white;
+
+    .top-bar {
+      background-color: transparent;
+      text-align: left;
+    }
+    .tiny-nav {
+      width: 231px;
+      display: block;
+      font-size: 15px;
+      font-weight: bold;
+      margin-bottom: 15px;
+      li {
+        border-bottom: 1px solid #dcdada;
+      }
+      a {
+        display: block;
+        padding: 14px 0 14px 15px;
+      }
+    }
+    .tiny-search {
+      margin-left: 0;
+      .search-btn {
+        display: inline-block;
+      }
+      input {
+        position: static !important;
+        width: 200px !important;
+        visibility: visible !important;
+      }
+    }
+
+    .main-nav {
+      display: none;
+    }
+  }
 
   .footer {
     .footer-links .group {
@@ -306,6 +405,35 @@
     }
     dd {
       font-size: 16px;
+    }
+  }
+  .smart-header, .main, .footer {
+    @include transition(left 500ms cubic-bezier(0.77,0,0.175,1));
+    position: relative;
+    left: 0;
+  }
+
+
+  .open-nav {
+    overflow-x: hidden;
+    .layer {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: $z-popup - 1;
+      background-color: black;
+      @include opacity(0.5)
+    }
+
+    .header {
+      right: 0;
+      box-shadow: 0 0 22px #000;
+    }
+
+    .smart-header, .main, .footer {
+      left: -290px;
     }
   }
 }
