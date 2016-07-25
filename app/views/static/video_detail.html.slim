@@ -1,0 +1,30 @@
+- content_for :banner do
+  .banner-image
+    = image_tag 'news.jpg'
+
+section.main-section
+  .section-heading
+    .section-title 协鑫新能源企业宣传视频
+    .breadcrumbs
+      = link_to '首页', root_path
+      | >
+      = link_to '新闻中心', root_path
+      | >
+      = link_to '资料下载', root_path
+      | >
+      = link_to '协鑫新能源视频', root_path
+      | >
+      span 协鑫新能源企业宣传视频
+  .section-content
+    .video-frame
+      .video-content
+        video#video.video-js.vjs-default-skin controls=true
+          source src='/video.mp4'
+= javascript_include_tag '/vendor/video-js/video.min.js'
+= javascript_include_tag '/vendor/video-js/lang/zh-CN.js'
+javascript:
+  videojs.options.flash.swf = "/vendor/video-js/video-js.swf";
+  videojs('video', {
+    language: 'zh-CN',
+    preload: 'metadata'
+  });

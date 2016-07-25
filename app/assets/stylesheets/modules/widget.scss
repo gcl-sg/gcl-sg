@@ -1,0 +1,13 @@
+.side-widget {
+  margin-bottom: 15px;
+  .widget-title {
+    background: image_url('bg-widget.png') repeat-x left top;
+    height: 41px;
+    line-height: 41px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #2a71b9;
+    margin: 0;
+    text-indent: 10px;
+  }
+}

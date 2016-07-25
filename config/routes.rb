@@ -3,4 +3,12 @@ Rails.application.routes.draw do
   root 'home#welcome'
 
   devise_for :users
+
+  get 'static/index' => 'static#index'
+  get 'static/about' => 'static#about'
+  get 'static/news' => 'static#news'
+  get 'static/detail' => 'static#detail'
+  get 'static/album' => 'static#album'
+  get 'static/videos' => 'static#videos'
+  get 'static/video_detail' => 'static#video_detail'
 end

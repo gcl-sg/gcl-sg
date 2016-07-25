@@ -1,0 +1,27 @@
+- content_for :banner do
+  .banner-image
+    = image_tag 'news.jpg'
+
+section.main-section
+  .section-heading
+    .section-title 公司新闻
+    .breadcrumbs
+      = link_to '首页', root_path
+      | >
+      = link_to '新闻中心', root_path
+      | >
+      = link_to '资料下载', root_path
+      | >
+      span 协鑫新能源画册
+  .section-content
+    ul.smart-tabs
+      li.active= link_to '协鑫新能源画册', root_path
+      li= link_to '协鑫新能源视频', root_path
+    .download-items
+      - (1..rand(20)).each do
+        .download-item
+          = link_to image_tag('download-cover.jpg'), root_path, class: 'cover'
+          = link_to '协鑫新能源宣传册', root_path, class: 'title'
+          .info
+            time 2016年06月20日
+            = link_to content_tag(:i, '', class: 'fa fa-download'), root_path

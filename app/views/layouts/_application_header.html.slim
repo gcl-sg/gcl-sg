@@ -1,0 +1,46 @@
+.smart-header
+  = link_to 'GCL', root_path, class: 'logo'
+  .menu-icon
+    span
+    span
+    span
+.layer
+header.header
+  .top-bar
+    .container
+      ul.lang
+        - I18n.available_locales.each  do |locale|
+          li*{class: locale == I18n.locale ? 'active' : ''}
+            = link_to I18n.t("locale.#{locale}"), params.merge(locale: locale).permit!
+      .links
+        .link-picker
+          .text 协鑫新能源官网
+          span.arrow: i.fa.fa-caret-right
+          ul
+            li= link_to '协鑫新能源官网', root_path
+            li= link_to '协鑫新能源官网', root_path
+            li= link_to '协鑫新能源官网', root_path
+            li= link_to '协鑫新能源官网', root_path
+            li= link_to '协鑫新能源官网', root_path
+        span.btn.btn-xs.btn-enter 进入
+      ul.tiny-nav
+        - (1..8).each do
+          li= link_to '首页', root_path
+      .tiny-search
+        input.query placeholder='搜索内容'
+        = link_to '', root_path, class: 'fa fa-search search-btn'
+  .main-nav
+    .container
+      = link_to 'GCL', root_path, class: 'logo'
+      nav
+        ul
+          li
+            = link_to '首页', root_path
+          - (1..4).each do
+            li
+              = link_to '关于我们', root_path
+              .sub-menu
+                ul
+                  li= link_to '公司概况'
+                  li= link_to '公司概况'
+                  li= link_to '公司概况'

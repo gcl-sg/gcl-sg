@@ -1,0 +1,28 @@
+.article {
+  line-height: 34px;
+  .title {
+    text-align: center;
+    font-size: 16px;
+    color: #333;
+    margin: 0 0 15px;
+    font-weight: bold;
+    line-height: 34px;
+  }
+  .time {
+    font-size: 12px;
+    color: #72bf44;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  .article-content {
+    img {
+      max-width: 100%;
+    }
+    p {
+      text-indent: 2em;
+      font-size: 13px;
+      margin: 0;
+    }
+  }
+}

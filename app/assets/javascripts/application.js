@@ -13,4 +13,12 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//= require lib/jquery.turbolinks.custom
+//= require bootstrap
+//= require cable
+
+//= require lib/Once
+//= require lib/PageReady
+//= require lib/Page
+
+//= require_tree ./application

@@ -1,0 +1,23 @@
+- content_for :banner do
+  .banner-image
+    = image_tag 'news.jpg'
+
+section.main-section
+  .section-heading
+    .section-title 公司新闻
+    .breadcrumbs
+      = link_to '首页', root_path
+      | >
+      = link_to '新闻中心', root_path
+      | >
+      span 公司新闻
+  .section-content
+    ul.smart-tabs
+      li.active= link_to '2016', root_path
+      li= link_to '2016', root_path
+      li= link_to '2016', root_path
+    ul.list.article-list
+      - (1..rand(20)).each do
+        li
+          = link_to '陕西横山晶合二期50MW光伏项目成功并网', root_path
+          time 2016/02/15
