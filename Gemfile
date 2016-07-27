@@ -44,8 +44,12 @@ gem 'local-subdomain'
 gem 'devise'
 gem 'devise-i18n'
 gem 'rails-i18n'
+gem 'activeadmin', github: 'activeadmin'
+gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+gem 'ransack',             github: 'activerecord-hackery/ransack'
+gem 'draper',              '> 3.x'
+# gem 'sass-rails',          github: 'rails/sass-rails'
 gem 'enumerize'
-gem "ransack"
 gem 'china_city'
 gem 'awesome_nested_set'
 gem "hstore_accessor"

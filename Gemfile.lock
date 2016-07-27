@@ -1,4 +1,44 @@
 GIT
+  remote: git://github.com/activeadmin/activeadmin.git
+  revision: 85ab3f5961e1fab5d5c864ba9170b5e0fd1f6548
+  specs:
+    activeadmin (1.0.0.pre4)
+      arbre (~> 1.0, >= 1.0.2)
+      bourbon
+      coffee-rails
+      formtastic (~> 3.1)
+      formtastic_i18n
+      inherited_resources (~> 1.6)
+      jquery-rails
+      jquery-ui-rails
+      kaminari (~> 0.15)
+      rails (>= 3.2, < 5.1)
+      ransack (~> 1.3)
+      sass-rails
+      sprockets (< 4.1)
+
+GIT
+  remote: git://github.com/activeadmin/inherited_resources.git
+  revision: ba9467db4817944591df35dfe340f4c05a948033
+  specs:
+    inherited_resources (1.6.0)
+      actionpack (>= 3.2, < 5.1)
+      has_scope (~> 0.6)
+      railties (>= 3.2, < 5.1)
+      responders
+
+GIT
+  remote: git://github.com/activerecord-hackery/ransack.git
+  revision: 833d500dc77a659a53af9c8feecb33b751e756f6
+  specs:
+    ransack (1.8.0)
+      actionpack (>= 3.0)
+      activerecord (>= 3.0)
+      activesupport (>= 3.0)
+      i18n
+      polyamorous (~> 1.3)
+
+GIT
   remote: git://github.com/globalize/globalize.git
   revision: 51aa34b34ef6b00b8e6e307ac9145eeffade833c
   specs:
@@ -74,6 +114,8 @@ GEM
     annotate (2.7.1)
       activerecord (>= 3.2, < 6.0)
       rake (>= 10.4, < 12.0)
+    arbre (1.1.1)
+      activesupport (>= 3.0.0)
     arel (7.1.0)
     autoprefixer-rails (6.3.7)
       execjs
@@ -142,6 +184,12 @@ GEM
       responders
       warden (~> 1.2.3)
     devise-i18n (1.1.0)
+    draper (3.0.0.pre1)
+      actionpack (~> 5.0)
+      activemodel (~> 5.0)
+      activemodel-serializers-xml (~> 1.0)
+      activesupport (~> 5.0)
+      request_store (~> 1.0)
     enumerize (1.1.1)
       activesupport (>= 3.2)
     erubis (2.7.0)
@@ -159,6 +207,9 @@ GEM
       listen
       thor
     formatador (0.2.5)
+    formtastic (3.1.4)
+      actionpack (>= 3.2.13)
+    formtastic_i18n (0.6.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     guard (1.8.2)
@@ -171,6 +222,9 @@ GEM
       childprocess (>= 0.2.3)
       guard (~> 1.1)
       spork (>= 0.8.4)
+    has_scope (0.7.0)
+      actionpack (>= 4.1, < 5.1)
+      activesupport (>= 4.1, < 5.1)
     hiredis (0.6.1)
     hstore_accessor (1.0.3)
       activerecord (>= 4.0.0)
@@ -186,6 +240,8 @@ GEM
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
+    jquery-ui-rails (5.0.5)
+      railties (>= 3.2.16)
     json (2.0.1)
     kaminari (0.17.0)
       actionpack (>= 3.0.0)
@@ -264,12 +320,6 @@ GEM
       thor (>= 0.18.1, < 2.0)
     raindrops (0.16.0)
     rake (11.2.2)
-    ransack (1.8.0)
-      actionpack (>= 3.0)
-      activerecord (>= 3.0)
-      activesupport (>= 3.0)
-      i18n
-      polyamorous (~> 1.3)
     rb-fsevent (0.9.7)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
@@ -346,6 +396,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_hash
+  activeadmin!
   activemodel-serializers-xml
   activerecord-import
   annotate
@@ -364,6 +415,7 @@ DEPENDENCIES
   dalli
   devise
   devise-i18n
+  draper (> 3.x)
   enumerize
   factory_girl_rails
   font-awesome-rails
@@ -372,6 +424,7 @@ DEPENDENCIES
   guard-spork (~> 1.5.1)
   hiredis
   hstore_accessor
+  inherited_resources!
   jbuilder (~> 2.5)
   jquery-fileupload-rails
   jquery-rails
@@ -388,7 +441,7 @@ DEPENDENCIES
   rails (~> 5.0.0)
   rails-i18n
   rails-settings-cached (~> 0.5.6)
-  ransack
+  ransack!
   redis (~> 3.0)
   redis-namespace
   sass-rails (~> 5.0)
