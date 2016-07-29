@@ -14,5 +14,5 @@
 #
 
 class Site < ApplicationRecord
-  belongs_to_active_hash :category, shortcuts: [:code, :name]
+  belongs_to :category
 end
