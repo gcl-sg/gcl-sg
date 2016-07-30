@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160730025838) do
+ActiveRecord::Schema.define(version: 20160730104558) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,16 +29,40 @@ ActiveRecord::Schema.define(version: 20160730025838) do
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
   end
 
+  create_table "albums", force: :cascade do |t|
+    t.boolean  "visible",      default: true
+    t.datetime "published_at"
+    t.string   "title_en"
+    t.string   "title_zh_cn"
+    t.string   "title_zh_tw"
+    t.string   "cover_en"
+    t.string   "cover_zh_cn"
+    t.string   "cover_zh_tw"
+    t.string   "file_en"
+    t.string   "file_zh_cn"
+    t.string   "file_zh_tw"
+    t.boolean  "enable_en",    default: false
+    t.boolean  "enable_zh_cn", default: false
+    t.boolean  "enable_zh_tw", default: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.index ["enable_en"], name: "index_albums_on_enable_en", using: :btree
+    t.index ["enable_zh_cn"], name: "index_albums_on_enable_zh_cn", using: :btree
+    t.index ["enable_zh_tw"], name: "index_albums_on_enable_zh_tw", using: :btree
+    t.index ["visible"], name: "index_albums_on_visible", using: :btree
+  end
+
   create_table "categories", force: :cascade do |t|
     t.integer  "sort"
-    t.boolean  "visible"
+    t.boolean  "visible",    default: true
     t.string   "code"
     t.string   "name_en"
-    t.string   "name_zh_CN"
-    t.string   "name_zh_TW"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name_zh_cn"
+    t.string   "name_zh_tw"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.string   "cover"
+    t.index ["visible"], name: "index_categories_on_visible", using: :btree
   end
 
   create_table "ckeditor_assets", force: :cascade do |t|
@@ -57,34 +81,39 @@ ActiveRecord::Schema.define(version: 20160730025838) do
   end
 
   create_table "news", force: :cascade do |t|
-    t.string   "category"
+    t.integer  "category"
     t.string   "title_en"
-    t.string   "title_zh_CN"
-    t.string   "title_zh_TW"
+    t.string   "title_zh_cn"
+    t.string   "title_zh_tw"
     t.datetime "published_at"
     t.text     "body_en"
-    t.text     "body_zh_CN"
-    t.text     "body_zh_TW"
+    t.text     "body_zh_cn"
+    t.text     "body_zh_tw"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
-    t.boolean  "en_enable",    default: false
-    t.boolean  "zh_CN_enable", default: false
-    t.boolean  "zh_TW_enable", default: false
+    t.boolean  "enable_en",    default: false
+    t.boolean  "enable_zh_cn", default: false
+    t.boolean  "enable_zh_tw", default: false
     t.boolean  "visible",      default: true
+    t.index ["category"], name: "index_news_on_category", using: :btree
+    t.index ["enable_en"], name: "index_news_on_enable_en", using: :btree
+    t.index ["enable_zh_cn"], name: "index_news_on_enable_zh_cn", using: :btree
+    t.index ["enable_zh_tw"], name: "index_news_on_enable_zh_tw", using: :btree
   end
 
   create_table "sites", force: :cascade do |t|
     t.integer  "category_id"
     t.integer  "sort"
-    t.boolean  "visible",     default: false
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.boolean  "visible",     default: true
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.string   "title_en"
-    t.string   "title_zh_CN"
-    t.string   "title_zh_TW"
+    t.string   "title_zh_cn"
+    t.string   "title_zh_tw"
     t.text     "body_en"
-    t.text     "body_zh_CN"
-    t.text     "body_zh_TW"
+    t.text     "body_zh_cn"
+    t.text     "body_zh_tw"
+    t.index ["visible"], name: "index_sites_on_visible", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -101,6 +130,29 @@ ActiveRecord::Schema.define(version: 20160730025838) do
     t.string   "username"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["username"], name: "index_users_on_username", unique: true, using: :btree
+  end
+
+  create_table "videos", force: :cascade do |t|
+    t.boolean  "visible",      default: true
+    t.datetime "published_at"
+    t.string   "title_en"
+    t.string   "title_zh_cn"
+    t.string   "title_zh_tw"
+    t.string   "cover_en"
+    t.string   "cover_zh_cn"
+    t.string   "cover_zh_tw"
+    t.string   "file_en"
+    t.string   "file_zh_cn"
+    t.string   "file_zh_tw"
+    t.boolean  "enable_en",    default: false
+    t.boolean  "enable_zh_cn", default: false
+    t.boolean  "enable_zh_tw", default: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.index ["enable_en"], name: "index_videos_on_enable_en", using: :btree
+    t.index ["enable_zh_cn"], name: "index_videos_on_enable_zh_cn", using: :btree
+    t.index ["enable_zh_tw"], name: "index_videos_on_enable_zh_tw", using: :btree
+    t.index ["visible"], name: "index_videos_on_visible", using: :btree
   end
 
 end

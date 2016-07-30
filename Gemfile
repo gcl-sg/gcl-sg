@@ -36,12 +36,10 @@ gem 'redis-namespace'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'active_hash'
-gem 'globalize', github: 'globalize/globalize'
 gem 'activemodel-serializers-xml'
 gem 'subdomain_locale', github: 'kenniz/subdomain_locale'
 gem 'local-subdomain'
-gem 'devise'
+gem 'devise', github: 'plataformatec/devise'
 gem 'devise-i18n'
 gem 'rails-i18n'
 gem 'activeadmin', github: 'activeadmin'
@@ -51,8 +49,8 @@ gem 'draper',              '> 3.x'
 # gem 'sass-rails',          github: 'rails/sass-rails'
 gem 'ckeditor', github: 'galetahub/ckeditor'
 gem 'activeadmin_addons'
+gem 'enum_help'
 gem 'pundit'
-gem 'enumerize'
 gem 'china_city'
 gem 'awesome_nested_set'
 gem "hstore_accessor"

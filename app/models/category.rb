@@ -4,14 +4,18 @@
 #
 #  id         :integer          not null, primary key
 #  sort       :integer
-#  visible    :boolean
+#  visible    :boolean          default(TRUE)
 #  code       :string
 #  name_en    :string
-#  name_zh_CN :string
-#  name_zh_TW :string
+#  name_zh_cn :string
+#  name_zh_tw :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  cover      :string
+#
+# Indexes
+#
+#  index_categories_on_visible  (visible)
 #
 
 class Category < ApplicationRecord
@@ -22,18 +26,18 @@ class Category < ApplicationRecord
 
   mount_uploader :cover, CoverUploader
 
-  validates_presence_of :sort, :code, :name_en, :name_zh_CN, :name_zh_TW
+  validates_presence_of :sort, :code, :name_en, :name_zh_cn, :name_zh_tw
 
   def name
     case I18n.locale
       when :'zh-CN'
-        name_zh_CN
+        name_zh_cn
       when :'zh-TW'
-        name_zh_TW
+        name_zh_tw
       when :en
         name_en
       else
-        name_zh_CN
+        name_zh_cn
     end
   end
 

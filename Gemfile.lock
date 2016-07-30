@@ -47,15 +47,6 @@ GIT
       orm_adapter (~> 0.5.0)
 
 GIT
-  remote: git://github.com/globalize/globalize.git
-  revision: 51aa34b34ef6b00b8e6e307ac9145eeffade833c
-  specs:
-    globalize (5.1.0)
-      activemodel (>= 4.2, < 5.1)
-      activerecord (>= 4.2, < 5.1)
-      request_store (~> 1.0)
-
-GIT
   remote: git://github.com/kenniz/subdomain_locale.git
   revision: d917415c7bbe58a60e850ac93f46c7caabaf11d9
   specs:
@@ -69,6 +60,17 @@ GIT
   branch: master
   specs:
     tabs_on_rails (2.2.0)
+
+GIT
+  remote: git://github.com/plataformatec/devise.git
+  revision: 6720f93d2c54904f10b6e6d6beb51d0b5b330976
+  specs:
+    devise (4.2.0)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 4.1.0, < 5.1)
+      responders
+      warden (~> 1.2.3)
 
 GEM
   remote: https://gems.ruby-china.org/
@@ -96,8 +98,6 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
-    active_hash (1.4.1)
-      activesupport (>= 2.2.2)
     activeadmin_addons (0.9.3)
       railties
       select2-rails (~> 3.5.9)
@@ -193,12 +193,6 @@ GEM
     concurrent-ruby (1.0.2)
     dalli (2.7.6)
     debug_inspector (0.0.2)
-    devise (4.2.0)
-      bcrypt (~> 3.0)
-      orm_adapter (~> 0.1)
-      railties (>= 4.1.0, < 5.1)
-      responders
-      warden (~> 1.2.3)
     devise-i18n (1.1.0)
     draper (3.0.0.pre1)
       actionpack (~> 5.0)
@@ -206,8 +200,7 @@ GEM
       activemodel-serializers-xml (~> 1.0)
       activesupport (~> 5.0)
       request_store (~> 1.0)
-    enumerize (1.1.1)
-      activesupport (>= 3.2)
+    enum_help (0.0.15)
     erubis (2.7.0)
     execjs (2.7.0)
     factory_girl (4.7.0)
@@ -418,7 +411,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  active_hash
   activeadmin!
   activeadmin_addons
   activemodel-serializers-xml
@@ -438,14 +430,13 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   compass-rails
   dalli
-  devise
+  devise!
   devise-i18n
   draper (> 3.x)
-  enumerize
+  enum_help
   factory_girl_rails
   font-awesome-rails
   fontcustom
-  globalize!
   guard-spork (~> 1.5.1)
   hiredis
   hstore_accessor

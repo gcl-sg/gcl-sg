@@ -5,45 +5,25 @@
 #  id          :integer          not null, primary key
 #  category_id :integer
 #  sort        :integer
-#  visible     :boolean          default(FALSE)
+#  visible     :boolean          default(TRUE)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  title_en    :string
-#  title_zh_CN :string
-#  title_zh_TW :string
+#  title_zh_cn :string
+#  title_zh_tw :string
 #  body_en     :text
-#  body_zh_CN  :text
-#  body_zh_TW  :text
+#  body_zh_cn  :text
+#  body_zh_tw  :text
+#
+# Indexes
+#
+#  index_sites_on_visible  (visible)
 #
 
 class Site < ApplicationRecord
   belongs_to :category
+  include TitleWithLocale
+  include BodyWithLocale
 
-  validates_presence_of :category, :sort, :title_en, :title_zh_CN, :title_zh_TW, :body_en, :body_zh_CN, :body_zh_TW
-
-  def title
-    case I18n.locale
-      when :'zh-CN'
-        title_zh_CN
-      when :'zh-TW'
-        title_zh_TW
-      when :en
-        title_en
-      else
-        title_zh_CN
-    end
-  end
-
-  def body
-    case I18n.locale
-      when :'zh-CN'
-        body_zh_CN
-      when :'zh-TW'
-        body_zh_TW
-      when :en
-        body_en
-      else
-        body_zh_CN
-    end
-  end
+  validates_presence_of :category, :sort, :title_en, :title_zh_cn, :title_zh_tw, :body_en, :body_zh_cn, :body_zh_tw
 end

@@ -35,15 +35,3 @@
     color: #FF0000;
   }
 }
-
-// news category tag background
-$company-color: #08A510;
-$industry-color: #08A510;
-$media-color: #08A510;
-
-.status_tag {
-  &.company { background: $company-color; }
-  &.industry { background: $industry-color; }
-  &.media { background: $media-color; }
-}
-

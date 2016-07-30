@@ -1,14 +1,14 @@
 class CreateNews < ActiveRecord::Migration[5.0]
   def change
     create_table :news do |t|
-      t.string :category
+      t.integer :category, index: true
       t.string :title_en
-      t.string :title_zh_CN
-      t.string :title_zh_TW
+      t.string :title_zh_cn
+      t.string :title_zh_tw
       t.datetime :published_at
       t.text :body_en
-      t.text :body_zh_CN
-      t.text :body_zh_TW
+      t.text :body_zh_cn
+      t.text :body_zh_tw
 
       t.timestamps
     end

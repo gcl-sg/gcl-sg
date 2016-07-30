@@ -20,5 +20,7 @@ module GclSg
     config.subdomain_locale['en'] = :en      # en.lvh.me
     config.subdomain_locale['tc'] = :'zh-TW' # tc.lvh.me
 
+    config.time_zone = 'Beijing'
+
   end
 end

@@ -4,7 +4,7 @@ ActiveAdmin.register Category do
 
   menu priority: 2
 
-  permit_params :sort, :visible, :code, :cover, :name_en, :name_zh_CN, :name_zh_TW
+  permit_params :sort, :visible, :code, :cover, :cover_cache, :name_en, :name_zh_cn, :name_zh_tw
 
   index do
     selectable_column
@@ -24,8 +24,8 @@ ActiveAdmin.register Category do
 
       f.inputs "标题" do
         f.input :name_en
-        f.input :name_zh_CN
-        f.input :name_zh_TW
+        f.input :name_zh_cn
+        f.input :name_zh_tw
       end
 
       f.inputs "图片管理", :multipart => true do
@@ -43,8 +43,8 @@ ActiveAdmin.register Category do
       bool_row :visible
       row :code
       row :name_en
-      row :name_zh_CN
-      row :name_zh_TW
+      row :name_zh_cn
+      row :name_zh_tw
       row :cover do |category|
         category.cover.present? ? image_tag(category.cover.url(:thumbnail)) : content_tag(:span, "no cover image")
       end
