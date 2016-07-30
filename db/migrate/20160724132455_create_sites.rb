@@ -5,7 +5,7 @@ class CreateSites < ActiveRecord::Migration[5.0]
       t.integer  :sort
       t.string   :title
       t.text     :body
-      t.boolean  :visible, default: false
+      t.boolean  :visible, default: true, index: true
       t.datetime :published_at
       t.timestamps
     end

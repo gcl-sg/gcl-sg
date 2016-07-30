@@ -1,0 +1,3 @@
+class AlbumFileUploader < BaseUploader
+
+end
