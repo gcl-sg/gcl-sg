@@ -2,13 +2,15 @@ ActiveAdmin.register Category do
   config.filters = false
   config.sort_order = 'category_id_asc, sort_asc'
 
+  menu priority: 2
+
   permit_params :sort, :visible, :code, :cover, :name_en, :name_zh_CN, :name_zh_TW
 
   index do
     selectable_column
     id_column
     column :sort
-    column :visible
+    bool_column :visible
     column :code
     column :name
     actions
@@ -38,7 +40,7 @@ ActiveAdmin.register Category do
     attributes_table do
       row :id
       row :sort
-      row :visible
+      bool_row :visible
       row :code
       row :name_en
       row :name_zh_CN

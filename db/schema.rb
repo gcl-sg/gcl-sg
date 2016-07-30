@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160729201253) do
+ActiveRecord::Schema.define(version: 20160730025838) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,23 @@ ActiveRecord::Schema.define(version: 20160729201253) do
     t.datetime "updated_at",                   null: false
     t.index ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
     t.index ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
+  end
+
+  create_table "news", force: :cascade do |t|
+    t.string   "category"
+    t.string   "title_en"
+    t.string   "title_zh_CN"
+    t.string   "title_zh_TW"
+    t.datetime "published_at"
+    t.text     "body_en"
+    t.text     "body_zh_CN"
+    t.text     "body_zh_TW"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.boolean  "en_enable",    default: false
+    t.boolean  "zh_CN_enable", default: false
+    t.boolean  "zh_TW_enable", default: false
+    t.boolean  "visible",      default: true
   end
 
   create_table "sites", force: :cascade do |t|

@@ -1,3 +1,4 @@
+//= require activeadmin_addons/all
 // SASS variable overrides must be declared before loading up Active Admin's styles.
 //
 // To view the variables that Active Admin provides, take a look at
@@ -16,7 +17,33 @@
 //
 //   .status_tag { background: #6090DB; }
 
+// For Ckeditor patch
 .cke_chrome {
   width: 79.5% !important;
   overflow: hidden;
 }
+
+// bool-column bool-row customize style
+.bool-value {
+  font-size: 12px;
+
+  &.true-value {
+    color: #08A510;
+  }
+
+  &.false-value {
+    color: #FF0000;
+  }
+}
+
+// news category tag background
+$company-color: #08A510;
+$industry-color: #08A510;
+$media-color: #08A510;
+
+.status_tag {
+  &.company { background: $company-color; }
+  &.industry { background: $industry-color; }
+  &.media { background: $media-color; }
+}
+

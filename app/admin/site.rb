@@ -1,6 +1,8 @@
 ActiveAdmin.register Site do
   config.sort_order = 'sort_desc'
 
+  menu priority: 3
+
   permit_params :category_id, :sort, :visible, :title_en, :title_zh_CN, :title_zh_TW, :body_en, :body_zh_CN, :body_zh_TW
   filter :category
 
@@ -9,7 +11,7 @@ ActiveAdmin.register Site do
     id_column
     column :category_id
     column :sort
-    column :visible
+    bool_column :visible
     column :title
     actions
   end
@@ -40,7 +42,7 @@ ActiveAdmin.register Site do
       row :id
       row :category
       row :sort
-      row :visible
+      bool_row :visible
       row :title_en
       row :body_en do |site|
         site.body_en.html_safe
