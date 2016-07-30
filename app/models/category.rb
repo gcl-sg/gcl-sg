@@ -33,7 +33,7 @@ class Category < ApplicationRecord
       when :en
         name_en
       else
-        name_en
+        name_zh_CN
     end
   end
 

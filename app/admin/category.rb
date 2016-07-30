@@ -1,4 +1,6 @@
 ActiveAdmin.register Category do
+  config.filters = false
+  config.sort_order = 'category_id_asc, sort_asc'
 
   permit_params :sort, :visible, :code, :cover, :name_en, :name_zh_CN, :name_zh_TW
 
@@ -11,9 +13,6 @@ ActiveAdmin.register Category do
     column :name
     actions
   end
-
-  config.filters = false
-  config.sort_order = 'sort_asc'
 
   form do |f|
     f.inputs "Category Details" do

@@ -39,6 +39,14 @@ GIT
       polyamorous (~> 1.3)
 
 GIT
+  remote: git://github.com/galetahub/ckeditor.git
+  revision: 189d3c2bc9ec177947aec6932da03eb5a03f6879
+  specs:
+    ckeditor (4.2.0)
+      cocaine
+      orm_adapter (~> 0.5.0)
+
+GIT
   remote: git://github.com/globalize/globalize.git
   revision: 51aa34b34ef6b00b8e6e307ac9145eeffade833c
   specs:
@@ -150,6 +158,10 @@ GEM
       railties (>= 3.0)
       sass-rails (>= 3.2)
     chunky_png (1.3.6)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.8)
+      climate_control (>= 0.0.3, < 1.0)
     coderay (1.1.1)
     coffee-rails (4.2.1)
       coffee-script (>= 2.2.0)
@@ -287,6 +299,8 @@ GEM
     pry-rails (0.3.4)
       pry (>= 0.9.10)
     puma (3.5.2)
+    pundit (1.1.0)
+      activesupport (>= 3.0.0)
     rack (2.0.1)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -410,6 +424,7 @@ DEPENDENCIES
   carrierwave
   china_city
   chosen-rails
+  ckeditor!
   coffee-rails (~> 4.2)
   compass-rails
   dalli
@@ -438,6 +453,7 @@ DEPENDENCIES
   pry-doc
   pry-rails
   puma (~> 3.0)
+  pundit
   rails (~> 5.0.0)
   rails-i18n
   rails-settings-cached (~> 0.5.6)
