@@ -1,5 +1,5 @@
-class GclFooterRenderer < SimpleNavigation::Renderer::List
-  # TODO: 能否过滤掉首页那个节点不显示
+class GclSideNavRenderer < SimpleNavigation::Renderer::List
+  # TODO: 只显示当前选中的一级和二级菜单,其他未选中的菜单应该不显示
 
   def render(item_container)
     super

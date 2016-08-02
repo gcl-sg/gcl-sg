@@ -45,4 +45,8 @@ class Category < ApplicationRecord
     self.code == 'news'
   end
 
+  def self.news_category
+    self.where(code: 'news').first
+  end
+
 end

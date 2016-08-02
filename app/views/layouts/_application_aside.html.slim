@@ -1,10 +1,11 @@
 ul.side-nav
-  li
-    = link_to '关于我们', root_path
-    ul
-      li=link_to '项目开发', root_path, class: 'active'
-      -(1..rand(8)).each do
-        li=link_to '项目建设', root_path
+  = render_navigation renderer: GclSideNavRenderer
+  /li
+  /  = link_to '关于我们', root_path
+  /  ul
+  /    li=link_to '项目开发', root_path, class: 'active'
+  /    -(1..rand(8)).each do
+  /      li=link_to '项目建设', root_path
 
 .side-widget
   h2.widget-title 公司新闻

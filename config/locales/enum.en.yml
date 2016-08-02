@@ -1,0 +1,7 @@
+en:
+  enums:
+    news:
+      category:
+        company: Company News
+        industry: Industry News
+        media: Media Reports

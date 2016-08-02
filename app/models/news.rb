@@ -37,6 +37,10 @@ class News < ApplicationRecord
   before_save :adjust_enable_locale
   before_save :set_published_at_if_not_exist
 
+  default_scope -> { order('published_at desc') }
+  scope :visible, -> { where(visible: true) }
+  scope :with_locale, ->(locale = nil) { where("enable_#{(locale || I18n.locale).to_s.underscore} = ?", true) }
+
   def self.categories_id_i18n
     categories.map{|key,value|[News.categories_i18n[key], value]}
   end
