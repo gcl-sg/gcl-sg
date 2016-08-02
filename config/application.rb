@@ -21,6 +21,6 @@ module GclSg
     config.subdomain_locale['tc'] = :'zh-TW' # tc.lvh.me
 
     config.time_zone = 'Beijing'
-
+    config.autoload_paths += %w(lib)
   end
 end

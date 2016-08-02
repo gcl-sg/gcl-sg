@@ -11,6 +11,13 @@ Rails.application.routes.draw do
   get 'static/videos' => 'static#videos'
   get 'static/video_detail' => 'static#video_detail'
 
+  resources :sites, only: [:show], path: :site
+  resources :company_news,  only: [:index, :show]
+  resources :industry_news, only: [:index, :show]
+  resources :media_news,    only: [:index, :show]
+  resources :albums,        only: [:index, :show]
+  resources :videos,        only: [:index, :show]
+
   devise_for :users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 end
