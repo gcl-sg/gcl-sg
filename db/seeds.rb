@@ -31,6 +31,7 @@ category_data.each do |category_hash|
   category.name_en = category_hash[:name_en]
   category.name_zh_cn = category_hash[:name_zh_cn]
   category.name_zh_tw = category_hash[:name_zh_tw]
+  category.cover = File.open([Rails.root, '/db/fixtures/category_cover/', category_hash[:id], '.jpg'].join(''))
   category.save
 end
 
