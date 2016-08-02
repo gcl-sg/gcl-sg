@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160730104558) do
+ActiveRecord::Schema.define(version: 20160802020557) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,6 +80,18 @@ ActiveRecord::Schema.define(version: 20160730104558) do
     t.index ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
   end
 
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
+    t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
+    t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
+  end
+
   create_table "news", force: :cascade do |t|
     t.integer  "category"
     t.string   "title_en"
@@ -113,6 +125,10 @@ ActiveRecord::Schema.define(version: 20160730104558) do
     t.text     "body_en"
     t.text     "body_zh_cn"
     t.text     "body_zh_tw"
+    t.string   "url"
+    t.string   "slug"
+    t.index ["slug"], name: "index_sites_on_slug", unique: true, using: :btree
+    t.index ["url"], name: "index_sites_on_url", using: :btree
     t.index ["visible"], name: "index_sites_on_visible", using: :btree
   end
 

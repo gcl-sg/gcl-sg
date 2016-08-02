@@ -51,6 +51,7 @@ gem 'ckeditor', github: 'galetahub/ckeditor'
 gem 'activeadmin_addons'
 gem 'enum_help'
 gem 'pundit'
+gem 'friendly_id', github: 'norman/friendly_id'
 gem 'china_city'
 gem 'awesome_nested_set'
 gem "hstore_accessor"

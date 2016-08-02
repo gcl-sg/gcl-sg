@@ -1,6 +1,6 @@
 ActiveAdmin.register Category do
   config.filters = false
-  config.sort_order = 'category_id_asc, sort_asc'
+  config.sort_order = 'sort_asc'
 
   menu priority: 2
 
