@@ -1,4 +1,5 @@
 class GclFooterRenderer < SimpleNavigation::Renderer::List
+  # TODO: 能否过滤掉首页那个节点不显示
 
   def render(item_container)
     super

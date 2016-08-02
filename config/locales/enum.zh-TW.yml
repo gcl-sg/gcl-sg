@@ -1,0 +1,7 @@
+zh-TW:
+  enums:
+    news:
+      category:
+        company: 公司新聞
+        industry: 行業資訊
+        media: 媒體報導

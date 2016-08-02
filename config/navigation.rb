@@ -56,7 +56,7 @@ SimpleNavigation::Configuration.run do |navigation|
     #                            when the item should be highlighted, you can set a regexp which is matched
     #                            against the current URI.  You may also use a proc, or the symbol <tt>:subpath</tt>.
     #
-    primary.item :home, '首页', root_path, :highlights_on => /\//
+    primary.item :home, t('nav.home'), root_path, :highlights_on => /\//
     Category.visible.each do |category|
       visible_sites = category.sites.merge(Site.visible)
       item_count = visible_sites.count
@@ -67,7 +67,7 @@ SimpleNavigation::Configuration.run do |navigation|
           nav.item :company_news, News.categories_i18n['company'], company_news_index_path, :highlights_on => :subpath
           nav.item :industry_news, News.categories_i18n['industry'], industry_news_index_path, :highlights_on => :subpath
           nav.item :media_news, News.categories_i18n['media'], media_news_index_path, :highlights_on => :subpath
-          nav.item :albums, '下载中心', albums_path, :highlights_on => /albums|videos/
+          nav.item :albums, t('nav.download'), albums_path, :highlights_on => /albums|videos/
           visible_sites.each do |site|
             nav.item site.title, site.title, site_path(site), :highlights_on => :subpath
           end
