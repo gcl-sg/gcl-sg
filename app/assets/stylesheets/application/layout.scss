@@ -217,15 +217,15 @@ body {
           }
         }
 
-        &:hover {
-          .sub-menu {
-            display: block;
-          }
-        }
+
       }
     }
 
-    .sub-menu {
+    > ul > li:hover > ul {
+      display: block;
+    }
+
+    > ul > li > ul {
       display: none;
       position: absolute;
       height: 36px;
@@ -336,6 +336,11 @@ body {
   .footer-links {
     @include clearfix;
     margin-bottom: 15px;
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
     .group {
       float: left;
       width: 50%;
@@ -356,9 +361,6 @@ body {
     }
     dd {
       line-height: 24px;
-      p {
-        margin: 0;
-      }
     }
   }
   .footer-bottom {
