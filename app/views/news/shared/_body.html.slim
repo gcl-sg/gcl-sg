@@ -1,0 +1,19 @@
+= render 'news/shared/banner'
+
+section.main-section
+  .section-heading
+    .section-title= News.categories_i18n[news_type]
+    .breadcrumbs
+      = render_navigation renderer: GclBreadcrumbsRenderer
+  .section-content
+    /TODO: 只有2016年新闻,之前没有,tab可以暂时不需要吧
+    /ul.smart-tabs
+    /  li.active= link_to '2016', root_path
+    /  li= link_to '2016', root_path
+    /  li= link_to '2016', root_path
+    ul.list.article-list
+      - news.each do |news_entry|
+        li
+          = link_to news_entry.title, reslove_news_path(news_entry)
+          time= l news_entry.published_at.to_date, format: :long
+    = paginate news

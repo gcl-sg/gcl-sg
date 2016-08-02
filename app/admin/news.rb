@@ -12,7 +12,7 @@ ActiveAdmin.register News do
 
   index do
     selectable_column
-    id_column
+    column :published_at
     column :category do |record|
       record.category_i18n
     end
