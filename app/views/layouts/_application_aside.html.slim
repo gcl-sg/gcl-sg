@@ -7,22 +7,26 @@ ul.side-nav
   /    -(1..rand(8)).each do
   /      li=link_to '项目建设', root_path
 
-.side-widget
-  h2.widget-title 公司新闻
-  .widget-body
-    - (1..3).each do
-      .news-item
-        p 2016-03-06
-        p= link_to '孙兴平：国内分布式能源潜力巨大', root_path
-        p
-          = link_to root_path, class: 'more' do
-            | 更多详情
-            i.fa.fa-caret-right
-.side-widget
-  h2.widget-title 宣传画册
-  .widget-body
-    .download-item
-      = link_to image_tag('download-cover.jpg'), root_path, class: 'cover'
-      = link_to root_path, class: 'title' do
-        | 协鑫新能源宣传册
-        i.fa.fa-download
+- news = News.company.with_locale.visible.first(3)
+- if news.present?
+  .side-widget
+    h2.widget-title= News.categories_i18n['company']
+    .widget-body
+      - news.each do |news_item|
+        .news-item
+          p= l news_item.published_at.to_date, format: :long
+          p= link_to news_item.title, resolve_news_path(news_item)
+          p
+            = link_to resolve_news_path(news_item), class: 'more' do
+              = t('common.more')
+              i.fa.fa-caret-right
+- album = Album.with_locale.visible.first
+- if album.present?
+  .side-widget
+    h2.widget-title= t('common.album')
+    .widget-body
+      .download-item
+        = link_to image_tag(album.cover.detail.url), album.file.url, class: 'cover', target: '_blank'
+        = link_to album.file.url, class: 'title', target: '_blank' do
+          = album.title
+          i.fa.fa-download

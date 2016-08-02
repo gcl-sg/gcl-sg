@@ -14,6 +14,6 @@ section.main-section
     ul.list.article-list
       - news.each do |news_entry|
         li
-          = link_to news_entry.title, reslove_news_path(news_entry)
+          = link_to news_entry.title, resolve_news_path(news_entry)
           time= l news_entry.published_at.to_date, format: :long
     = paginate news
