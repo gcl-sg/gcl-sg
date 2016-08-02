@@ -43,6 +43,10 @@ class Video < ApplicationRecord
   before_save :adjust_enable_locale
   before_save :set_published_at_if_not_exist
 
+  default_scope -> { order('published_at desc') }
+  scope :visible, -> { where(visible: true) }
+  scope :with_locale, ->(locale = nil) { where("enable_#{(locale || I18n.locale).to_s.underscore} = ?", true) }
+
   private
   def adjust_enable_locale
     self.enable_en = (title_en.present? && cover_en.present? && file_en.present?) ? true : false

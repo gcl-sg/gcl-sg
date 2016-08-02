@@ -12,7 +12,7 @@ class IndustryNewsController < ApplicationController
 
   private
   def set_news
-    @news = News.with_locale.industry.find(params[:id])
+    @news = News.with_locale.industry.visible.find(params[:id])
   rescue ActiveRecord::RecordNotFound
     redirect_to industry_news_index_path
   end

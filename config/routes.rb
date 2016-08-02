@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   resources :company_news,  only: [:index, :show]
   resources :industry_news, only: [:index, :show]
   resources :media_news,    only: [:index, :show]
-  resources :albums,        only: [:index, :show]
+  resources :albums,        only: [:index]
   resources :videos,        only: [:index, :show]
 
   devise_for :users, ActiveAdmin::Devise.config

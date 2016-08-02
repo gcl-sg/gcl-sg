@@ -123,3 +123,20 @@ news_data.each do |news_hash|
   news.body_zh_tw = news_hash[:body_zh_tw]
   news.save
 end
+
+puts "ceating albums"
+20.times do |i|
+  album = Album.find_or_initialize_by(id: i)
+  album.visible = true
+  album.published_at = rand(100).days.ago
+  album.title_en = "GCL SG #{i}"
+  album.title_zh_cn = "宣传册 #{i}"
+  album.title_zh_tw = "宣傳則 #{i}"
+  album.cover_en = File.open([Rails.root, '/db/fixtures/album/cover.png'].join(''))
+  album.cover_zh_cn = File.open([Rails.root, '/db/fixtures/album/cover.png'].join(''))
+  album.cover_zh_tw = File.open([Rails.root, '/db/fixtures/album/cover.png'].join(''))
+  album.file_en = File.open([Rails.root, '/db/fixtures/album/brochure.pdf'].join(''))
+  album.file_zh_cn = File.open([Rails.root, '/db/fixtures/album/brochure.pdf'].join(''))
+  album.file_zh_tw = File.open([Rails.root, '/db/fixtures/album/brochure.pdf'].join(''))
+  album.save
+end

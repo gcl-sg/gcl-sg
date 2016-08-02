@@ -1,9 +1,6 @@
 class AlbumsController < ApplicationController
+
   def index
-
-  end
-
-  def show
-
+    @albums = Album.with_locale.visible.page(params[:page]).per(6)
   end
 end
