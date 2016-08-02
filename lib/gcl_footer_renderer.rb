@@ -1,4 +1,4 @@
-class GclRenderer < SimpleNavigation::Renderer::List
+class GclFooterRenderer < SimpleNavigation::Renderer::List
 
   def render(item_container)
     super

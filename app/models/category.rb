@@ -41,4 +41,8 @@ class Category < ApplicationRecord
     end
   end
 
+  def include_news_module?
+    self.code == 'news'
+  end
+
 end

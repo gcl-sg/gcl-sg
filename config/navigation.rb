@@ -60,10 +60,9 @@ SimpleNavigation::Configuration.run do |navigation|
     Category.visible.each do |category|
       visible_sites = category.sites.merge(Site.visible)
       item_count = visible_sites.count
-      item_count += 4 if category.code == 'news'
-      puts item_count
+      item_count += 4 if category.include_news_module?
       next if item_count == 0
-      if category.code == 'news'
+      if category.include_news_module?
         primary.item category.code.to_sym, category.name, company_news_index_path do |nav|
           nav.item :company_news, News.categories_i18n['company'], company_news_index_path, :highlights_on => :subpath
           nav.item :industry_news, News.categories_i18n['industry'], industry_news_index_path, :highlights_on => :subpath
