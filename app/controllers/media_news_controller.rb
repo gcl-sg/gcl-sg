@@ -13,5 +13,7 @@ class MediaNewsController < ApplicationController
   private
   def set_news
     @news = News.with_locale.media.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    redirect_to media_news_index_path
   end
 end

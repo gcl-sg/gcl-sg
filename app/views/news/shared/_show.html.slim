@@ -1,0 +1,16 @@
+= render 'news/shared/banner'
+
+section.main-section
+  .section-heading
+    .section-title= News.categories_i18n[news_type]
+    .breadcrumbs
+      = render_navigation renderer: GclBreadcrumbsRenderer
+      | >
+      span= news.title
+  .section-content
+    article.article
+      header
+        h1.title= news.title
+        p.time: time= l news.published_at.to_date, format: :long
+      .article-content
+        = news.body.html_safe

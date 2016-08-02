@@ -13,5 +13,7 @@ class CompanyNewsController < ApplicationController
   private
   def set_news
     @news = News.with_locale.company.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    redirect_to company_news_index_path
   end
 end

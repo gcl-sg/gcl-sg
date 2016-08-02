@@ -26,8 +26,8 @@ ActiveAdmin.register News do
 
   form do |f|
     f.inputs "News Details" do
-      f.input :category, as: :radio, collection: News.categories_i18n.invert
       f.input :visible
+      f.input :category, as: :radio, collection: News.categories_i18n.invert
       f.input :published_at, as: :date_time_picker
       f.inputs "English" do
         f.input :title_en
@@ -48,10 +48,10 @@ ActiveAdmin.register News do
   show do
     attributes_table do
       row :id
+      bool_row :visible
       row :category do |record|
         record.category_i18n
       end
-      bool_row :visible
       row :published_at
       bool_row :enable_en
       row :title_en
