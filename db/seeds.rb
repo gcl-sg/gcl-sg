@@ -125,11 +125,11 @@ news_data.each do |news_hash|
 end
 
 puts "ceating albums"
-20.times do |i|
+10.times do |i|
   album = Album.find_or_initialize_by(id: i)
   album.visible = true
   album.published_at = rand(100).days.ago
-  album.title_en = "GCL SG #{i}"
+  album.title_en = "GCL SG Brochure#{i}"
   album.title_zh_cn = "宣传册 #{i}"
   album.title_zh_tw = "宣傳則 #{i}"
   album.cover_en = File.open([Rails.root, '/db/fixtures/album/cover.png'].join(''))
@@ -139,4 +139,21 @@ puts "ceating albums"
   album.file_zh_cn = File.open([Rails.root, '/db/fixtures/album/brochure.pdf'].join(''))
   album.file_zh_tw = File.open([Rails.root, '/db/fixtures/album/brochure.pdf'].join(''))
   album.save
+end
+
+puts "ceating videos"
+10.times do |i|
+  video = Video.find_or_initialize_by(id: i)
+  video.visible = true
+  video.published_at = rand(100).days.ago
+  video.title_en = "GCL SG Video #{i}"
+  video.title_zh_cn = "宣传视频 #{i}"
+  video.title_zh_tw = "宣傳視頻 #{i}"
+  video.cover_en = File.open([Rails.root, '/db/fixtures/video/video.jpg'].join(''))
+  video.cover_zh_cn = File.open([Rails.root, '/db/fixtures/video/video.jpg'].join(''))
+  video.cover_zh_tw = File.open([Rails.root, '/db/fixtures/video/video.jpg'].join(''))
+  video.file_en = File.open([Rails.root, '/db/fixtures/video/video.mp4'].join(''))
+  video.file_zh_cn = File.open([Rails.root, '/db/fixtures/video/video.mp4'].join(''))
+  video.file_zh_tw = File.open([Rails.root, '/db/fixtures/video/video.mp4'].join(''))
+  video.save
 end

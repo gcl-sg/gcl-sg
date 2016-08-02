@@ -1,0 +1,22 @@
+= render 'news/shared/banner'
+
+section.main-section
+  .section-heading
+    .section-title= I18n.t('nav.video')
+    .breadcrumbs
+      = render_navigation renderer: GclBreadcrumbsRenderer
+      | >
+      span= I18n.t('nav.video')
+  .section-content
+    ul.smart-tabs
+      li= link_to I18n.t('nav.album'), albums_path
+      li.active= link_to I18n.t('nav.video'), videos_path
+    .video-items
+      - @videos.each do |video|
+        .video-item
+          = link_to image_tag(video.cover.detail.url), video_path(video), class: 'cover'
+          = link_to video.title, video_path(video), class: 'title'
+          .info
+            time= l video.published_at.to_date, format: :long
+            = link_to content_tag(:i, '', class: 'fa fa-download'), video.file.url, target: '_blank'
+      = paginate @videos
