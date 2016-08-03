@@ -7,12 +7,8 @@
     .section-heading
       .section-title= @site.title
       .breadcrumbs
-        /TODO: GclBreadcrumbRenderer
         = render_navigation renderer: GclBreadcrumbsRenderer
-        /= link_to '首页', root_path
-        /| >
-        /= link_to '关于我们', root_path
-        /| >
-        /span 公司介绍
     .section-content
-      = @site.body.html_safe
+      article.article
+        .site-content
+          = @site.body.html_safe

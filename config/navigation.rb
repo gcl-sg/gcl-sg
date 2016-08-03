@@ -56,7 +56,7 @@ SimpleNavigation::Configuration.run do |navigation|
     #                            when the item should be highlighted, you can set a regexp which is matched
     #                            against the current URI.  You may also use a proc, or the symbol <tt>:subpath</tt>.
     #
-    primary.item :home, t('nav.home'), root_path, :highlights_on => /\//
+    primary.item :home, t('nav.home'), root_path, :highlights_on => %r(^/$)
     Category.visible.each do |category|
       visible_sites = category.sites.merge(Site.visible)
       item_count = visible_sites.count

@@ -14,5 +14,9 @@
   .breadcrumbs {
     float: right;
     font-size: 12px;
+    white-space: nowrap;
+    > div {
+      display: inline-block;
+    }
   }
 }

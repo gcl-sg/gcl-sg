@@ -1,0 +1,41 @@
+.pagination {
+  display: inline-block;
+  margin: 20px 0;
+  line-height: 29px;
+  text-align: center;
+  border:1px solid #DDDDDD;
+  border-radius: 0;
+  font-size: 12px;
+  @include clearfix;
+
+  span {
+    float: left;
+    min-width: 30px;
+    border-left: 1px solid #DDDDDD;
+    a {
+      display: block;
+      padding: 0 5px;
+    }
+
+    &:first-child {
+      border-left: none;
+    }
+
+    &.page {
+      a {
+        color: #428bca;
+      }
+    }
+    &.first, &.prev, &.next, &.last {
+      a {
+        color: #b9b9b9
+      }
+    }
+    &.current, &:hover {
+      &, a {
+        background-color: #428bca;
+        color: white;
+      }
+    }
+  }
+}
