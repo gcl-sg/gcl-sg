@@ -87,11 +87,10 @@ App.util = {
   loadVideoJS: (readyCallback) ->
     if window.videojs
       readyCallback()
-    else 
-      $script(['/vendor/video-js/video.min.js', '/vendor/video-js/lang/zh-CN.js'], 'bundle')
-      $script.ready('bundle', ->
-        videojs.options.flash.swf = "/vendor/video-js/video-js.swf"
-        readyCallback()
-      )
+    else
+      $script '/vendor/video-js/video.min.js', ->
+        $script '/vendor/video-js/lang/zh-CN.js', ->
+          videojs.options.flash.swf = "/vendor/video-js/video-js.swf"
+          readyCallback()
     
 }
