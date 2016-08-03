@@ -83,4 +83,15 @@ App.util = {
       $this = $(this)
       $this.datetimepicker($.extend({}, commonOptions, datetimePickerOptions, $this.data()))
 
+  # 基于script.js的脚本加载器
+  loadVideoJS: (readyCallback) ->
+    if window.videojs
+      readyCallback()
+    else 
+      $script(['/vendor/video-js/video.min.js', '/vendor/video-js/lang/zh-CN.js'], 'bundle')
+      $script.ready('bundle', ->
+        videojs.options.flash.swf = "/vendor/video-js/video-js.swf"
+        readyCallback()
+      )
+    
 }

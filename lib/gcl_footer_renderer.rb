@@ -37,14 +37,5 @@ class GclFooterRenderer < SimpleNavigation::Renderer::List
       end.join
       content_tag :div, group_content, class: 'group'
     end.join.html_safe
-
-    # items.map { |item|
-    #   li_options = item.html_options.except(:link)
-    #   li_content = tag_for(item)
-    #   if include_sub_navigation?(item)
-    #     li_content << render_sub_navigation_for(item)
-    #   end
-    #   content_tag(:li, li_content, li_options)
-    # }.join
   end
 end
