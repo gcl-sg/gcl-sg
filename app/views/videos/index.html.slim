@@ -19,4 +19,4 @@ section.main-section
           .info
             time= l video.published_at.to_date, format: :long
             = link_to content_tag(:i, '', class: 'fa fa-download'), video.file.url, target: '_blank'
-      = paginate @videos
+    .text-center= paginate @videos
