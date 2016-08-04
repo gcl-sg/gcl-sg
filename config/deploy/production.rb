@@ -8,7 +8,7 @@ set :server_name, 'www.gcl-test.com'
 
 
 
-server '192.168.30.201', user: 'deploy', roles: %w{web app db}, primary: true, port: 2222
+server '211.154.143.13', user: 'deploy', roles: %w{web app db}, primary: true
 
 set :deploy_to, "/home/#{fetch(:deploy_user)}/apps/#{fetch(:full_app_name)}"
 

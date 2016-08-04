@@ -102,14 +102,15 @@ group :development do
   gem 'fontcustom'
 
 
-  gem 'capistrano', '~> 3.2.1'
+  gem 'capistrano', '~> 3.4.0'
   # rails specific capistrano funcitons
   gem 'capistrano-rails', '~> 1.1.0'
   # integrate bundler with capistrano
   gem 'capistrano-bundler', '>= 1.1.0'
   gem 'capistrano-rvm'
   gem 'rvm1-capistrano3', :require => false
-  gem 'capistrano-rsync', :git => 'git://github.com/nifty/capistrano-rsync.git', :require => false
+  # gem 'capistrano-rsync', :git => 'git://github.com/nifty/capistrano-rsync.git', :require => false
+  gem 'capistrano-rsync', :github => 'paty-fakename/capistrano-rsync'
   gem 'capistrano-rails-console'
   # gem 'capistrano-sidekiq'
   # gem 'capistrano3-puma'
