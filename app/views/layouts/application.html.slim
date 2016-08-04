@@ -18,9 +18,12 @@ html
     main.main
       - if content_for? :banner
         .banner= yield :banner
-      .container
-        section.main-content
-          = yield
-        aside.main-aside
-          = render 'layouts/application_aside'
+      - if content_for? :full_content
+        = yield :full_content
+      - else
+        .container
+          section.main-content
+            = yield
+          aside.main-aside
+            = render 'layouts/application_aside'
     = render 'layouts/application_footer'

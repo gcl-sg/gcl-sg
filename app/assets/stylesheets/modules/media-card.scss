@@ -1,0 +1,39 @@
+.media-card {
+  background-color: white;
+  img {
+    width: 100%;
+  }
+  .media-title {
+    margin: 20px 20px 15px;
+    font-size: 18px;
+    color: #3776bc;
+  }
+  .media-content {
+    line-height: 24px;
+    margin: 0 20px;
+    padding-bottom: 10px;
+  }
+
+}
+
+.tiny-card {
+  display: inline-block;
+  img {
+    display: block;
+    width: 100%;
+  }
+  p {
+    font-size: 12px;
+    color: #a0a0a0;
+    margin: 10px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .media-card {
+    img {
+      width: 100% !important;
+      margin: 0;
+    }
+  }
+}

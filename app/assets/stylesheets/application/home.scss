@@ -1,0 +1,294 @@
+.full-carousel {
+  position: relative;
+  height: 550px;
+  overflow: hidden;
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .carousel-items {
+    color: white;
+    li {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      @include opacity(0);
+      @include transition(all 0.3s);
+      &:first-child {
+        @include opacity(1);
+      }
+      &.active {
+        @include opacity(1);
+      }
+    }
+  }
+  .container {
+    position: relative;
+    margin-top: 196px;
+  }
+  .img-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -1280px;
+    width: 2560px;
+    height: 100%;
+    img {
+      vertical-align: bottom
+    }
+  }
+  .title {
+    font-size: 30px;
+    margin: 0 0 25px;
+  }
+  .desc {
+    font-size: 14px;
+    line-height: 17px;
+    margin-bottom: 35px;
+  }
+  .action {
+    position: relative;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 23px;
+    height: 25px;
+    min-width: 100px;
+    text-align: center;
+    border: 1px solid white;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 1;
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 100%;
+      width: 100%;
+      height: 100%;
+      background-color: white;
+      @include transition(top 0.2s);
+      z-index: -1;
+    }
+
+    &:hover {
+      color: black;
+      &:before {
+        top: 0;
+      }
+    }
+  }
+
+  .indicator {
+    position: absolute;
+    bottom: 15px;
+    text-align: center;
+    white-space: nowrap;
+    font-size: 0;
+    z-index: 10;
+    width: 100%;
+    ul {
+      display: inline-block;
+      position: relative;
+      li {
+        display: inline-block;
+        width: 97px;
+        height: 70px;
+        cursor: pointer;
+        background: image_url('bg-indicator.png') no-repeat center center;
+
+        &:first-child, &.first {
+          background-image: image_url('bg-indicator-first.png');
+        }
+        &.last {
+          background-image: image_url('bg-indicator-last.png');
+        }
+
+        &.active-indicator {
+          @include transition(left 0.2s);
+          position: absolute;
+          left: 0;
+          background-image: image_url('bg-indicator-active.png');
+        }
+      }
+    }
+  }
+}
+
+.banner + .full-content {
+  margin-top: -20px;
+}
+
+.our-business {
+  background-color: #eeeeee;
+  padding: 25px 0;
+  .title {
+    margin: 15px 0 18px;
+    font-size: 18px;
+    color: black;
+  }
+  .media-cards {
+    @include clearfix;
+    .media-card {
+      width: 320px;
+      min-height: 280px;
+      float: left;
+      margin-left: 10px;
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+.company-news {
+  padding: 25px 0;
+  background-color: white;
+
+  .company-intro {
+    float: left;
+    width: 320px;
+    border: 1px solid #eee;
+
+    .media-card {
+      min-height: 508px;
+    }
+    .media-title {
+      margin-bottom: 20px;
+    }
+  }
+
+  .company-events {
+    overflow: hidden;
+    margin-left: 330px;
+    .panel {
+      margin-bottom: 0;
+    }
+    .panel-body {
+      padding-top: 30px;
+    }
+    .tiny-cards {
+      float: left;
+      width: 218px;
+      margin-left: 5px;
+
+      .tiny-card {
+        margin-bottom: 20px;
+      }
+    }
+
+    .events {
+      margin-left: 239px;
+    }
+
+    .top-event {
+      border-bottom: 1px dashed #a0a0a0;
+      padding-bottom: 18px;
+      margin-bottom: 10px;
+      .title {
+        display: inline-block;
+        font-size: 18px;
+        color: black;
+        margin-bottom: 30px;
+      }
+      p {
+        line-height: 24px;
+        color: #a0a0a0;
+      }
+
+    }
+
+    .article-list {
+      li {
+        border: none;
+        line-height: 40px;
+        a {
+          font-weight: normal;
+          color: black;
+        }
+        time {
+          color: #a0a0a0;
+        }
+
+        &:hover {
+          * {
+            color: #3776bc;
+          }
+        }
+      }
+      .fa {
+        margin-right: 15px;
+        font-size: 18px;
+      }
+
+    }
+  }
+}
+
+@media (max-width: $screen-narrow) {
+  .full-carousel {
+    height: 365px;
+    .container {
+      margin-top: 104px;
+    }
+  }
+  .our-business {
+    .media-cards {
+      .media-card {
+        float: none;
+        width: 100%;
+        min-height: 119px;
+        margin-left: 0;
+        img {
+          float: left;
+          width: 314px;
+          max-width: 100%;
+          margin-right: 15px;
+          margin-bottom: 15px;
+        }
+        .media-title {
+          padding-top: 10px;
+          margin-bottom: 5px;
+        }
+      }
+    }
+  }
+
+  .company-news {
+    .company-intro {
+      float: none;
+      width: auto;
+      margin-bottom: 15px;
+      .media-card {
+        min-height: 197px;
+        .media-title {
+          margin-top: 0;
+          padding-top: 10px;
+        }
+        img {
+          float: left;
+          width: 314px;
+          max-width: 100%;
+          margin-right: 15px;
+        }
+      }
+    }
+
+    .company-events {
+      margin-left: 0;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .tiny-cards {
+    display: none;
+  }
+  .company-news .company-events .events {
+    margin-left: 0;
+  }
+}

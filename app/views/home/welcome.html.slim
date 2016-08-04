@@ -1,1 +1,57 @@
 = content_for :banner do
+  .full-carousel
+    ul.carousel-items
+      - (1..4).each do |i|
+        li
+          .img-container= image_tag "banner-#{i}.jpg"
+          .container
+            h2.title 智慧能源
+            .desc
+              | 智慧能源智慧能源
+              br
+              | 智慧能源
+            .action 了解更多
+    .indicator
+      ul
+        - (1..4).each_with_index do |item, i|
+          li*{class: i==0 ? 'first' : (i==3 ? 'last' : nil)}
+        li.active-indicator
+= content_for :full_content do
+  .full-content
+    .our-business
+      .container
+        .h2.title 我们的业务
+        .media-cards
+          - (1..3).each do
+            .media-card
+              =image_tag 'card-cover.jpg'
+              h3.media-title 清洁能源
+              .media-content 控股有限公司是一家以清洁能源、新能源及相关产业为主的国际化综合性能源集团
+    .company-news
+      .container
+        .company-intro
+          .media-card
+            =image_tag 'company-intro.jpg'
+            h3.media-title 协鑫南方集团简介
+            .media-content 协鑫（集团）控股有限公司是一家以清洁能源、新能源及相关产业为主的国际化综合性能源集团，是全球领先的光伏材料制造商及新能源开发与运营商，并通过拓展能源互联网、智慧交通等创新业务加速布局能源服务产业。 协鑫集团自创立以来，始终秉承“把绿色能源带进生活”的理念，持续为社会提供优质的能源与服务，通过创新驱动、追求卓越，致力成为最受尊重的国际化清洁能源
+        .company-events
+          .panel.gcl-panel
+            .panel-heading 公司动态
+            .panel-body
+              .tiny-cards
+                - (1..2).each do
+                  = link_to root_path, class: 'tiny-card' do
+                    = image_tag 'tiny-card.jpg'
+                    p 刚果共和国总统萨苏到访协鑫能源中心
+              .events
+                .top-event
+                  = link_to '刚果共和国总统萨苏到访协鑫能源中心', root_path, class: 'title'
+                  p 1月7日，刚果共和国总统德尼萨苏恩格索携刚果共和国经济、工业发展部长、国土整治和重大工程部长、外交部长、财政部长等政府...
+                ul.list.article-list
+                  - (1..6).each do
+                    li
+                      = link_to root_path do
+                        i.fa.fa-caret-right
+                        | 协鑫集团董事长朱共山出席第四届长三角
+                        time 2015-06-16
+

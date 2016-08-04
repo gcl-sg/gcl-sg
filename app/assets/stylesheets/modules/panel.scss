@@ -1,0 +1,15 @@
+.panel {
+  &.gcl-panel {
+    border-radius: 0;
+    .panel-heading {
+      border-radius: 0;
+      font-size: 18px;
+      color: white;
+      background-color: #3776bc;
+      padding: 8px 24px;
+    }
+    .panel-body {
+      border: 1px solid #eee;
+    }
+  }
+}
