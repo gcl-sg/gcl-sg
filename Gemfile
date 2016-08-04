@@ -58,6 +58,7 @@ gem "hstore_accessor"
 gem 'rails-settings-cached', "~> 0.5.6"
 gem 'dalli'
 gem 'second_level_cache'
+gem 'whenever', require: false
 
 gem 'simple-navigation'
 gem 'tabs_on_rails', :git => "git://github.com/kenniz/tabs_on_rails.git", :branch => 'master'
