@@ -234,7 +234,7 @@ body {
       left: 0;
       right: 0;
       text-align: center;
-      z-index: $z-content + 1;
+      z-index: $z-popup + 1;
       &:before {
         content: '';
         display: list-item;
