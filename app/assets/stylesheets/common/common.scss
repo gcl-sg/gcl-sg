@@ -1,8 +1,14 @@
 @import "variables";
 @import "mixins";
 
-a:hover {
-  text-decoration: none;
+a {
+  &:hover {
+    text-decoration: none;
+  }
+  &:focus {
+    outline: none;
+    border: none;
+  }
 }
 
 .news-item {

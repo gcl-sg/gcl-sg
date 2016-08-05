@@ -21,7 +21,7 @@ html
       - if content_for? :full_content
         = yield :full_content
       - else
-        .container
+        .wrapper
           section.main-content
             = yield
           aside.main-aside

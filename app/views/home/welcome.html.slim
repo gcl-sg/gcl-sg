@@ -4,7 +4,7 @@
       - (1..4).each do |i|
         li
           .img-container= image_tag "banner-#{i}.jpg"
-          .container
+          .wrapper
             h2.title 智慧能源
             .desc
               | 智慧能源智慧能源
@@ -19,7 +19,7 @@
 = content_for :full_content do
   .full-content
     .our-business
-      .container
+      .wrapper
         .h2.title 我们的业务
         .media-cards
           - (1..3).each do
@@ -28,7 +28,7 @@
               h3.media-title 清洁能源
               .media-content 控股有限公司是一家以清洁能源、新能源及相关产业为主的国际化综合性能源集团
     .company-news
-      .container
+      .wrapper
         .company-intro
           .media-card
             =image_tag 'company-intro.jpg'

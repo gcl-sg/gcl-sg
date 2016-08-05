@@ -1,7 +1,8 @@
-@media (min-width: $screen-wide) {
-  .container {
-    width: 1010px !important;
-  }
+.wrapper {
+  width: 1010px !important;
+  padding: 0 15px;
+  @include clearfix;
+  margin: auto;
 }
 
 body {
@@ -430,7 +431,7 @@ body {
   body {
     overflow-x: hidden;
   }
-  .container {
+  .wrapper {
     width: 100% !important;
   }
   .smart-header {

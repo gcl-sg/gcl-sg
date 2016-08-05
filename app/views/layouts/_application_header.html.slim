@@ -7,7 +7,7 @@
 .layer
 header.header
   .top-bar
-    .container
+    .wrapper
       ul.lang
         - I18n.available_locales.sort_by{|x|[:'zh-CN', :'zh-TW', :en].index(x) || 1}.each  do |locale|
           li*{class: locale == I18n.locale ? 'active' : ''}
@@ -32,7 +32,7 @@ header.header
         input.query placeholder='搜索内容'
         = link_to '', root_path, class: 'fa fa-search search-btn'
   .main-nav
-    .container
+    .wrapper
       = link_to 'GCL', root_path, class: 'logo'
       nav
         = render_navigation renderer: GclNavRenderer, level: 1..2, expand_all: true
