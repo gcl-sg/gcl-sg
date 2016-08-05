@@ -15,6 +15,6 @@
  *= require font-awesome
  *= require bootstrap-datetimepicker
  *= require devise_bootstrap_views
- *= require ./modules/index
- *= require ./application/index
+ *= require ./modules
+ *= require ./app
  */
