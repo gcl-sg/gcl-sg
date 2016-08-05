@@ -1,5 +1,6 @@
 App.Page.on 'home_welcome', ->
-  
+
+  timer = 0
   addEventListener = ->
     $ document
     .on 'click.home_welcome', '.full-carousel .indicator li:not(.active-indicator)', ->
@@ -20,8 +21,12 @@ App.Page.on 'home_welcome', ->
       $('.indicator li').eq(nextIndex).trigger('click')
     , 5000)
 
+  init = ->
+    $('.carousel-items li').eq(0).addClass('active')
+
   return {
     ready: ->
+      init()
       addEventListener()
       timer = setTick()
       

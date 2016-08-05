@@ -15,7 +15,7 @@
 //= require turbolinks
 //= require lib/jquery.turbolinks.custom
 //= require bootstrap
-//= require cable
+// require cable
 //= require script.min
 
 //= require lib/util
