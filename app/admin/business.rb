@@ -1,8 +1,8 @@
-ActiveAdmin.register Banner do
+ActiveAdmin.register Business do
 
   config.sort_order = 'sort_asc'
 
-  menu parent: :home, priority: 1
+  menu parent: :home, priority: 2
 
   permit_params :visible, :sort, :cover, :cover_cache, :url, :title_en, :title_zh_cn, :title_zh_tw, :description_en, :description_zh_cn, :description_zh_tw
   filter :visible
@@ -21,7 +21,7 @@ ActiveAdmin.register Banner do
   end
 
   form do |f|
-    f.inputs "Banner Details" do
+    f.inputs "Business Details" do
       f.input :visible
       f.input :sort
       f.input :url
@@ -29,15 +29,15 @@ ActiveAdmin.register Banner do
       f.input :cover_cache, :as => :hidden
       f.inputs "English" do
         f.input :title_en
-        f.input :description_en, :as => :text, input_html: {rows: 5}
+        f.input :description_en
       end
       f.inputs "简体" do
         f.input :title_zh_cn
-        f.input :description_zh_cn, :as => :text, input_html: {rows: 5}
+        f.input :description_zh_cn
       end
       f.inputs "繁体" do
         f.input :title_zh_tw
-        f.input :description_zh_tw, :as => :text, input_html: {rows: 5}
+        f.input :description_zh_tw
       end
     end
     f.actions
@@ -61,4 +61,6 @@ ActiveAdmin.register Banner do
     end
     active_admin_comments
   end
+
+
 end

@@ -9,7 +9,8 @@
             h2.title= banner.title
             .desc
               = banner.description
-            .action= t('.more')
+            = link_to banner.url do
+              .action= t('.more')
     - if banners.count >= 2
       .indicator
         ul
@@ -23,13 +24,14 @@
   .full-content
     .our-business
       .wrapper
-        .h2.title 我们的业务
+        .h2.title=t('.our_business')
+        - businesses = Business.visible
         .media-cards
-          - (1..3).each do
+          - businesses.each do |business|
             .media-card
-              =image_tag 'card-cover.jpg'
-              h3.media-title 清洁能源
-              .media-content 控股有限公司是一家以清洁能源、新能源及相关产业为主的国际化综合性能源集团
+              =image_tag business.cover.detail.url
+              h3.media-title= business.title
+              .media-content= business.description
     .company-news
       .wrapper
         .company-intro

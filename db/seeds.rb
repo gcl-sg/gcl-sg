@@ -115,3 +115,21 @@ banner_data.each do |banner_hash|
   banner.cover = File.open([Rails.root, '/db/fixtures/banner/', 'cover_', banner_hash[:id], '.jpg'].join(''))
   banner.save
 end
+
+puts "creating business"
+business_data = JSON.parse(File.read([Rails.root, '/db/fixtures/business/businesses.json'].join('')))
+business_data.each do |business_hash|
+  business_hash.deep_symbolize_keys!
+  business = Business.find_or_initialize_by(id: business_hash[:id])
+  business.sort = business_hash[:sort]
+  business.visible = business_hash[:visible]
+  business.title_en = business_hash[:title_en]
+  business.title_zh_cn = business_hash[:title_zh_cn]
+  business.title_zh_tw = business_hash[:title_zh_tw]
+  business.description_en = business_hash[:description_en]
+  business.description_zh_cn = business_hash[:description_zh_cn]
+  business.description_zh_tw = business_hash[:description_zh_tw]
+  business.url = business_hash[:url]
+  business.cover = File.open([Rails.root, '/db/fixtures/business/', 'business_', business_hash[:id], '.jpg'].join(''))
+  business.save
+end
