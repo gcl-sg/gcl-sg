@@ -27,4 +27,7 @@ class Banner < ApplicationRecord
 
   mount_uploader :cover, BannerCoverUploader
   validates_presence_of :cover, :sort
+
+  default_scope -> { order('banners.sort asc') }
+  scope :visible, -> { where(visible: true) }
 end
