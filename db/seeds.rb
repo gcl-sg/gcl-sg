@@ -133,3 +133,20 @@ business_data.each do |business_hash|
   business.cover = File.open([Rails.root, '/db/fixtures/business/', 'business_', business_hash[:id], '.jpg'].join(''))
   business.save
 end
+
+puts "creating company profile"
+company_profile_data = JSON.parse(File.read([Rails.root, '/db/fixtures/company_profile/company_profiles.json'].join('')))
+company_profile_data.each do |company_profile_hash|
+  company_profile_hash.deep_symbolize_keys!
+  company_profile = CompanyProfile.find_or_initialize_by(id: company_profile_hash[:id])
+  company_profile.sort = company_profile_hash[:sort]
+  company_profile.visible = company_profile_hash[:visible]
+  company_profile.title_en = company_profile_hash[:title_en]
+  company_profile.title_zh_cn = company_profile_hash[:title_zh_cn]
+  company_profile.title_zh_tw = company_profile_hash[:title_zh_tw]
+  company_profile.description_en = company_profile_hash[:description_en]
+  company_profile.description_zh_cn = company_profile_hash[:description_zh_cn]
+  company_profile.description_zh_tw = company_profile_hash[:description_zh_tw]
+  company_profile.cover = File.open([Rails.root, '/db/fixtures/company_profile/', 'company_profile_', company_profile_hash[:id], '.jpg'].join(''))
+  company_profile.save
+end

@@ -34,11 +34,13 @@
               .media-content= business.description
     .company-news
       .wrapper
-        .company-intro
-          .media-card
-            =image_tag 'company-intro.jpg'
-            h3.media-title 协鑫南方集团简介
-            .media-content 协鑫（集团）控股有限公司是一家以清洁能源、新能源及相关产业为主的国际化综合性能源集团，是全球领先的光伏材料制造商及新能源开发与运营商，并通过拓展能源互联网、智慧交通等创新业务加速布局能源服务产业。 协鑫集团自创立以来，始终秉承“把绿色能源带进生活”的理念，持续为社会提供优质的能源与服务，通过创新驱动、追求卓越，致力成为最受尊重的国际化清洁能源
+        - company_profile = CompanyProfile.visible.first
+        - if company_profile.present?
+          .company-intro
+            .media-card
+              =image_tag company_profile.cover.detail.url
+              h3.media-title= company_profile.title
+              .media-content= company_profile.description
         .company-events
           .panel.gcl-panel
             .panel-heading 公司动态

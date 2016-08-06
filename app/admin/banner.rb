@@ -14,7 +14,7 @@ ActiveAdmin.register Banner do
     column :title
     column :url
     bool_column :visible
-    column :url do |record|
+    column :cover do |record|
       image_tag record.cover.thumbnail.url
     end
     actions

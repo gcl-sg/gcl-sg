@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160806074113) do
+ActiveRecord::Schema.define(version: 20160806084953) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -112,6 +112,22 @@ ActiveRecord::Schema.define(version: 20160806074113) do
     t.datetime "updated_at",                   null: false
     t.index ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
     t.index ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
+  end
+
+  create_table "company_profiles", force: :cascade do |t|
+    t.string   "title_en"
+    t.string   "title_zh_cn"
+    t.string   "title_zh_tw"
+    t.text     "description_en"
+    t.text     "description_zh_cn"
+    t.text     "description_zh_tw"
+    t.string   "cover"
+    t.integer  "sort"
+    t.boolean  "visible",           default: true
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.index ["sort"], name: "index_company_profiles_on_sort", using: :btree
+    t.index ["visible"], name: "index_company_profiles_on_visible", using: :btree
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
