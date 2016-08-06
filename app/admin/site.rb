@@ -1,7 +1,7 @@
 ActiveAdmin.register Site do
   config.sort_order = 'category_id_asc_and_sort_asc'
 
-  menu priority: 3
+  menu priority: 4
 
   permit_params :category_id, :sort, :url, :visible, :title_en, :title_zh_cn, :title_zh_tw, :body_en, :body_zh_cn, :body_zh_tw
   filter :category

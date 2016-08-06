@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160802020557) do
+ActiveRecord::Schema.define(version: 20160806014210) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,23 @@ ActiveRecord::Schema.define(version: 20160802020557) do
     t.index ["enable_zh_cn"], name: "index_albums_on_enable_zh_cn", using: :btree
     t.index ["enable_zh_tw"], name: "index_albums_on_enable_zh_tw", using: :btree
     t.index ["visible"], name: "index_albums_on_visible", using: :btree
+  end
+
+  create_table "banners", force: :cascade do |t|
+    t.string   "cover"
+    t.integer  "sort"
+    t.boolean  "visible",           default: true
+    t.string   "title_en"
+    t.string   "title_zh_cn"
+    t.string   "title_zh_tw"
+    t.string   "description_en"
+    t.string   "description_zh_cn"
+    t.string   "description_zh_tw"
+    t.string   "url"
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.index ["sort"], name: "index_banners_on_sort", using: :btree
+    t.index ["visible"], name: "index_banners_on_visible", using: :btree
   end
 
   create_table "categories", force: :cascade do |t|

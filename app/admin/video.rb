@@ -1,7 +1,7 @@
 ActiveAdmin.register Video do
   config.sort_order = 'published_at_desc'
 
-  menu priority: 6
+  menu priority: 7
 
   permit_params :visible, :published_at, :title_en, :title_zh_cn, :title_zh_tw, :cover_en, :cover_zh_cn, :cover_zh_tw, :cover_en_cache, :cover_zh_cn_cache, :cover_zh_tw_cache, :file_en, :file_zh_cn, :file_zh_tw, :file_en_cache, :file_zh_cn_cache, :file_zh_tw_cache
   filter :visible
@@ -63,7 +63,7 @@ ActiveAdmin.register Video do
         record.file_en.present? ? link_to(record.file_en.file.filename, record.file_en.url) : content_tag(:span, "no video file")
       end
       bool_row :enable_zh_cn
-      row :title_en
+      row :title_zh_cn
       row :cover_zh_cn do |record|
         record.cover_zh_cn.present? ? image_tag(record.cover_zh_cn.url(:thumbnail)) : content_tag(:span, "no cover image")
       end

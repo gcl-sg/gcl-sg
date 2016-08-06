@@ -29,9 +29,7 @@
 #
 
 class Video < ApplicationRecord
-  include TitleWithLocale
-  include CoverWithLocale
-  include FileWithLocale
+  localeable :title, :cover, :file
 
   mount_uploader :cover_en, VideoCoverUploader
   mount_uploader :cover_zh_cn, VideoCoverUploader

@@ -29,10 +29,7 @@
 #
 
 class Album < ApplicationRecord
-  include TitleWithLocale
-  include CoverWithLocale
-  include FileWithLocale
-
+  localeable :title, :cover, :file
   mount_uploader :cover_en, AlbumCoverUploader
   mount_uploader :cover_zh_cn, AlbumCoverUploader
   mount_uploader :cover_zh_tw, AlbumCoverUploader
