@@ -2,7 +2,7 @@ ActiveAdmin.register Category do
   config.filters = false
   config.sort_order = 'sort_asc'
 
-  menu priority: 2
+  menu priority: 3
 
   permit_params :sort, :visible, :code, :cover, :cover_cache, :name_en, :name_zh_cn, :name_zh_tw
 

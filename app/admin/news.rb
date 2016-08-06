@@ -1,7 +1,7 @@
 ActiveAdmin.register News do
   config.sort_order = 'published_at_desc'
 
-  menu priority: 4
+  menu priority: 5
 
   permit_params :category, :visible, :published_at, :title_en, :title_zh_cn, :title_zh_tw, :body_en, :body_zh_cn, :body_zh_tw
   filter :visible

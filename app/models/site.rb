@@ -26,8 +26,7 @@
 
 class Site < ApplicationRecord
   belongs_to :category, touch: true
-  include TitleWithLocale
-  include BodyWithLocale
+  localeable :title, :body
 
   extend FriendlyId
   friendly_id :url, use: [:slugged, :finders]
