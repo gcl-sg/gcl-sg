@@ -2,15 +2,14 @@
   - banners = Banner.visible
   .full-carousel
     ul.carousel-items
-      - banners.each do |banner|
-        li
+      - banners.each_with_index do |banner, i|
+        li*{class: i==0 ? 'active' : nil}
           .img-container= image_tag banner.cover.detail.url
           .wrapper
             h2.title= banner.title
             .desc
               = banner.description
-            = link_to banner.url do
-              .action= t('.more')
+            = link_to t('.more'), banner.url, class: 'action'
     - if banners.count >= 2
       .indicator
         ul
