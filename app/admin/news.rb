@@ -3,7 +3,7 @@ ActiveAdmin.register News do
 
   menu priority: 5
 
-  permit_params :category, :visible, :published_at, :title_en, :title_zh_cn, :title_zh_tw, :body_en, :body_zh_cn, :body_zh_tw
+  permit_params :category, :visible, :published_at, :cover, :cover_cache, :title_en, :title_zh_cn, :title_zh_tw, :body_en, :body_zh_cn, :body_zh_tw
   filter :visible
   filter :category, as: :check_boxes, collection: proc { News.categories_id_i18n }
   filter :enable_en
@@ -29,6 +29,8 @@ ActiveAdmin.register News do
       f.input :visible
       f.input :category, as: :radio, collection: News.categories_i18n.invert
       f.input :published_at, as: :date_time_picker
+      f.input :cover, :as => :file, :hint => f.object.cover.present? ? image_tag(f.object.cover.url(:thumbnail)) : content_tag(:span, "no cover iamge")
+      f.input :cover_cache, :as => :hidden
       f.inputs "English" do
         f.input :title_en
         f.input :body_en, :as => :ckeditor
@@ -53,6 +55,9 @@ ActiveAdmin.register News do
         record.category_i18n
       end
       row :published_at
+      row :cover do |record|
+        record.cover.present? ? image_tag(record.cover.url(:thumbnail)) : content_tag(:span, "no cover image")
+      end
       bool_row :enable_en
       row :title_en
       row :body_en do |record|

@@ -3,3 +3,7 @@ en:
     welcome:
       more: MORE
       our_business: Our Business
+      company_news: Company News
+  layouts:
+    application_header:
+      enter: Enter

@@ -17,6 +17,7 @@
 #  enable_zh_cn :boolean          default(FALSE)
 #  enable_zh_tw :boolean          default(FALSE)
 #  visible      :boolean          default(TRUE)
+#  cover        :string
 #
 # Indexes
 #
@@ -30,8 +31,9 @@ class News < ApplicationRecord
   localeable :title, :body
 
   enum category: { company: 0, industry: 1, media: 2 }
+  mount_uploader :cover, NewsCoverUploader
 
-  validates_presence_of :category
+  validates_presence_of :category, :cover
 
   before_save :adjust_enable_locale
   before_save :set_published_at_if_not_exist

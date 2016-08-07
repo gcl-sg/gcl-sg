@@ -43,22 +43,25 @@
               .media-content= company_profile.description
         .company-events
           .panel.gcl-panel
-            .panel-heading 公司动态
+            .panel-heading= t('.company_news')
             .panel-body
-              .tiny-cards
-                - (1..2).each do
-                  = link_to root_path, class: 'tiny-card' do
-                    = image_tag 'tiny-card.jpg'
-                    p 刚果共和国总统萨苏到访协鑫能源中心
-              .events
-                .top-event
-                  = link_to '刚果共和国总统萨苏到访协鑫能源中心', root_path, class: 'title'
-                  p 1月7日，刚果共和国总统德尼萨苏恩格索携刚果共和国经济、工业发展部长、国土整治和重大工程部长、外交部长、财政部长等政府...
-                ul.list.article-list
-                  - (1..6).each do
-                    li
-                      = link_to root_path do
-                        i.fa.fa-caret-right
-                        | 协鑫集团董事长朱共山出席第四届长三角
-                        time 2015-06-16
+              - news = News.with_locale.company.first(7)
+              - if news.present?
+                .tiny-cards
+                  - news.first(2).each do |news_entry|
+                    = link_to resolve_news_path(news_entry), class: 'tiny-card' do
+                      = image_tag news_entry.cover.detail.url
+                      p= news_entry.title
+                .events
+                  - top_news = news.shift
+                  .top-event
+                    = link_to top_news.title, resolve_news_path(top_news), class: 'title'
+                    p= truncate(strip_tags(sanitize(top_news.body)), length: 100, omission: '...')
+                  ul.list.article-list
+                    - news.each do |news_entry|
+                      li
+                        = link_to resolve_news_path(news_entry) do
+                          i.fa.fa-caret-right
+                          = news_entry.title
+                          time= l news_entry.published_at.to_date, format: :long
 

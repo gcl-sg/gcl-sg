@@ -3,3 +3,7 @@ zh-TW:
     welcome:
       more: 瞭解更多
       our_business: 我們的業務
+      company_news: 公司動態
+  layouts:
+    application_header:
+      enter: 進入

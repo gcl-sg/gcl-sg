@@ -61,6 +61,7 @@ news_data.each do |news_hash|
   news.body_en = news_hash[:body_en]
   news.body_zh_cn = news_hash[:body_zh_cn]
   news.body_zh_tw = news_hash[:body_zh_tw]
+  news.cover = File.open([Rails.root, '/db/fixtures/news/', 'news_', news_hash[:id] % 2, '.jpg'].join(''))
   news.save
 end
 

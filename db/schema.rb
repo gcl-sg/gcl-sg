@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160806084953) do
+ActiveRecord::Schema.define(version: 20160807100946) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -157,6 +157,7 @@ ActiveRecord::Schema.define(version: 20160806084953) do
     t.boolean  "enable_zh_cn", default: false
     t.boolean  "enable_zh_tw", default: false
     t.boolean  "visible",      default: true
+    t.string   "cover"
     t.index ["category"], name: "index_news_on_category", using: :btree
     t.index ["enable_en"], name: "index_news_on_enable_en", using: :btree
     t.index ["enable_zh_cn"], name: "index_news_on_enable_zh_cn", using: :btree

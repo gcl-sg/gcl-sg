@@ -3,3 +3,7 @@ zh-CN:
     welcome:
       more: 了解更多
       our_business: 我们的业务
+      company_news: 公司动态
+  layouts:
+    application_header:
+      enter: 进入
