@@ -151,3 +151,7 @@ company_profile_data.each do |company_profile_hash|
   company_profile.cover = File.open([Rails.root, '/db/fixtures/company_profile/', 'company_profile_', company_profile_hash[:id], '.jpg'].join(''))
   company_profile.save
 end
+
+ActiveRecord::Base.connection.tables.each do |t|
+  ActiveRecord::Base.connection.reset_pk_sequence!(t)
+end
