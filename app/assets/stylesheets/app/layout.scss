@@ -271,10 +271,13 @@ body {
 
 }
 
-.en .main-nav nav > ul > li > ul {
-  font-size: 12px;
-  a {
-    padding: 0 5px;
+.en .main-nav nav {
+  font-size: 14px;
+  > ul > li > ul {
+    //font-size: 13px;
+    a {
+      padding: 0 5px;
+    }
   }
 }
 
