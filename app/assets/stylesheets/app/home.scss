@@ -9,7 +9,7 @@
   }
 };
 @include keyframes(zoom-out) {
-  20% {
+  10% {
     @include transform(scale(1));
   }
   100% {
@@ -18,9 +18,14 @@
 };
 @include keyframes(move-in) {
   0% {
-    @include transform(translateX(-20px));
+    opacity: 0;
+  }
+  30% {
+    opacity: 0;
+    @include transform(translateX(-50px));
   }
   100% {
+    opacity: 1;
     @include transform(translateX(0));
   }
 }
@@ -44,28 +49,29 @@
       display: none;
       .title, .desc, .action {
         opacity: 0;
+        @include transform(translateX(-100px))
       }
 
       &.active {
         display: block;
         img {
-          @include animation(10s zoom-out);
+          @include animation(8s zoom-out);
         }
         .title {
           opacity: 1;
-          @include animation(1.5s move-in 1s);
+          @include animation(4s move-in 1 forwards)
         }
         .desc {
           opacity: 1;
-          @include animation(1.5s move-in 1.1s);
+          @include animation(4.5s move-in 1 forwards)
         }
         .action {
           opacity: 1;
-          @include animation(1.5s move-in 1.2s);
+          @include animation(5s move-in 1 forwards)
         }
 
         &.out {
-          @include animation(1s out);
+          @include animation(1s cubic-bezier(0.77, 0.05, 0.54, 0.99) out);
         }
       }
     }
@@ -215,16 +221,12 @@
       margin-bottom: 0;
     }
     .panel-body {
-      padding-top: 30px;
+      padding-top: 35px;
     }
     .tiny-cards {
       float: left;
       width: 218px;
       margin-left: 5px;
-
-      .tiny-card {
-        margin-bottom: 20px;
-      }
     }
 
     .events {

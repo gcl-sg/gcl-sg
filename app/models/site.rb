@@ -5,7 +5,7 @@
 #  id          :integer          not null, primary key
 #  category_id :integer
 #  sort        :integer
-#  visible     :boolean          default(TRUE)
+#  visible     :boolean          default(FALSE)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  title_en    :string
@@ -19,9 +19,8 @@
 #
 # Indexes
 #
-#  index_sites_on_slug     (slug) UNIQUE
-#  index_sites_on_url      (url)
-#  index_sites_on_visible  (visible)
+#  index_sites_on_slug  (slug) UNIQUE
+#  index_sites_on_url   (url)
 #
 
 class Site < ApplicationRecord

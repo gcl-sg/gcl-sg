@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require lib/jquery.turbolinks.custom
+//= require jquery.mobile.custom
 //= require bootstrap
 // require cable
 //= require script.min

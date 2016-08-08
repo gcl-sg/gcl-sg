@@ -5,21 +5,31 @@ App.Page.on 'home_welcome', ->
     $ document
     .on 'click.home_welcome', '.full-carousel .indicator li:not(.active-indicator)', ->
       # reset timer
-#      clearInterval(timer)
-#      timer = setTick()
+      clearInterval(timer)
+      timer = setTick()
 
       $context = $(this).closest('.full-carousel')
       $items = $context.find('.carousel-items li')
       index = $context.find('.indicator li').index(this)
-      $prevActiveItem = $items.filter('.active')
-      if $prevActiveItem.length > 0
-        clearTimeout($prevActiveItem.data('timer'))
-        $prevActiveItem.removeClass('out')
+      $currentActiveItem = $items.eq(index)
+      $prevActiveItem = $items.filter(->
+        this != $currentActiveItem[0] && $(this).is('.active')
+      )
+
+      $items.each ->
+        $this = $ this
+        if (this isnt $prevActiveItem[0] and this isnt $currentActiveItem[0])
+          clearTimeout($this.data('timer'))
+          $this.removeClass('out active')
+
       $prevActiveItem.addClass('out')
       $prevActiveItem.data('timer', setTimeout(->
         $prevActiveItem.removeClass('out active')
       , 1000))
-      $items.eq(index).addClass('active')
+
+      clearTimeout($currentActiveItem.data('timer'))
+      $currentActiveItem.removeClass('out').addClass('active')
+
       $context.find('.active-indicator').css('left', index * 97);
 
 
@@ -34,7 +44,7 @@ App.Page.on 'home_welcome', ->
         nextIndex = index + 1
 
       $('.indicator li').eq(nextIndex).trigger('click')
-    , 5000)
+    , 7000)
 
   init = ->
     $('.carousel-items li').eq(0).addClass('active')
@@ -43,7 +53,7 @@ App.Page.on 'home_welcome', ->
     ready: ->
       init()
       addEventListener()
-#      timer = setTick()
+      timer = setTick()
       
     destroy: ->
       $(document).off('.home_welcome')
