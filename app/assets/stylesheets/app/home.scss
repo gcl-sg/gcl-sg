@@ -47,6 +47,7 @@
       width: 100%;
       height: 100%;
       display: none;
+      overflow: hidden;
       .title, .desc, .action {
         opacity: 0;
         @include transform(translateX(-100px))
