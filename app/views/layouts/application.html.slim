@@ -13,7 +13,7 @@ html
       = javascript_include_tag '/vendor/html5shiv.min.js'
       = javascript_include_tag '/vendor/respond.min.js'
       = javascript_include_tag '/vendor/video-js/ie8/videojs-ie8.min.js'
-  body*{data: {page: "#{controller_name}_#{action_name}"}}
+  body*{data: {page: "#{controller_name}_#{action_name}"}, class: I18n.locale}
     = render 'layouts/application_header'
     main.main
       - if content_for? :banner

@@ -14,8 +14,14 @@ body {
   display: block;
   height: 80px;
   text-indent: -9999px;
-  background: image_url('logo') no-repeat center center;
+  background: image_url('logo.png') no-repeat center center;
   width: 180px;
+}
+.en .logo{
+  background-image: image_url('logo-en.png');
+}
+.zh-TW .logo{
+  background-image: image_url('logo-hant.png');
 }
 // smart header
 .smart-header {
@@ -263,6 +269,13 @@ body {
 
   }
 
+}
+
+.en .main-nav nav > ul > li > ul {
+  font-size: 12px;
+  a {
+    padding: 0 5px;
+  }
 }
 
 // banner
