@@ -3,7 +3,7 @@ App.Page.on 'home_welcome', ->
   timer = 0
   addEventListener = ->
     $ document
-    .on 'click.home_welcome', '.full-carousel .indicator li:not(.active-indicator)', ->
+    .on 'tap.home_welcome', '.full-carousel .indicator li:not(.active-indicator)', ->
       # reset timer
       clearInterval(timer)
       timer = setTick()

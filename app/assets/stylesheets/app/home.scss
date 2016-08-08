@@ -342,6 +342,9 @@
 }
 
 @media (max-width: 640px) {
+  .full-carousel .indicator{
+    @include transform(scale(0.5));
+  }
   .tiny-cards {
     display: none;
   }
