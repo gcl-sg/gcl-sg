@@ -429,7 +429,7 @@ body {
 
 @media (max-width: $screen-narrow) {
   html, body {
-    overflow: hidden;
+    overflow-x: hidden;
   }
   .wrapper {
     width: 100% !important;
