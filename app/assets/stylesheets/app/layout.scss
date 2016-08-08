@@ -428,7 +428,7 @@ body {
 }
 
 @media (max-width: $screen-narrow) {
-  body {
+  html, body {
     overflow: hidden;
   }
   .wrapper {
@@ -503,17 +503,16 @@ body {
   }
 
   .footer {
-    width: 90%;
     margin-left: auto;
     margin-right: auto;
     .footer-links .group {
       width: 100%;
     }
     dt {
-      font-size: 18px;
+      font-size: 16px;
     }
     dd {
-      font-size: 16px;
+      font-size: 15px;
     }
   }
   .smart-header, .main, .footer {

@@ -43,7 +43,7 @@ App.Page.on 'home_welcome', ->
       else
         nextIndex = index + 1
 
-      $('.indicator li').eq(nextIndex).trigger('click')
+      $('.indicator li').eq(nextIndex).trigger('tap')
     , 7000)
 
   init = ->
