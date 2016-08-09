@@ -9,7 +9,7 @@ ActiveAdmin.register Site do
   index do
     selectable_column
     id_column
-    column :category_id
+    column :category
     column :sort
     column :url
     bool_column :visible

@@ -1,0 +1,72 @@
+zh-CN:
+  attributes:
+    id: 序号
+    sort: 排序
+    visible: 是否显示
+    code: 代码
+    title: 标题
+    title_en: 英文版标题
+    title_zh_cn: 中文版标题
+    title_zh_tw: 繁体版标题
+    body: 内容
+    body_en: 英文版内容
+    body_zh_cn: 中文版内容
+    body_zh_tw: 繁体版内容
+    description: 描述
+    description_en: 英文版描述
+    description_zh_cn: 中文版描述
+    description_zh_tw: 繁体版描述
+    name: 名称
+    name_en: 英文版名字
+    name_zh_cn: 中文版名字
+    name_zh_tw: 繁体版名字
+    enable_en: 英文版
+    enable_zh_cn: 中文版
+    enable_zh_tw: 繁体版
+    cover: 图片
+    cover_en: 英文版图片
+    cover_zh_cn: 中文版图片
+    cover_zh_tw: 繁体版图片
+    file: 文件
+    file_en: 英文版文件
+    file_zh_cn: 中文版文件
+    file_zh_tw: 繁体版文件
+    category: 菜单
+    url: 链接
+    published_at: 发布时间
+    username: 账号名字
+    current_sign_in_at: 当前登录时间
+    current_sign_in_ip: 当前登录IP
+    last_sign_in_at: 最后登录时间
+    last_sign_in_ip: 最后登录IP
+    sign_in_count: 登录次数
+    created_at: 创建时间
+    updated_at: 更新时间
+    encrypted_password: 加密密码
+    remember_created_at: 设置自动登录时间
+  activerecord:
+    models:
+      category: 菜单
+      site: 页面
+      news: 新闻
+      album: 画册
+      video: 视频
+      user: 账号
+      banner: 横幅
+      business: 业务
+      company_profile: 公司简介
+    attributes:
+      category:
+      site:
+        category: 所属菜单
+      news:
+        category: 新闻分类
+      video:
+        cover: 封面
+        cover_en: 英文版封面
+        cover_zh_cn: 中文版封面
+        cover_zh_tw: 繁体版封面
+        file: 视频文件
+        file_en: 英文版视频文件
+        file_zh_cn: 中文版视频文件
+        file_zh_tw: 繁体版视频文件
