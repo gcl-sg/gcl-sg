@@ -4,11 +4,11 @@ set :branch, 'master'
 # This is used in the Nginx VirtualHost to specify which domains
 # the app should appear on. If you don't yet have DNS setup, you'll
 # need to create entries in your local Hosts file for testing.
-set :server_name, 'www.gcl-test.com'
+set :server_name, 'www.gcl-sg.com'
 
 
 
-server '211.154.143.13', user: 'deploy', roles: %w{web app db}, primary: true
+server '47.90.32.149', user: 'deploy', roles: %w{web app db}, primary: true
 
 set :deploy_to, "/home/#{fetch(:deploy_user)}/apps/#{fetch(:full_app_name)}"
 
