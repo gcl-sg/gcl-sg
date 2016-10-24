@@ -28,6 +28,7 @@
 #
 
 class News < ApplicationRecord
+  include Searchable
   localeable :title, :body
 
   enum category: { company: 0, industry: 1, media: 2 }
