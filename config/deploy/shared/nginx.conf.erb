@@ -3,7 +3,12 @@ server unix:/tmp/unicorn.<%= fetch(:full_app_name) %>.sock fail_timeout=0;
 }
 
 server {
-  server_name <%= fetch(:server_name) %> <%= fetch(:server_name).sub('www', 'en') %> <%= fetch(:server_name).sub('www', 'tc')%>;
+  server_name <%= fetch(:server_name) %>;
+  return 301 http://www.<%= fetch(:server_name) %>$request_uri;
+}
+
+server {
+  server_name www.<%= fetch(:server_name) %> en.<%= fetch(:server_name) %> tc.<%= fetch(:server_name) %>;
   <% if fetch(:stage).to_s == 'production' %>
     access_log  /var/log/nginx/access.<%= fetch(:full_app_name) %>_unicorn.log  main;
     error_log /var/log/nginx/error.<%= fetch(:full_app_name) %>_unicorn.log;
@@ -43,7 +48,11 @@ server {
 
 <% if fetch(:enable_ssl) %>
 server {
-  server_name <%= fetch(:server_name) %> en.gcl-test.com tc.gcl-test.com;
+    server_name <%= fetch(:server_name) %>;
+    return 301 https://www.<%= fetch(:server_name) %>$request_uri;
+    }
+server {
+    server_name www.<%= fetch(:server_name) %> en.<%= fetch(:server_name) %> tc.<%= fetch(:server_name) %>;
   listen 443;
   root <%= fetch(:deploy_to) %>/current/public;
 
