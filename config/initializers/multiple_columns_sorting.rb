@@ -6,9 +6,9 @@ module ActiveAdmin
 
         orders = []
         params[:order].split('_and_').each do |fragment|
-          order_clause = OrderClause.new fragment
+          order_clause = active_admin_config.order_clause.new(active_admin_config, fragment)
           if order_clause.valid?
-            orders << order_clause.to_sql(active_admin_config)
+            orders << order_clause.to_sql
           end
         end
 
@@ -21,3 +21,4 @@ module ActiveAdmin
     end
   end
 end
+

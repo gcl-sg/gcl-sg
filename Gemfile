@@ -1,7 +1,7 @@
 source 'https://gems.ruby-china.org'
 # source 'https://rubygems.org'
 
-ruby '2.3.0'
+ruby '2.4.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0'
@@ -10,7 +10,7 @@ gem 'pg'
 gem 'activerecord-import'
 
 # Use Puma as the app server
-gem 'puma', '~> 3.0'
+gem 'puma', '~> 3.8.2'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -114,7 +114,7 @@ group :development do
   gem 'capistrano-rvm'
   gem 'rvm1-capistrano3', :require => false
   # gem 'capistrano-rsync', :git => 'git://github.com/nifty/capistrano-rsync.git', :require => false
-  gem 'capistrano-rsync', :github => 'paty-fakename/capistrano-rsync'
+  gem 'capistrano-rsync', :github => 'paty-fakename/capistrano-rsync', :require => false
   gem 'capistrano-rails-console'
   # gem 'capistrano-sidekiq'
   # gem 'capistrano3-puma'

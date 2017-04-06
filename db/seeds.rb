@@ -27,6 +27,7 @@ category_data.each do |category_hash|
   category.cover = File.open([Rails.root, '/db/fixtures/category/', 'cover_', category_hash[:id], '.jpg'].join(''))
   category.save
 end
+puts "Total category count: #{Category.count}"
 
 
 puts "creating sites"
@@ -46,6 +47,7 @@ site_data.each do |site_hash|
   site.url = site_hash[:url]
   site.save
 end
+puts "Total site count: #{Site.count}"
 
 puts "creating news"
 news_data = JSON.parse(File.read([Rails.root, '/db/fixtures/news/news.json'].join('')))
@@ -64,6 +66,7 @@ news_data.each do |news_hash|
   news.cover = File.open([Rails.root, '/db/fixtures/news/', 'news_', news_hash[:id] % 2, '.jpg'].join(''))
   news.save
 end
+puts "Total news count: #{News.count}"
 
 puts "ceating albums"
 10.times do |i|
@@ -81,6 +84,7 @@ puts "ceating albums"
   album.file_zh_tw = File.open([Rails.root, '/db/fixtures/album/brochure.pdf'].join(''))
   album.save
 end
+puts "Total album count: #{Album.count}"
 
 puts "ceating videos"
 10.times do |i|
@@ -98,6 +102,7 @@ puts "ceating videos"
   video.file_zh_tw = File.open([Rails.root, '/db/fixtures/video/video.mp4'].join(''))
   video.save
 end
+puts "Total videos count: #{Video.count}"
 
 puts "creating banner"
 banner_data = JSON.parse(File.read([Rails.root, '/db/fixtures/banner/banners.json'].join('')))
@@ -116,6 +121,7 @@ banner_data.each do |banner_hash|
   banner.cover = File.open([Rails.root, '/db/fixtures/banner/', 'cover_', banner_hash[:id], '.jpg'].join(''))
   banner.save
 end
+puts "Total banner count: #{Banner.count}"
 
 puts "creating business"
 business_data = JSON.parse(File.read([Rails.root, '/db/fixtures/business/businesses.json'].join('')))
@@ -134,6 +140,7 @@ business_data.each do |business_hash|
   business.cover = File.open([Rails.root, '/db/fixtures/business/', 'business_', business_hash[:id], '.jpg'].join(''))
   business.save
 end
+puts "Total business count: #{Business.count}"
 
 puts "creating company profile"
 company_profile_data = JSON.parse(File.read([Rails.root, '/db/fixtures/company_profile/company_profiles.json'].join('')))
@@ -151,6 +158,7 @@ company_profile_data.each do |company_profile_hash|
   company_profile.cover = File.open([Rails.root, '/db/fixtures/company_profile/', 'company_profile_', company_profile_hash[:id], '.jpg'].join(''))
   company_profile.save
 end
+puts "Total company profile count: #{CompanyProfile.count}"
 
 ActiveRecord::Base.connection.tables.each do |t|
   ActiveRecord::Base.connection.reset_pk_sequence!(t)
