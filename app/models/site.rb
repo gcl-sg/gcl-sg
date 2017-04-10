@@ -26,6 +26,8 @@
 
 class Site < ApplicationRecord
   belongs_to :category, touch: true
+  has_many :galleries, dependent: :destroy, inverse_of: :site
+  accepts_nested_attributes_for :galleries, reject_if: :all_blank, allow_destroy: true
   localeable :title, :body
 
   extend FriendlyId

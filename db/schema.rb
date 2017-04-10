@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160807100946) do
+ActiveRecord::Schema.define(version: 20170406072644) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -140,6 +140,24 @@ ActiveRecord::Schema.define(version: 20160807100946) do
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
     t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
+  end
+
+  create_table "galleries", force: :cascade do |t|
+    t.integer  "site_id"
+    t.boolean  "visible",     default: true
+    t.integer  "sort"
+    t.string   "title_en"
+    t.string   "title_zh_cn"
+    t.string   "title_zh_tw"
+    t.string   "desc_en"
+    t.string   "desc_zh_cn"
+    t.string   "desc_zh_tw"
+    t.string   "image"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.index ["site_id"], name: "index_galleries_on_site_id", using: :btree
+    t.index ["sort"], name: "index_galleries_on_sort", using: :btree
+    t.index ["visible"], name: "index_galleries_on_visible", using: :btree
   end
 
   create_table "news", force: :cascade do |t|

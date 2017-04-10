@@ -27,6 +27,10 @@ zh-CN:
     cover_en: 英文版图片
     cover_zh_cn: 中文版图片
     cover_zh_tw: 繁体版图片
+    desc_en: 英文版描述
+    desc_zh_cn: 中文版描述
+    desc_zh_tw: 繁体版描述
+    image: 图片
     file: 文件
     file_en: 英文版文件
     file_zh_cn: 中文版文件
@@ -55,6 +59,7 @@ zh-CN:
       banner: 横幅
       business: 业务
       company_profile: 公司简介
+      gallery: 照片
     attributes:
       category:
       site:
