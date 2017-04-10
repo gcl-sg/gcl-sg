@@ -31,6 +31,7 @@ set :branch, :master
 # deploy.rb or stage file (staging.rb, production.rb or else)
 # set :rvm_type, :user                         # Defaults to: :auto, [:auto, :system, :user]
 # set :rvm_ruby_version, '2.1.2@nandudu'       # Defaults to: 'default'
+set :rvm_ruby_version, '2.4.0@gcl-sg'
 # set :rvm_custom_path, '~/.myveryownrvm'      # only needed if not detected
 # set :rvm_roles, [:app, :web]
 
