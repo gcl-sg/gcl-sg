@@ -31,12 +31,13 @@ class GclSideNavRenderer < SimpleNavigation::Renderer::List
 
   def render_active_nav(item_container)
     active_item = item_container.items.find { |item| item.selected? }
-    li_options = active_item.html_options.except(:link)
-    li_content = tag_for(active_item)
-    if include_sub_navigation?(active_item)
-      li_content << render_sub_navigation_for(active_item)
+    if active_item.present?
+      li_options = active_item.html_options.except(:link)
+      li_content = tag_for(active_item)
+      if include_sub_navigation?(active_item)
+        li_content << render_sub_navigation_for(active_item)
+      end
+      content_tag :ul, content_tag(:li, li_content, li_options), {class: 'side-nav'}
     end
-    content_tag :ul, content_tag(:li, li_content, li_options), {class: 'side-nav'}
-
   end
 end
