@@ -39,6 +39,7 @@ gem 'redis-namespace'
 gem 'activemodel-serializers-xml'
 gem 'subdomain_locale', github: 'kenniz/subdomain_locale'
 gem 'local-subdomain'
+gem 'rack-ssl-enforcer'
 gem 'devise', github: 'plataformatec/devise'
 gem 'devise-i18n'
 gem 'rails-i18n'
@@ -93,6 +94,7 @@ group :development, :test do
   gem 'pry-doc'
   gem 'guard-spork', '~> 1.5.1'
   gem 'factory_girl_rails'
+  gem 'tunnels'
 end
 
 group :development do

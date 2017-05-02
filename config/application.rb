@@ -22,6 +22,20 @@ module GclSg
     config.subdomain_locale['en'] = :en      # en.lvh.me
     config.subdomain_locale['tc'] = :'zh-TW' # tc.lvh.me
 
+    # settings for ssl enforcer
+    config.middleware.insert_before ActionDispatch::Cookies, Rack::SslEnforcer,
+                                    http_port: Rails.application.secrets.port,
+                                    https_port: Rails.application.secrets.https_port,
+                                    redirect_code: 302,
+                                    only: [
+                                        '/admin',
+                                        %r{^/admin/}
+                                    ],
+                                    ignore: [
+                                        %r[^/assets/]
+                                    ],
+                                    strict: true
+
     config.time_zone = 'Beijing'
     config.autoload_paths += %W(#{config.root}/lib)
     config.eager_load_paths += %W(#{config.root}/lib)
