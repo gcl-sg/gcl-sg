@@ -52,7 +52,11 @@ server {
     return 301 https://www.<%= fetch(:server_name) %>$request_uri;
     }
 server {
-    server_name www.<%= fetch(:server_name) %> en.<%= fetch(:server_name) %> tc.<%= fetch(:server_name) %>;
+  server_name www.<%= fetch(:server_name) %> en.<%= fetch(:server_name) %> tc.<%= fetch(:server_name) %>;
+  <% if fetch(:stage).to_s == 'production' %>
+    access_log  /var/log/nginx/access.ssl.<%= fetch(:full_app_name) %>_unicorn.log  main;
+    error_log /var/log/nginx/error.ssl.<%= fetch(:full_app_name) %>_unicorn.log;
+  <% end %>
   listen 443;
   root <%= fetch(:deploy_to) %>/current/public;
 
@@ -75,6 +79,8 @@ server {
   client_max_body_size 4G;
   keepalive_timeout 10;
   ssl on;
+  ssl_certificate /etc/letsencrypt/live/gcl-sg.com/privkey.pem
+  ssl_certificate_key /etc/letsencrypt/live/gcl-sg.com/fullchain.pem
   ssl_certificate <%= fetch(:deploy_to) %>/shared/ssl_cert.crt;
   ssl_certificate_key <%= fetch(:deploy_to) %>/shared/ssl_private_key.key;
 }
