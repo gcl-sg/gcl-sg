@@ -259,6 +259,8 @@ GEM
       json
       listen
       thor
+    formadmin (0.1.6)
+      activeadmin
     formatador (0.2.5)
     formtastic (3.1.5)
       actionpack (>= 3.2.13)
@@ -516,6 +518,7 @@ DEPENDENCIES
   factory_girl_rails
   font-awesome-rails
   fontcustom
+  formadmin
   friendly_id!
   guard-spork (~> 1.5.1)
   hiredis
