@@ -23,7 +23,7 @@ set :unicorn_worker_start_port, 5500
 
 # whether we're using ssl or not, used for building nginx
 # config file
-set :enable_ssl, false
+set :enable_ssl, true
 
 # whenever configuration
 set :whenever_identifier, ->{ "#{fetch(:full_app_name)}" }
