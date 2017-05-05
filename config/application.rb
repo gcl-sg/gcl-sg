@@ -27,10 +27,6 @@ module GclSg
                                     http_port: Rails.application.secrets.port,
                                     https_port: Rails.application.secrets.https_port,
                                     redirect_code: 302,
-                                    only: [
-                                        '/admin',
-                                        %r{^/admin/}
-                                    ],
                                     ignore: [
                                         %r[^/assets/]
                                     ],
