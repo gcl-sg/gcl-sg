@@ -69,6 +69,7 @@ gem 'twitter-typeahead-rails'
 gem 'simple_form'
 gem 'nested_form'
 gem 'chosen-rails'
+gem 'meta-tags'
 
 gem 'browser'
 gem 'compass-rails'

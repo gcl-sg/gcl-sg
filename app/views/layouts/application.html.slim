@@ -4,8 +4,8 @@ html
     meta name='renderer' content='webkit'
     meta http-equiv='X-UA-Compatible' content='IE=edge'
     meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' name='viewport'
-    title GclSg
     = csrf_meta_tags
+    = display_meta_tags(site: I18n.t('meta_tags.default_site'), description: I18n.t('meta_tags.default_description'), keywords: I18n.t('meta_tags.default_keywords'), reverse: true)
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track' => 'reload'
     - # hack for IE8-

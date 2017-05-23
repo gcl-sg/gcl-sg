@@ -1,3 +1,4 @@
+- set_meta_tags(title: @site.title, keywords: [@site.title, I18n.t('meta_tags.default_keywords')], description: @site.body)
 - content_for :banner do
   .banner-image
     = image_tag @site.category.cover.detail.url
