@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170406072644) do
+ActiveRecord::Schema.define(version: 20170523070856) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -158,6 +158,21 @@ ActiveRecord::Schema.define(version: 20170406072644) do
     t.index ["site_id"], name: "index_galleries_on_site_id", using: :btree
     t.index ["sort"], name: "index_galleries_on_sort", using: :btree
     t.index ["visible"], name: "index_galleries_on_visible", using: :btree
+  end
+
+  create_table "linkages", force: :cascade do |t|
+    t.integer  "sort"
+    t.boolean  "visible",     default: true
+    t.string   "title_en"
+    t.string   "title_zh_cn"
+    t.string   "title_zh_tw"
+    t.string   "url_en"
+    t.string   "url_zh_cn"
+    t.string   "url_zh_tw"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.index ["sort"], name: "index_linkages_on_sort", using: :btree
+    t.index ["visible"], name: "index_linkages_on_visible", using: :btree
   end
 
   create_table "news", force: :cascade do |t|

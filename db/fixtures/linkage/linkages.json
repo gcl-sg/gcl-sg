@@ -1,0 +1,79 @@
+[
+  {
+    "id":1,
+    "sort":1,
+    "visible":true,
+    "title_en":"Golden Concord Holdings Limited",
+    "title_zh_cn":"协鑫集团官网",
+    "title_zh_tw":"協鑫集團官網",
+    "url_en":"http://www.gcl-power.com/",
+    "url_zh_cn":"http://en.gcl-power.com/",
+    "url_zh_tw":"http://tc.gcl-power.com/"
+  },
+  {
+    "id":2,
+    "sort":2,
+    "visible":true,
+    "title_en":"GCL Intelligent Energy",
+    "title_zh_cn":"协鑫智慧能源（筹）",
+    "title_zh_tw":"協鑫智慧能源（籌）",
+    "url_en":"http://www.gclie.com/en/",
+    "url_zh_cn":"http://www.gclie.com/",
+    "url_zh_tw":"http://www.gclie.com/zh-hant/"
+  },
+  {
+    "id":3,
+    "sort":3,
+    "visible":true,
+    "title_en":"GCL-Poly Energy Holdings Limited",
+    "title_zh_cn":"保利协鑫官网",
+    "title_zh_tw":"保利协鑫官網",
+    "url_en":"http://www.gcl-poly.com.hk/en/",
+    "url_zh_cn":"http://www.gcl-poly.com.hk/",
+    "url_zh_tw":"http://www.gcl-poly.com.hk/tw/"
+  },
+  {
+    "id":4,
+    "sort":4,
+    "visible":true,
+    "title_en":"GCL New Energy Holdings Limited",
+    "title_zh_cn":"协鑫新能源官网",
+    "title_zh_tw":"协鑫新能源官網",
+    "url_en":"http://en.gclnewenergy.com/",
+    "url_zh_cn":"http://www.gclnewenergy.com/",
+    "url_zh_tw":"http://tc.gclnewenergy.com/"
+  },
+  {
+    "id":5,
+    "sort":5,
+    "visible":true,
+    "title_en":"POLY-GCL Petroleum Group Holdings Limited",
+    "title_zh_cn":"保利协鑫石油天然气官网",
+    "title_zh_tw":"保利協鑫石油天然氣官網",
+    "url_en":"http://en.polygcl-petro.com/",
+    "url_zh_cn":"http://www.polygcl-petro.com/",
+    "url_zh_tw":"http://tc.polygcl-petro.com/"
+  },
+  {
+    "id":6,
+    "sort":6,
+    "visible":true,
+    "title_en":"GCL System Integration Technology Co., Ltd",
+    "title_zh_cn":"协鑫集成官网",
+    "title_zh_tw":"協鑫集成官網",
+    "url_en":"http://en.gclsi.com/",
+    "url_zh_cn":"http://www.gclsi.com/",
+    "url_zh_tw":"http://tc.gclsi.com/"
+  },
+  {
+    "id":7,
+    "sort":7,
+    "visible":true,
+    "title_en":"GCL Financial Holding",
+    "title_zh_cn":"协鑫金控官网",
+    "title_zh_tw":"協鑫金控官網",
+    "url_en":"http://en.gcl-finance.com/",
+    "url_zh_cn":"http://www.gcl-finance.com/",
+    "url_zh_tw":"http://tc.gcl-finance.com/"
+  }
+]

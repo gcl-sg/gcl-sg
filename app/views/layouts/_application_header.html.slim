@@ -1,5 +1,5 @@
 .smart-header
-  = link_to 'GCL', root_path, class: 'logo'
+  = link_to I18n.t('site.name'), root_path, class: 'logo'
   .menu-icon
     span
     span
@@ -14,36 +14,19 @@ header.header
             = link_to I18n.t("locale.#{locale}"), params.merge(locale: locale).permit!
       .links
         .link-picker
-          .text 协鑫南方集团官网
+          .text= I18n.t('site.name')
           span.arrow: i.fa.fa-caret-right
           ul
-            li= link_to '协鑫集团官网', 'http://www.gcl-power.com/'
-            li= link_to '协鑫电力官网', 'http://www.gcl-powergroup.com/'
-            li= link_to '保利协鑫官网', 'http://www.gcl-poly.com.hk/'
-            li= link_to '协鑫新能源官网', 'http://http://www.gclnewenergy.com//'
-            li= link_to '保利协鑫石油天然气官网', 'http://www.polygcl-petro.com/'
-            li= link_to '协鑫集成官网', 'http://www.gclsi.com/'
+            - Linkage.visible.each do |linkage|
+              li= link_to linkage.title, linkage.url 
         span.btn.btn-xs.btn-enter= t('.enter')
       ul.tiny-nav
-        /- (1..8).each do
-        /  li= link_to '首页', root_path
         = render_navigation renderer: GclTinyNavRenderer, level: 1, expand_all: true
       .tiny-search
         input.query placeholder='搜索内容'
         = link_to '', root_path, class: 'fa fa-search search-btn'
   .main-nav
     .wrapper
-      = link_to 'GCL', root_path, class: 'logo'
+      = link_to I18n.t('site.name'), root_path, class: 'logo'
       nav
         = render_navigation renderer: GclNavRenderer, level: 1..2, expand_all: true
-        /ul
-        /  li
-        /    = link_to '首页', root_path
-        /  - (1..4).each do
-        /    li
-        /      = link_to '关于我们', root_path
-        /      .sub-menu
-        /        ul
-        /          li= link_to '公司概况'
-        /          li= link_to '公司概况'
-        /          li= link_to '公司概况'

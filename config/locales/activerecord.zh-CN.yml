@@ -37,6 +37,9 @@ zh-CN:
     file_zh_tw: 繁体版文件
     category: 菜单
     url: 链接
+    url_en: 英文版链接
+    url_zh_cn: 中文版链接
+    url_zh_tw: 繁体版链接
     published_at: 发布时间
     username: 账号名字
     current_sign_in_at: 当前登录时间
@@ -60,6 +63,7 @@ zh-CN:
       business: 业务
       company_profile: 公司简介
       gallery: 照片
+      linkage: 网站链接
     attributes:
       category:
       site:

@@ -49,6 +49,23 @@ site_data.each do |site_hash|
 end
 puts "Total site count: #{Site.count}"
 
+puts "creating linkages"
+linkage_data = JSON.parse(File.read([Rails.root, '/db/fixtures/linkage/linkages.json'].join('')))
+linkage_data.each do |linkage_hash|
+  linkage_hash.deep_symbolize_keys!
+  linkage = Linkage.find_or_initialize_by(id: linkage_hash[:id])
+  linkage.sort = linkage_hash[:sort]
+  linkage.visible = linkage_hash[:visible]
+  linkage.title_en = linkage_hash[:title_en]
+  linkage.title_zh_cn = linkage_hash[:title_zh_cn]
+  linkage.title_zh_tw = linkage_hash[:title_zh_tw]
+  linkage.url_en = linkage_hash[:url_en]
+  linkage.url_zh_cn = linkage_hash[:url_zh_cn]
+  linkage.url_zh_tw = linkage_hash[:url_zh_tw]
+  linkage.save
+end
+puts "Total linkage count: #{Linkage.count}"
+
 puts "creating news"
 news_data = JSON.parse(File.read([Rails.root, '/db/fixtures/news/news.json'].join('')))
 news_data.each do |news_hash|
