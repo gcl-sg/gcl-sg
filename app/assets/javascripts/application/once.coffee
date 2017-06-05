@@ -1,9 +1,6 @@
-# 全局变量定义
-window.App = window.App || {}
 
-App.Once = ->
-
-  ########### 全局页面事件绑定 #######################
+# 全局页面事件绑定
+addGlobalEventHandlers = ->
   $(document).off('.global')
   .on 'tap.global', ->
     $('.tiny-search').removeClass 'active'
@@ -24,7 +21,8 @@ App.Once = ->
       $link = $links.eq 0
     location.href = $link.find('a').attr('href')
     false
-  ########## 页面第一次加载完成后 ###################3
-  $(window).on('load', ->)
 
-App.Once()
+# 页面第一次加载完成后
+$(window).on('load', ->
+  addGlobalEventHandlers()
+)

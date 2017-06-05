@@ -4,7 +4,7 @@ isTurbolinksSupported = window.Turbolinks && window.Turbolinks.supported
 
 EVENTS_TYPE = {
   PAGE_READY: 'turbolinks:load',
-  PAGE_UNLOAD: 'turbolinks:before-cache',
+  PAGE_UNLOAD: 'turbolinks:request-end',
 }
 
 
@@ -25,11 +25,11 @@ App.Page = (->
   isOnCurrentPage = (pageName)->
     return $(document.body).is("[data-page='#{pageName}']")
 
-  pageStart = ()->
+  pageReady = ()->
     pageObjects = getPageObjects(currentPageName())
 
     # 如果页面对象是一个对象，则检查其ready接口并执行，如果是函数，则执行该函数取得其返回值作为真实的页面对象，然后检查其ready接口并执行
-    runAndReady = (pageObject, index)->
+    doReady = (pageObject, index)->
       if typeof pageObject is 'object'
         pageObject.ready() if typeof pageObject.ready is 'function'
       else if typeof pageObject is 'function'
@@ -44,7 +44,8 @@ App.Page = (->
         instance.ready() if instance and typeof instance.ready is 'function'
 
     if pageObjects
-      runAndReady(pageObject, index) for pageObject, index in pageObjects
+      doReady(pageObject, index) for pageObject, index in pageObjects
+
   pageUnload = ->
     pageObjects = getCurrentPageObjects()
     if pageObjects
@@ -70,13 +71,13 @@ App.Page = (->
     start: ->
       if isTurbolinksSupported
         $ document
-          .on EVENTS_TYPE.PAGE_READY, pageStart
-          .on EVENTS_TYPE.PAGE_UNLOAD, pageUnload
+        .on EVENTS_TYPE.PAGE_READY, pageReady
+        .on EVENTS_TYPE.PAGE_UNLOAD, pageUnload
       else
-        $(document).ready pageStart
+        $(document).ready pageReady
         # 不支持turbolinks的情况下,不需要调用pageUpload
 
-# todo: for debug, should remove all the interfaces below at last
+    # todo: for debug, should remove all the interfaces below at last
     getPageContainer: ->
       return pagesContainer;
   }
