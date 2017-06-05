@@ -2,7 +2,7 @@ namespace :nginx do
   %w(start stop restart reload).each do |task_name|
     desc "#{task_name } Nginx"
     task task_name do
-      on roles(:app), in: :sequence, wait: 5 do
+      on roles(:application), in: :sequence, wait: 5 do
         sudo "/etc/init.d/nginx #{task_name}"
       end
     end
@@ -10,7 +10,7 @@ namespace :nginx do
 
   desc "Remove default Nginx Virtual Host"
   task "remove_default_vhost" do 
-    on roles(:app) do
+    on roles(:application) do
       if test("[ -f /etc/nginx/sites-enabled/default ]")
       sudo "rm /etc/nginx/sites-enabled/default"
       puts "removed default Nginx Virtualhost"

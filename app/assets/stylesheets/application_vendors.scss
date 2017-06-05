@@ -1,8 +1,16 @@
+// 第三方库样式。由于IE9单样式文件规则不能超过4096条，故将第三方样式库独立引入。
+/*
+*= require_self
+*= require bootstrap-datetimepicker
+*= require font-awesome
+*/
+
+/* bootstrap */
 @import "bootstrap-sprockets";
 
-//default overrides, include bootstrap variables and mixins
-@import "variables";
-@import "mixins";
+// Core variables and mixins
+@import "application/variables";
+@import "bootstrap/mixins";
 
 // Reset and dependencies
 @import "bootstrap/normalize";
@@ -50,3 +58,23 @@
 // Utility classes
 @import "bootstrap/utilities";
 @import "bootstrap/responsive-utilities";
+
+
+/** overrides & extends **/
+/** bootstrap overrides and extends **/
+.breadcrumbs {
+  a, span {
+    padding: 0 5px;
+    max-width: 40em;
+    @include text-overflow;
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+.btn-enter {
+  background-color: #3477b9;
+  &, &:hover {
+    color: white;
+  }
+}

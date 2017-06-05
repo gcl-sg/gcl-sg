@@ -1,6 +1,3 @@
-@import "variables";
-@import "mixins";
-
 a {
   &:hover {
     text-decoration: none;
@@ -11,22 +8,6 @@ a {
   }
 }
 
-.news-item {
-  font-size: 12px;
-  p {
-    margin: 10px 0 0 0;
-  }
-  i  {
-    margin-left: 5px;
-  }
-  .more {
-    color: #83db33;
-    &:hover {
-      text-decoration: underline;
-    }
-    .i {
-      font-size: 14px;
-    }
-  }
+.float-none {
+  float: none;
 }
-

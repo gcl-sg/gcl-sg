@@ -1,6 +1,6 @@
 namespace :deploy do
   task :setup_config do
-    on roles(:app) do
+    on roles(:application) do
       # make the config dir
       execute :mkdir, "-p #{shared_path}/config"
       full_app_name = fetch(:full_app_name)

@@ -1,7 +1,7 @@
 @import "bootstrap/variables";
 
 // application
-$active-color-blue: #2a71b9;
+$link-active-color: #2a71b9;
 $active-color-green: #83db33;
 $top-bar-bg: #f3f3f3;
 $footer-bg: #f9f9f9;
@@ -19,7 +19,7 @@ $screen-mobile-phone: 640px;
 $font-family-base: "\5FAE\8F6F\96C5\9ED1", Arial, "Helvetica Neue", Helvetica, sans-serif;
 $text-color:                #666;
 $link-color:                $text-color;
-$link-hover-color:          $active-color-blue;
+$link-hover-color:          $link-active-color;
 
 $btn-border-radius-base:        0;
 $btn-border-radius-large:       0;
