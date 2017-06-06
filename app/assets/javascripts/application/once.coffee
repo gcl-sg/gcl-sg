@@ -1,3 +1,9 @@
+_repositionSubMenu = ($menu)->
+  menuOffsetLeft = $menu.offset().left
+  menuWidth = $menu.width()
+  subMenusWidth = 0
+  $menu.find('li').each((i, item) -> subMenusWidth += $(item).width())
+  $menu.find('> ul').css('padding-left', menuOffsetLeft + menuWidth / 2 - subMenusWidth / 2 + 'px')
 
 # 全局页面事件绑定
 addGlobalEventHandlers = ->
@@ -14,6 +20,15 @@ addGlobalEventHandlers = ->
     $this.parent().addClass('active').siblings().removeClass('active')
     $this.closest('.link-picker').find('.text').text $this.text()
     true
+
+  .on 'mouseenter.global', '.main-nav nav li', ->
+    $li = $(this)
+    if $li.find('ul')[0]
+      $li.addClass('hover')
+      _repositionSubMenu($li)
+
+  .on  'mouseleave.global', '.main-nav nav li', ->
+    $(this).removeClass('hover')
 
 # 页面第一次加载完成后
 $(window).on('load', ->
