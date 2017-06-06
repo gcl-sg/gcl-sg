@@ -13,14 +13,7 @@ addGlobalEventHandlers = ->
     $this = $ this
     $this.parent().addClass('active').siblings().removeClass('active')
     $this.closest('.link-picker').find('.text').text $this.text()
-    false
-  .on 'tap.global', '.links .btn-enter', ->
-    $links = $(this).closest('.links').find('li')
-    $link = $links.filter('.active')
-    if $link.length == 0
-      $link = $links.eq 0
-    location.href = $link.find('a').attr('href')
-    false
+    true
 
 # 页面第一次加载完成后
 $(window).on('load', ->

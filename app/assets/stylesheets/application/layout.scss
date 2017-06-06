@@ -9,20 +9,7 @@ body {
   position: relative;
   min-height: 600px;
 }
-//logo
-.logo {
-  display: block;
-  height: 80px;
-  text-indent: -9999px;
-  background: image_url('logo.png') no-repeat center center;
-  width: 180px;
-}
-.en .logo{
-  background-image: image_url('logo-en.png');
-}
-.zh-TW .logo{
-  background-image: image_url('logo-hant.png');
-}
+
 // smart header
 .smart-header {
   display: none;
@@ -39,247 +26,12 @@ body {
       display: block;
       height: 5px;
       margin-top: 4px;
-      background: #3776bc;
+      background: $primary-color;
     }
   }
 }
-// header
-.header {
-  ul {
-    padding-left: 0;
-    list-style: none;
-  }
 
-  a:hover {
-    color: $active-color-green;
-  }
 
-}
-.top-bar {
-  height: 31px;
-  background-color: $top-bar-bg;
-  font-size: 12px;
-  text-align: right;
-  .lang {
-    display: inline-block;
-    vertical-align: middle;
-    color: #333;
-    padding-top: 9px;
-    margin-right: 5px;
-    line-height: 1;
-    li {
-      display: inline-block;
-      border-left: 1px solid #333;
-      &:first-child {
-        border: none;
-      }
-
-      &.active a{
-        color: $active-color-green;
-      }
-    }
-
-    a {
-      padding: 0 8px;
-    }
-
-  }
-
-  .links {
-    position: relative;
-    display: inline-block;
-    vertical-align: middle;
-
-    a {
-      display: block;
-    }
-
-    &:hover {
-      ul {
-        display: block;
-      }
-    }
-    .link-picker {
-      position: relative;
-      display: inline-block;
-      width: 166px;
-      text-align: left;
-      background-color: white;
-      vertical-align: middle;
-      .text {
-        border: 1px solid #a0a0a0;
-        height: 23px;
-        line-height: 21px;
-        padding: 0 25px 0 3px;
-
-      }
-      .arrow {
-        position: absolute;
-        right: 0;
-        top: 0;
-        background-color: #a0a0a0;
-        color: white;
-        width: 21px;
-        line-height: 23px;
-        text-align: center;
-        font-size: 18px;
-      }
-    }
-
-    ul {
-      display: none;
-      position: absolute;
-      min-width: 100%;
-      top: 100%;
-      padding: 3px;
-      border: 1px solid #a0a0a0;
-      border-top: none;
-      background-color: white;
-      z-index: $z-popup;
-    }
-    .btn-enter {
-      padding-top: 2px;
-      width: 55px;
-      margin-left: 13px;
-      vertical-align: middle;
-    }
-  }
-
-  .tiny-nav {
-    display: none;
-  }
-
-  .tiny-search {
-    position: relative;
-    display: inline-block;
-    vertical-align: middle;
-    height: 31px;
-    margin-left: 10px;
-    line-height: 31px;
-    &.active {
-      .query {
-        width: 240px;
-        visibility: visible;
-      }
-    }
-    .search-btn {
-      width: 31px;
-      height: 31px;
-      display: block;
-      padding-top: 7px;
-      background-color: #a0a0a0;
-      font-size: 18px;
-      color: white;
-      text-align: center;
-      cursor: pointer;
-      vertical-align: middle;
-      &:hover {
-        background-color: #3477b9;
-      }
-    }
-    .query {
-      visibility: hidden;
-      width: 0;
-      height: 31px;
-      padding: 0 10px;
-      position: absolute;
-      right: 100%;
-      border: none;
-      background-color: #e2e2e2;
-      outline: none;
-      vertical-align: middle;
-      @include transition(width 0.3s)
-    }
-  }
-}
-.main-nav {
-  height: 80px;
-  position: relative;
-  .logo {
-    float: left;
-  }
-  nav {
-    float: right;
-    height: 80px;
-    font-size: 15px;
-    font-weight: bold;
-    > ul {
-      white-space: nowrap;
-      margin: 0;
-      li {
-        display: inline-block;
-
-        a {
-          display: block;
-          padding: 30px 0;
-          margin-left: 29px;
-          &:hover {
-            color: $active-color-green;
-          }
-        }
-
-        &.selected {
-           > a {
-            color: $active-color-green;
-          }
-        }
-      }
-    }
-
-    > ul > li:hover > ul {
-      display: block;
-    }
-
-    > ul > li > ul {
-      display: none;
-      position: absolute;
-      padding: 8px 0;
-      border-top: 30px solid transparent;
-      border-bottom: 50px solid transparent;
-      top: 50px;
-      left: 0;
-      right: 0;
-      text-align: center;
-      z-index: $z-popup + 1;
-      &:before {
-        content: '';
-        display: list-item;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: image_url('bg-submenu.png');
-        z-index: $z-content + 2;
-      }
-      li {
-        position: relative;
-        z-index: $z-content + 3;
-        border-left: 1px solid #3776bc;
-        &:first-child {
-          border-left: none;
-        }
-      }
-      a {
-        color: #3776bc;
-        padding: 0 10px;
-        margin: 0;
-      }
-    }
-
-  }
-
-}
-
-.en .main-nav nav {
-  font-size: 14px;
-  > ul > li > ul {
-    //font-size: 13px;
-    a {
-      padding: 0 5px;
-    }
-  }
-}
 
 // banner
 .banner {
@@ -443,12 +195,9 @@ body {
   }
 }
 
-@media (max-width: $screen-narrow) {
+@media (max-width: $screen-sm-max) {
   html, body {
     overflow-x: hidden;
-  }
-  .wrapper {
-    width: 100% !important;
   }
   .smart-header {
     display: block;
@@ -468,30 +217,20 @@ body {
     .top-bar {
       background-color: transparent;
       text-align: left;
-    }
-    .tiny-nav {
-      width: 231px;
-      display: block;
-      font-size: 15px;
-      font-weight: bold;
-      margin-bottom: 15px;
-      li {
-        border-bottom: 1px solid #dcdada;
+      height: auto;
+      border: none;
+
+      .container {
+        width: auto;
       }
-      a {
+
+      .lang, .links, .tiny-nav, .tiny-search {
+        margin: 0 0 15px 0;
         display: block;
-        padding: 14px 0 14px 15px;
+        width: auto;
       }
-    }
-    .tiny-search {
-      margin-left: 0;
-      .search-btn {
-        display: inline-block;
-      }
-      input {
-        position: static !important;
-        width: 200px !important;
-        visibility: visible !important;
+      .tiny-nav {
+        display: block;
       }
     }
 

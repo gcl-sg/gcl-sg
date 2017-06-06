@@ -1,9 +1,30 @@
 @import "bootstrap/variables";
 
+// colors
+$link-active-color: #3d91fe;
+
+
+// override bootstrap variables
+$font-family-base: "\5FAE\8F6F\96C5\9ED1", Arial, "Helvetica Neue", Helvetica, sans-serif;
+
+$primary-color: #217fc4;
+
+$text-color:                #6e6e71;
+$link-color:                $text-color;
+$link-hover-color:          $link-active-color;
+
+$btn-border-radius-base:        0;
+$btn-border-radius-large:       0;
+$btn-border-radius-small:       0;
+
+//$screen-xs-min:     480px;
+//$screen-sm-min:     768px;
+//$screen-md-min:     992px;
+$screen-lg-min:     1300px;
+
 // application
 $link-active-color: #2a71b9;
 $active-color-green: #83db33;
-$top-bar-bg: #f3f3f3;
 $footer-bg: #f9f9f9;
 
 $z-content: 0;
@@ -14,14 +35,3 @@ $z-top: 1000;
 $screen-wide: 1011px;
 $screen-narrow: 1010px;
 $screen-mobile-phone: 640px;
-
-// override bootstrap variables
-$font-family-base: "\5FAE\8F6F\96C5\9ED1", Arial, "Helvetica Neue", Helvetica, sans-serif;
-$text-color:                #666;
-$link-color:                $text-color;
-$link-hover-color:          $link-active-color;
-
-$btn-border-radius-base:        0;
-$btn-border-radius-large:       0;
-$btn-border-radius-small:       0;
-
