@@ -1,11 +1,11 @@
 footer.footer
-  .wrapper
+  .container
     .footer-links
       = render_navigation renderer: GclFooterRenderer, level: 1..2, expand_all: true
     .footer-bottom
       .copyright Copyright©2016 协鑫南方集团. All rights reserved.
-      .share
-        .item.weixin
-          = image_tag 'weixin-qrcode.png'
-        .item.weibo
-        = link_to '', root_path, class: 'item play'
+      /.share
+      /  .item.weixin
+      /    = image_tag 'weixin-qrcode.png'
+      /  .item.weibo
+      /  = link_to '', root_path, class: 'item play'

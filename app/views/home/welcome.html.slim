@@ -5,11 +5,13 @@
       - banners.each_with_index do |banner, i|
         li*{class: i==0 ? 'active' : nil}
           .img-container= image_tag banner.cover.detail.url
-          .wrapper
+          .container
             h2.title= banner.title
             .desc
               = banner.description
-            = link_to t('.more'), banner.url, class: 'action'
+            = link_to banner.url, class: 'action' do
+              i.fa.fa-arrow-right
+              = t('.more')
     - if banners.count >= 2
       .indicator
         ul
@@ -21,46 +23,71 @@
           li.active-indicator
 = content_for :full_content do
   .full-content
-    .our-business
-      .wrapper
-        .h2.title=t('.our_business')
-        - businesses = Business.visible
-        .media-cards
-          - businesses.each do |business|
-            .media-card
-              =image_tag business.cover.detail.url
-              h3.media-title= business.title
-              .media-content= business.description
-    .company-news
-      .wrapper
-        - company_profile = CompanyProfile.visible.first
-        - if company_profile.present?
-          .company-intro
-            .media-card
-              =image_tag company_profile.cover.detail.url
-              h3.media-title= company_profile.title
-              .media-content= company_profile.description
-        .company-events
-          .panel.gcl-panel
-            .panel-heading= t('.company_news')
-            .panel-body
-              - news = News.with_locale.company.first(7)
-              - if news.present?
-                .tiny-cards
-                  - news.first(2).each do |news_entry|
-                    = link_to resolve_news_path(news_entry), class: 'tiny-card' do
-                      = image_tag news_entry.cover.detail.url
-                      p= news_entry.title
-                .events
-                  - top_news = news.shift
-                  .top-event
-                    = link_to top_news.title, resolve_news_path(top_news), class: 'title'
-                    p= truncate(strip_tags(sanitize(top_news.body)), length: 100, omission: '...')
-                  ul.list.article-list
-                    - news.each do |news_entry|
-                      li
-                        = link_to resolve_news_path(news_entry) do
-                          i.fa.fa-caret-right
-                          = news_entry.title
-                          time= l news_entry.published_at.to_date, format: :long
+    .section.about-us
+      .container
+        h2.section-title.text-center 协鑫南方集团简介
+        .content
+          p 协鑫（集团）控股有限公司是一家以新能源、清洁能源及相关产业为主的国际化综合性能源集团，是全球领先的光伏材料制造商及新能源开发与运营商、全球太阳能理事会联合主席单位、亚洲光伏产业协会主席单位。二十多年来，协鑫秉承“把绿色能源带进生活”的理念，致力成为最受尊重的国际化清洁能源企业，已构筑起电力、光伏、油气、金融、科创等产业群，旗下现有保利协鑫能源控股有限公司（3800.HK）、协鑫新能源控股有限公司（0451.HK）、协鑫集成科技股份有限公司（002506.SZ）等多家控股上市公司，2016中国企业500强排名第176位，中国制造业企业500强排名第77位，2016全球新能源企业500强榜单列全球第2位，各项指标排名位居中国新能源行业第一。集团分支机构遍布中国大陆31个省（市、自治区）、香港、台湾地区及美国、加拿大、新加坡、印度尼西亚、埃塞俄比亚、吉布提等世界各地。
+          p 协鑫南方（集团）有限公司是协鑫集团全资注册的公司，代表协鑫集团统筹中国中南部8省区域（广东、广西、湖南、湖北、福建、海南、云南、贵州）的投资、管理和运维，重点负责开发能效管理、国际业务。旗下现有协鑫南方智慧能源控股有限公司、协鑫洲明能效科技有限公司、协鑫国际能源投资有限公司、协鑫南方售电有限公司、协鑫智能互联网有限公司、广州协鑫蓝天燃气热电有限公司及8省区域公司等多家公司，聚焦于清洁能源、国际业务、能效与小镇三大核心业务，致力于打造清洁、高效、国际化的综合能源服务商。
+
+    .section.our-business
+      .h2.section-title.text-center=t('.our_business')
+      - businesses = Business.visible
+      .content.rich-cards
+        - businesses.each do |business|
+          .rich-card
+            .card-content
+              = image_tag business.cover.detail.url
+              .card-desc
+                h4.card-title= business.title
+                .card-text= business.description
+
+    - news = News.with_locale.company.first(8)
+    - top_news = news.shift
+    - if news.present?
+      .company-news
+        .container
+          .top-image= image_tag top_news.cover.detail.url
+          .events
+            .top-event
+              = link_to top_news.title, resolve_news_path(top_news), class: 'title'
+              .event-intro
+                p= truncate(strip_tags(sanitize(top_news.body)), length: 100, omission: '...')
+            ul.article-list
+              - news.each do |news_entry|
+                li
+                  = link_to resolve_news_path(news_entry) do
+                    i.fa.fa-arrow-right
+                    = news_entry.title
+                    time= l news_entry.published_at.to_date, format: :long
+
+    .container.entries
+      a.entry.green
+        .entry-content
+          = image_tag 'project-case.jpg', class: 'entry-bg'
+          .slogan
+            = image_tag 'circle-arrow.png', class: 'arrow'
+            .text
+              p 项目案例
+              em PROJECT
+              p: span CASE
+      a.entry.blue
+        .entry-content
+          = image_tag 'social-responsibility.jpg', class: 'entry-bg'
+          .slogan
+            = image_tag 'circle-arrow.png', class: 'arrow'
+            .text
+              p 社会责任
+              em SOCIAL
+              p: span RESPONSIBILITY
+      a.entry.orange
+        .entry-content
+          = image_tag 'elite-recruitment.jpg', class: 'entry-bg'
+          .slogan
+            = image_tag 'circle-arrow.png', class: 'arrow'
+            .text
+              p 招贤纳士
+              em ELITE
+              p: span RECRUITMENT
+
 

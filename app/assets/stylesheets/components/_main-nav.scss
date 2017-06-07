@@ -1,3 +1,5 @@
+$active-menu-border: #8bcf09 !default;
+
 //logo
 .logo {
   display: block;
@@ -47,7 +49,7 @@
 
         &.hover {
           a {
-            border-bottom-color: $active-color-green;
+            border-bottom-color: $active-menu-border;
           }
           ul {
             display: block;

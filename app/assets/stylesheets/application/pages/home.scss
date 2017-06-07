@@ -33,6 +33,7 @@
   position: relative;
   height: 550px;
   overflow: hidden;
+  margin-bottom: 33px;
   ul {
     list-style: none;
     padding: 0;
@@ -56,19 +57,19 @@
       &.active {
         display: block;
         img {
-          @include animation(8s zoom-out);
+          @include animation(zoom-out 8s);
         }
         .title {
           opacity: 1;
-          @include animation(4s move-in 1 forwards)
+          @include animation(move-in 3s 1 forwards)
         }
         .desc {
           opacity: 1;
-          @include animation(4.5s move-in 1 forwards)
+          @include animation(move-in 3.5s 1 forwards)
         }
         .action {
           opacity: 1;
-          @include animation(5s move-in 1 forwards)
+          @include animation(move-in 4s 1 forwards)
         }
 
         &.out {
@@ -77,7 +78,7 @@
       }
     }
   }
-  .wrapper {
+  .container {
     position: relative;
     margin-top: 196px;
   }
@@ -93,51 +94,36 @@
     }
   }
   .title {
-    font-size: 30px;
+    font-size: 40px;
+    font-weight: bold;
     margin: 0 0 25px;
   }
   .desc {
-    font-size: 14px;
-    line-height: 17px;
+    font-size: 20px;
     margin-bottom: 35px;
   }
   .action {
     position: relative;
     display: inline-block;
-    font-size: 14px;
-    font-weight: bold;
-    line-height: 23px;
-    height: 25px;
-    min-width: 100px;
+    font-size: 20px;
+    line-height: 50px;
+    height: 50px;
+    min-width: 185px;
     text-align: center;
-    border: 1px solid white;
+    padding: 0 15px;
+    background-color: $active-color-green;
     cursor: pointer;
     overflow: hidden;
     z-index: 10;
     color: white;
-    &:before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 100%;
-      width: 100%;
-      height: 100%;
-      background-color: white;
-      @include transition(top 0.2s);
-      z-index: -1;
-    }
-
-    &:hover {
-      color: black;
-      &:before {
-        top: 0;
-      }
+    .fa {
+      margin-right: 10px;
     }
   }
 
   .indicator {
     position: absolute;
-    bottom: 15px;
+    bottom: 20px;
     text-align: center;
     white-space: nowrap;
     font-size: 0;
@@ -148,8 +134,8 @@
       position: relative;
       li {
         display: inline-block;
-        width: 97px;
-        height: 70px;
+        width: 84px;
+        height: 30px;
         cursor: pointer;
         background: image_url('bg-indicator.png') no-repeat center center;
 
@@ -175,181 +161,121 @@
   margin-top: -20px;
 }
 
-.our-business {
-  background-color: #eeeeee;
-  padding: 25px 0;
-  .title {
-    margin: 15px 0 18px;
-    font-size: 18px;
-    color: black;
+.about-us {
+  .section-title {
+    padding-top: 76px;
+    background: image_url('bg-about-us.png') no-repeat center top;
   }
-  .media-cards {
-    @include clearfix;
-    .media-card {
-      width: 320px;
-      min-height: 280px;
-      float: left;
-      margin-left: 10px;
+  p {
+    margin-bottom: 30px;
+  }
+}
 
-      &:first-child {
-        margin-left: 0;
-      }
-    }
-  }
+.our-business {
+  padding-bottom: 90px;
 }
 
 .company-news {
-  padding: 25px 0;
+  padding-bottom: 90px;
   background-color: white;
 
-  .company-intro {
+  .top-image {
+    width: percentage(661/1300);
+    height: 437px;
     float: left;
-    width: 320px;
-    border: 1px solid #eee;
-
-    .media-card {
-      min-height: 508px;
+    overflow: hidden;
+    img {
+      min-width: 100%;
+      min-height: 100%;
     }
-    .media-title {
+  }
+  .events {
+    margin-left: percentage(742/1300);
+  }
+
+  .top-event {
+    margin-bottom: 12px;
+    .title {
+      display: inline-block;
+      font-size: 24px;
+      color: $primary-color;
       margin-bottom: 20px;
     }
+    .event-intro {
+      padding: 18px 20px;
+      background-color: #efefef;
+    }
+    p {
+      margin: 0;
+      line-height: 30px;
+      color: #77777c;
+      height: 90px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+    }
+
   }
 
-  .company-events {
-    overflow: hidden;
-    margin-left: 330px;
-    .panel {
-      margin-bottom: 0;
-    }
-    .panel-body {
-      padding-top: 35px;
-    }
-    .tiny-cards {
-      float: left;
-      width: 218px;
-      margin-left: 5px;
-    }
-
-    .events {
-      margin-left: 239px;
-    }
-
-    .top-event {
-      border-bottom: 1px dashed #a0a0a0;
-      padding-bottom: 18px;
-      margin-bottom: 10px;
-      .title {
-        display: inline-block;
-        font-size: 18px;
-        color: black;
-        margin-bottom: 30px;
-      }
-      p {
-        line-height: 24px;
-        height: 72px;
-        color: #a0a0a0;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-      }
-
-    }
-
-    .article-list {
-      li {
-        border: none;
-        line-height: 40px;
-        a {
-          font-weight: normal;
-          color: black;
-        }
-        time {
-          color: #a0a0a0;
-        }
-
-        &:hover {
-          * {
-            color: #3776bc;
-          }
-        }
-      }
-      .fa {
-        margin-right: 15px;
-        font-size: 18px;
-      }
-
-    }
+  .article-list {
+    margin-bottom: 0;
+    font-size: 16px;
   }
+
 }
 
-@media (max-width: $screen-narrow) {
+.entries {
+  padding-bottom: 90px;
+}
+
+@media (max-width: $screen-sm-max) {
   .full-carousel {
     height: 365px;
     .img-container img {
       margin-top: -90px;
     }
-    .wrapper {
+    .container {
       margin-top: 104px;
-    }
-  }
-  .our-business {
-    .media-cards {
-      .media-card {
-        float: none;
-        width: 100%;
-        min-height: 119px;
-        margin-left: 0;
-        img {
-          float: left;
-          width: 314px;
-          max-width: 100%;
-          margin-right: 15px;
-          margin-bottom: 15px;
-        }
-        .media-title {
-          padding-top: 10px;
-          margin-bottom: 5px;
-        }
-      }
     }
   }
 
   .company-news {
-    .company-intro {
+    .top-image {
       float: none;
       width: auto;
-      margin-bottom: 15px;
-      .media-card {
-        min-height: 197px;
-        .media-title {
-          margin-top: 0;
-          padding-top: 10px;
-        }
-        img {
-          float: left;
-          width: 314px;
-          max-width: 100%;
-          margin-right: 15px;
-        }
-      }
+      height: auto;
+      margin-bottom: 20px;
     }
-
-    .company-events {
+    .events {
       margin-left: 0;
     }
   }
 }
 
-@media (max-width: 640px) {
-  .full-carousel .indicator{
-    @include transform(scale(0.5));
+@media (max-width: $screen-xs-max) {
+  .full-carousel {
+    .container {
+      @include transform(scale(0.7));
+      @include transform-origin(0, 0)
+    }
+    .indicator{
+      @include transform(scale(0.8));
+    }
+  }
+  .about-us .section-title {
+    background-size: 200% auto;
   }
   .tiny-cards {
     display: none;
   }
-  .company-news .company-events .events {
-    margin-left: 0;
+  .article-list {
+    a {
+      margin-right: 0;
+    }
+    time {
+      display: none;
+    }
   }
 }

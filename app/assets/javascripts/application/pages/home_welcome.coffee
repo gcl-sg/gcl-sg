@@ -30,7 +30,7 @@ App.Page.on 'home_welcome', ->
       clearTimeout($currentActiveItem.data('timer'))
       $currentActiveItem.removeClass('out').addClass('active')
 
-      $context.find('.active-indicator').css('left', index * 97);
+      $context.find('.active-indicator').css('left', index * 84);
 
 
   setTick = ->

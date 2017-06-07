@@ -1,33 +1,43 @@
-.list {
+// template
+//ul.article-list
+//  li
+//    a
+//      fa
+//      xxx
+//    time
+
+.article-list {
   list-style: none;
   padding-left: 0;
+  li {
+    position: relative;
+    line-height: 2.1875;
 
-  &.article-list {
-    li {
-      border-bottom: 1px dashed #D4D1D1;
-      line-height: 44px;
-      position: relative;
-
-      a {
-        margin-right: 90px;
-        display: block;
-        @include text-overflow;
-        font-size: 14px;
-        font-weight: bold;
-        color: #333;
-        &:hover {
-          color: $link-active-color;
-        }
-      }
-
-      time {
-        position: absolute;
-        right: 0;
-        top: 0;
-        font-size: 12px;
-        color: #83db33;
+    &:hover {
+      * {
+        color: $link-active-color;
       }
     }
+  }
+  a {
+    margin-right: 8em;
+    display: block;
+    @include text-overflow;
+    color: black;
+
+    .fa {
+      color: $primary-color;
+      margin-right: 1em;
+      font-size: 0.875em;
+    }
+  }
+
+  time {
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #77777c;
+    font-size: 0.875em;
   }
 }
 
