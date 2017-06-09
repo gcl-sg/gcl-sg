@@ -22,9 +22,10 @@ html
       - if content_for? :full_content
         = yield :full_content
       - else
-        .wrapper
-          section.main-content
-            = yield
-          aside.main-aside
-            = render 'layouts/application_aside'
+        .container
+          .container-fluid.main-container
+            section.main-content
+              = yield
+            aside.main-aside
+              = render 'layouts/application_aside'
     = render 'layouts/application_footer'

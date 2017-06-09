@@ -24,12 +24,12 @@
     display: block;
     @include text-overflow;
     color: black;
+  }
 
-    .fa {
-      color: $primary-color;
-      margin-right: 1em;
-      font-size: 0.875em;
-    }
+  .fa {
+    color: $primary-color;
+    margin-right: 1em;
+    font-size: 0.875em;
   }
 
   time {
