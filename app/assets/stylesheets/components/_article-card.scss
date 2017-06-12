@@ -1,0 +1,240 @@
+// template
+//.article-cards(.list-mode | .card-more)
+//  .article-card
+//    .article-cover
+//      img
+//    .article-info
+//      .article-title
+//      .article-summary
+//      .article-more
+//        .article-extra
+//          time
+//          span <category name>
+//        a
+//          <more text>
+//          fa
+
+
+$article-card-title-color: #000000 !default;
+$article-card-color: #6e6e71 !default;
+$article-card-border: #eeeeee !default;
+
+
+.article-cards {
+  padding-left: 0;
+  list-style: none;
+
+  &.list-mode {
+    @media (max-width: $screen-md-max) {
+      .article-cover {
+        width: 220px;
+      }
+      .article-title {
+        font-size: 1em;
+        height: 1.5625em;
+        margin: 1em 0 0.5em;
+      }
+      .article-summary {
+        line-height: 1.75em;
+        height: 1.75em * 3;
+      }
+      .article-more {
+        margin-top: 0.5em;
+      }
+    }
+
+    @media (max-width: $screen-xs-max) {
+      .article-card {
+        margin: 15px 0;
+      }
+      .article-cover {
+        width: 84px;
+        margin-right: 0;
+      }
+      .article-title {
+        font-size: 0.875em;
+        margin-top: 0.5em;
+      }
+      .article-summary {
+        display: none;
+      }
+      .article-more {
+        padding-top: 0.4em;
+        .article-extra {
+          display: none;
+        }
+        .article-detail-link {
+          display: block;
+          float: none;
+          text-align: right;
+          .fa {
+            font-size: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  &.grid-mode {
+    margin-top: 40px;
+    .article-card {
+      width: 31.1942959%;
+      float: left;
+      margin: 0 2.139037433% 40px 0;
+      &.plain {
+        .article-title {
+          height: 50px;
+          margin: 33px 0 30px;
+          -webkit-line-clamp: 2;
+          white-space: normal;
+        }
+        .article-summary {
+          display: block;
+        }
+        .article-more {
+          padding: 0 15px;
+        }
+      }
+    }
+    .article-cover {
+      width: 100%;
+      float: none;
+      &:after {
+        padding-top: 69.3333333%;
+      }
+    }
+    .article-info {
+      padding: 0;
+    }
+    .article-title {
+      line-height: 25px;
+      height: 25px;
+      margin: 15px 0;
+      color: $primary-color;
+      &:hover {
+        cursor: pointer;
+        color: $link-active-color;
+      }
+    }
+    .article-summary {
+      display: none;
+      line-height: 32px;
+      height: 128px;
+      -webkit-line-clamp: 4;
+    }
+    .article-more {
+      text-align: center;
+      line-height: 35px;
+      padding: 0 15px;
+    }
+    .article-extra {
+      display: none;
+    }
+    .article-detail-link {
+      float: none;
+
+    }
+
+    @media (max-width: $screen-xs-max) {
+      .article-card {
+        width: auto;
+        margin-right: 0;
+        float: none;
+      }
+    }
+  }
+}
+
+.article-card {
+  font-size: 16px;
+  margin: 40px 0;
+  color: $article-card-color;
+  border: 1px solid $article-card-border;
+  box-shadow: 5px 5px 5px 0 rgba(110, 110, 113, 0.1);
+
+  @include clearfix;
+
+  .article-cover {
+    position: relative;
+    float: left;
+    width: 330px;
+    margin-right: 25px;
+    overflow: hidden;
+
+    &:after {
+      content: "";
+      display: block;
+      padding-top: 78.7878788%;
+    }
+    img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      min-width: 100%;
+      min-height: 100%;
+      max-width: 120%;
+      max-height: 120%;
+      z-index: 1;
+    }
+  }
+
+  .article-info {
+    padding-left: 20px;
+  }
+
+  .article-title {
+    display: block;
+    font-size: 1.125em;
+    height: 3.125em;
+    line-height: 1.5626em;
+    margin: 1.6875em 0 1.0625em;
+    padding: 0 15px;
+    color: $article-card-title-color;
+    @include text-overflow;
+  }
+  .article-summary {
+    font-size: 0.875em;
+    line-height: 2.0625em;
+    padding: 0 15px;
+    height: 2.0625em * 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+  .article-more {
+    font-size: 0.875em;
+    padding-top: 15px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-top: 16px;
+    border-top: 1px solid $article-card-border
+  }
+  .article-extra {
+    display: inline-block;
+    margin-left: 15px;
+  }
+  .article-detail-link {
+    float: right;
+    .fa {
+      margin-left: 10px;
+      font-size: 150%;
+      color: $primary-color;
+      vertical-align: middle;
+    }
+  }
+
+  &.plain {
+    .article-cover {
+      display: none;
+    }
+    .article-info {
+      padding-left: 0;
+    }
+    .article-more {
+      padding-left: 0;
+      padding-bottom: 10px;
+    }
+  }
+}

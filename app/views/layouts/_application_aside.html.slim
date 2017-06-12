@@ -1,3 +1,7 @@
+.side-search
+  input placeholder="搜索"
+  a href="javascript:void(0)"
+    i.fa.fa-search.search-btn
 = render_navigation renderer: GclSideNavRenderer, class: 'side-nav'
   /li
   /  = link_to '关于我们', root_path
@@ -6,26 +10,26 @@
   /    -(1..rand(8)).each do
   /      li=link_to '项目建设', root_path
 
-- news = News.company.with_locale.visible.first(3)
-- if news.present?
-  .side-widget
-    h2.widget-title= News.categories_i18n['company']
-    .widget-body
-      - news.each do |news_item|
-        .news-item
-          p= l news_item.published_at.to_date, format: :long
-          p= link_to news_item.title, resolve_news_path(news_item)
-          p
-            = link_to resolve_news_path(news_item), class: 'more' do
-              = t('common.more')
-              i.fa.fa-caret-right
-- album = Album.with_locale.visible.first
-- if album.present?
-  .side-widget
-    h2.widget-title= t('common.album')
-    .widget-body
-      .download-item
-        = link_to image_tag(album.cover.detail.url), album.file.url, class: 'cover', target: '_blank'
-        = link_to album.file.url, class: 'title', target: '_blank' do
-          = album.title
-          i.fa.fa-download
+/- news = News.company.with_locale.visible.first(3)
+/- if news.present?
+/  .side-widget
+/    h2.widget-title= News.categories_i18n['company']
+/    .widget-body
+/      - news.each do |news_item|
+/        .news-item
+/          p= l news_item.published_at.to_date, format: :long
+/          p= link_to news_item.title, resolve_news_path(news_item)
+/          p
+/            = link_to resolve_news_path(news_item), class: 'more' do
+/              = t('common.more')
+/              i.fa.fa-caret-right
+/- album = Album.with_locale.visible.first
+/- if album.present?
+/  .side-widget
+/    h2.widget-title= t('common.album')
+/    .widget-body
+/      .download-item
+/        = link_to image_tag(album.cover.detail.url), album.file.url, class: 'cover', target: '_blank'
+/        = link_to album.file.url, class: 'title', target: '_blank' do
+/          = album.title
+/          i.fa.fa-download

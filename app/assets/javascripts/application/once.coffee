@@ -8,9 +8,6 @@ _repositionSubMenu = ($menu)->
 # 全局页面事件绑定
 addGlobalEventHandlers = ->
   $(document).off('.global')
-  .on 'tap.global', ->
-    $('.tiny-search').removeClass 'active'
-  .on 'mouseenter.global', '.tiny-search', -> $(this).addClass 'active'; false
   .on 'tap.global', '.tiny-search', -> false
   .on 'tap.global', '.smart-header .menu-icon', -> $(document.body).addClass('open-nav'); false
   .on 'tap.global', '.open-nav .layer', -> $(document.body).removeClass('open-nav'); false

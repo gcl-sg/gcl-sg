@@ -1,19 +1,29 @@
 = render 'news/shared/banner'
 
-section.main-section
-  .section-heading
-    .section-title= News.categories_i18n[news_type]
-    .breadcrumbs
-      = render_navigation renderer: GclBreadcrumbsRenderer
-  .section-content
-    /TODO: 只有2016年新闻,之前没有,tab可以暂时不需要吧
-    /ul.smart-tabs
-    /  li.active= link_to '2016', root_path
-    /  li= link_to '2016', root_path
-    /  li= link_to '2016', root_path
-    ul.list.article-list
-      - news.each do |news_entry|
-        li
-          = link_to news_entry.title, resolve_news_path(news_entry)
-          time= l news_entry.published_at.to_date, format: :long
-    .text-center= paginate news
+- content_for :before_content do
+  .container
+    .list-toolbar
+      .toolbar-item.active data-mode="list-mode"
+        i.fa.fa-list
+        span 列表模式
+      .toolbar-item data-mode="grid-mode"
+        i.fa.fa-th
+        span 图片模式
+
+ul.article-cards.list-mode
+  - news.each do |news_entry|
+    li class="article-card #{'plain' if news_entry.cover.blank?}"
+      - unless news_entry.cover.blank?
+        .article-cover
+          = image_tag news_entry.cover
+      .article-info
+        = link_to news_entry.title, resolve_news_path(news_entry), title: news_entry.title, class: 'article-title'
+        .article-summary= truncate strip_tags(news_entry.body), length: 160
+        .article-more
+          .article-extra
+            time= l news_entry.published_at.to_date, format: :long
+            span= " | #{news_entry.category_i18n}"
+          = link_to resolve_news_path(news_entry), class: 'article-detail-link' do
+            | 更多详情
+            i.fa.fa-chevron-circle-right
+.paging= paginate news

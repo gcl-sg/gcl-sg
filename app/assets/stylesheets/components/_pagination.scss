@@ -1,9 +1,15 @@
+$paging-border: #ebeeef !default;
+$paging-bg: #d7dcde !default;
+$paging-active-bg: #217fc4 !default;
+
+.paging {
+  text-align: right;
+}
 .pagination {
   display: inline-block;
   margin: 20px 0;
   line-height: 29px;
   text-align: center;
-  border:1px solid #DDDDDD;
   border-radius: 0;
   font-size: 12px;
   @include clearfix;
@@ -11,30 +17,22 @@
   span {
     float: left;
     min-width: 30px;
-    border-left: 1px solid #DDDDDD;
+    border-left: 1px solid $paging-border;
+    color: white;
+    background-color: $paging-bg;
     a {
       display: block;
       padding: 0 5px;
+      color: white;
     }
 
     &:first-child {
       border-left: none;
     }
 
-    &.page {
-      a {
-        color: #428bca;
-      }
-    }
-    &.first, &.prev, &.next, &.last {
-      a {
-        color: #b9b9b9
-      }
-    }
     &.current, &:hover {
       &, a {
-        background-color: #428bca;
-        color: white;
+        background-color: $paging-active-bg;
       }
     }
   }

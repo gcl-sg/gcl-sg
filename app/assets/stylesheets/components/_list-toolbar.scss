@@ -1,0 +1,29 @@
+$toolbar-item-color: #6e6e71 !default;
+$toolbar-item-active-color: #217fc4 !default;
+
+.list-toolbar {
+  font-size: 16px;
+  padding-top: 20px;
+  .toolbar-item {
+    display: inline-block;
+    margin-right: 35px;
+    color: $toolbar-item-color;
+    cursor: pointer;
+
+    &:hover, &.active {
+      color: $toolbar-item-active-color;
+    }
+  }
+  .fa {
+    margin-right: 15px;
+  }
+  &:after {
+    content: '';
+    display: block;
+    margin-top: 8px;
+    height: 4px;
+    background: image_url("list-toolbar-border.png") no-repeat left top;
+    background: linear-gradient(to right, #8bcf09, #3d91ff);
+    background-size: 100% auto;
+  }
+}

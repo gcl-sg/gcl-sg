@@ -19,13 +19,16 @@ html
     main.main
       - if content_for? :banner
         .banner= yield :banner
+
+      - if content_for? :before_content
+        = yield :before_content
+
       - if content_for? :full_content
         = yield :full_content
       - else
-        .container
-          .container-fluid.main-container
-            section.main-content
-              = yield
-            aside.main-aside
-              = render 'layouts/application_aside'
+        .container.main-container
+          section.main-content
+            = yield
+          aside.main-aside
+            = render 'layouts/application_aside'
     = render 'layouts/application_footer'

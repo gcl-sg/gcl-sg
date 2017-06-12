@@ -38,9 +38,9 @@ $top-bar-item-border: #efefef !default;
       }
 
       &.active {
-        border-color: $primary-color;
         a {
           color: $primary-color;
+          border-color: $primary-color;
         }
       }
     }

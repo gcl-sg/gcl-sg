@@ -51,7 +51,6 @@ body {
 }
 
 .main-container {
-  width: 100%;
   min-height: 350px;
   margin-bottom: 30px;
   display: table;
@@ -62,11 +61,44 @@ body {
   width: 100%;
   padding-right: 78px;
   display: table-cell;
+  vertical-align: top;
 }
 
 .main-aside {
   display: table-cell;
+  vertical-align: top;
   width: 287px;
+  padding-top: 40px;
+
+  .side-search {
+    position: relative;
+    height: 34px;
+    border: 1px solid $border-color;
+    margin-bottom: 30px;
+    input {
+      width: 100%;
+      height: 100%;
+      border: none;
+      outline: none;
+      box-shadow: none;
+      line-height: 34px;
+      padding: 0 40px 0 10px;
+    }
+    a {
+      position: absolute;
+      top: -1px;
+      right: -1px;
+      bottom: -1px;
+      width: 34px;
+      text-align: center;
+      line-height: 34px;
+      background-color: $primary-color;
+      color: white;
+      &:hover {
+        background-color: $link-active-color;
+      }
+    }
+  }
 
   .side-nav {
     list-style: none;
@@ -80,9 +112,8 @@ body {
         display: block;
         font-size: 16px;
         font-weight: bold;
-        border-bottom: 3px solid #2A71B9;
         padding: 0 0 12px 10px;
-        color: #2A71B9;
+        color: $primary-color;
       }
       > ul {
         list-style: none;
@@ -91,21 +122,20 @@ body {
         position: relative;
         a {
           display: block;
-          line-height: 37px;
-          border-bottom: 1px solid #E4E3E3;
+          line-height: 39px;
+          border-bottom: 1px solid $border-color;
           text-indent: 10px;
-          @include transition(text-indent 0.5s);
+          @include transition(text-indent 0.3s);
           &.selected, &:hover {
-            text-indent: 20px;
-            color: $link-active-color;
+            text-indent: 24px;
+            color: $primary-color;
             &:before {
               content: '';
               position: absolute;
               left: 5px;
-              width: 4px;
-              height: 37px;
+              width: 7px;
+              height: 39px;
               background: image_url("menu-arrow.png") no-repeat center center;
-
             }
           }
         }
@@ -251,18 +281,18 @@ body {
     }
   }
 
+  .main-container {
+    display: block;
+  }
+
   .main-content {
-    float: none;
-    width: 94%;
-    margin-left: auto;
-    margin-right: auto;
+    display: block;
+    padding-right: 0;
   }
 
   .main-aside {
-    float: none;
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
+    display: block;
+    width: auto;
 
     .side-widget {
       display: none;
