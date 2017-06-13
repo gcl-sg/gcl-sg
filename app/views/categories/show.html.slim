@@ -11,7 +11,7 @@
     /   .section-title= @site.title
     /   .breadcrumbs
     /     = render_navigation renderer: GclBreadcrumbsRenderer
-    - @category.sites.each do |site|
+    - @category.sites.visible.each do |site|
       .section-content
         article.article
           .site-content
