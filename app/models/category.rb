@@ -12,9 +12,11 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  cover      :string
+#  slug       :string
 #
 # Indexes
 #
+#  index_categories_on_slug     (slug) UNIQUE
 #  index_categories_on_visible  (visible)
 #
 
@@ -27,6 +29,9 @@ class Category < ApplicationRecord
   mount_uploader :cover, CoverUploader
 
   validates_presence_of :sort, :code, :name_en, :name_zh_cn, :name_zh_tw
+
+  extend FriendlyId
+  friendly_id :code, use: [:slugged, :finders]
 
   def name
     case I18n.locale

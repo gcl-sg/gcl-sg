@@ -13,7 +13,8 @@ Rails.application.routes.draw do
     get 'static/video_detail' => 'static#video_detail'
   end
 
-  resources :sites, only: [:show], path: :site
+  resources :categories, only: [:show], path: :site
+  resources :sites, only: [:show], path: :old_site
   resources :company_news,  only: [:index, :show]
   resources :industry_news, only: [:index, :show]
   resources :media_news,    only: [:index, :show]

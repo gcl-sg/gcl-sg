@@ -1,0 +1,18 @@
+-# TODO: fix the meta info for category
+- first_site = @category.sites.first
+- set_meta_tags(title: first_site.title, keywords: [first_site.title, I18n.t('meta_tags.default_keywords')], description: first_site.body) if first_site.present?
+- content_for :banner do
+  .banner-image
+    = image_tag @category.cover.detail.url
+
+= cache [I18n.locale, @category] do
+  section.main-section
+    / .section-heading
+    /   .section-title= @site.title
+    /   .breadcrumbs
+    /     = render_navigation renderer: GclBreadcrumbsRenderer
+    - @category.sites.each do |site|
+      .section-content
+        article.article
+          .site-content
+            = site.body.html_safe
