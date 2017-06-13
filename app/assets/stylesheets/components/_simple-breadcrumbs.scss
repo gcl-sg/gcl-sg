@@ -1,0 +1,9 @@
+.simple-breadcrumbs {
+  margin: 20px 0;
+  > div {
+    display: inline-block;
+  }
+  span {
+    color: $primary-color;
+  }
+}

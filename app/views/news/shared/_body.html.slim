@@ -16,14 +16,13 @@ ul.article-cards.list-mode
       - unless news_entry.cover.blank?
         .article-cover
           = image_tag news_entry.cover
-      .article-info
-        = link_to news_entry.title, resolve_news_path(news_entry), title: news_entry.title, class: 'article-title'
-        .article-summary= truncate strip_tags(news_entry.body), length: 160
-        .article-more
-          .article-extra
-            time= l news_entry.published_at.to_date, format: :long
-            span= " | #{news_entry.category_i18n}"
-          = link_to resolve_news_path(news_entry), class: 'article-detail-link' do
-            | 更多详情
-            i.fa.fa-chevron-circle-right
+      = link_to news_entry.title, resolve_news_path(news_entry), title: news_entry.title, class: 'article-title'
+      .article-summary= truncate strip_tags(news_entry.body), length: 160
+      .article-more
+        .article-extra
+          time= l news_entry.published_at.to_date, format: :long
+          span= " | #{news_entry.category_i18n}"
+        = link_to resolve_news_path(news_entry), class: 'article-detail-link' do
+          | 更多详情
+          i.fa.fa-chevron-circle-right
 .paging= paginate news

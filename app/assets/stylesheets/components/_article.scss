@@ -1,24 +1,33 @@
-$article-title-color: #333 !default;
-$article-time-color: #72bf44 !default;
+$article-title-color: #000 !default;
+$article-extra-color: #6e6e71 !default;
 
 .article {
   line-height: 34px;
+  border: 1px solid $border-color;
+  box-shadow: 3px 3px 5px 0 rgba(110, 110, 113, 0.1);
+  margin-bottom: 50px;
+
+  header {
+    border-bottom: 1px solid $border-color;
+    padding: 50px 15px 0;
+  }
   .title {
     text-align: center;
-    font-size: 16px;
+    font-size: 24px;
     color: $article-title-color;
-    margin: 0 0 15px;
-    font-weight: bold;
+    margin: 0 0 33px;
     line-height: 34px;
   }
-  .time {
-    font-size: 12px;
-    color: $article-time-color;
-    margin-bottom: 15px;
+  .extra {
+    font-size: 14px;
+    color: $article-extra-color;
+    margin-bottom: 10px;
     text-align: center;
   }
 
   .article-content {
+    padding: 15px;
+
     img {
       max-width: 100%;
       height: auto !important;
@@ -27,6 +36,14 @@ $article-time-color: #72bf44 !default;
       text-indent: 2em;
       font-size: 13px;
       margin: 0;
+
+      > img {
+        margin-left: -2em;
+      }
+    }
+
+    @media (min-width: $screen-lg-min) {
+      padding: 35px;
     }
   }
   .site-content {

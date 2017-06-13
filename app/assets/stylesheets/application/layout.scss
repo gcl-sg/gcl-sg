@@ -52,7 +52,6 @@ body {
 
 .main-container {
   min-height: 350px;
-  margin-bottom: 30px;
   display: table;
   table-layout: fixed;
 }
@@ -60,6 +59,7 @@ body {
 .main-content {
   width: 100%;
   padding-right: 78px;
+  padding-bottom: 30px;
   display: table-cell;
   vertical-align: top;
 }
@@ -68,7 +68,7 @@ body {
   display: table-cell;
   vertical-align: top;
   width: 287px;
-  padding-top: 40px;
+  padding-bottom: 30px;
 
   .side-search {
     position: relative;

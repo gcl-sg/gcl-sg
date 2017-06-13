@@ -3,7 +3,10 @@ _repositionSubMenu = ($menu)->
   menuWidth = $menu.width()
   subMenusWidth = 0
   $menu.find('li').each((i, item) -> subMenusWidth += $(item).width())
-  $menu.find('> ul').css('padding-left', menuOffsetLeft + menuWidth / 2 - subMenusWidth / 2 + 'px')
+  offsetLeft = menuOffsetLeft + menuWidth / 2 - subMenusWidth / 2
+  offsetLeft = Math.max(Math.min(offsetLeft, $menu.find('> ul').outerWidth() - subMenusWidth - 17), 0)
+
+  $menu.find('> ul').css('padding-left', offsetLeft + 'px')
 
 # 全局页面事件绑定
 addGlobalEventHandlers = ->
