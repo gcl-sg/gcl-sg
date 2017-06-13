@@ -46,6 +46,10 @@ $article-card-border: #eeeeee !default;
     @media (max-width: $screen-xs-max) {
       .article-card {
         margin: 15px 0;
+        box-shadow: none;
+        border: none;
+        padding-bottom: 15px;
+        border-bottom: 1px solid $border-color;
       }
       .article-cover {
         width: 84px;
@@ -53,24 +57,15 @@ $article-card-border: #eeeeee !default;
       }
       .article-title {
         font-size: 0.875em;
-        margin-top: 0.5em;
+        height: auto;
+        max-height: 2.75em;
+        white-space: normal;
       }
       .article-summary {
         display: none;
       }
       .article-more {
-        padding-top: 0.4em;
-        .article-extra {
-          display: none;
-        }
-        .article-detail-link {
-          display: block;
-          float: none;
-          text-align: right;
-          .fa {
-            font-size: 100%;
-          }
-        }
+        display: none;
       }
     }
   }

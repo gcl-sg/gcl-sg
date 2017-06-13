@@ -4,19 +4,32 @@ $paging-active-bg: #217fc4 !default;
 
 .paging {
   text-align: right;
+  @media (max-width: $screen-xs-max) {
+    text-align: center;
+    .pagination {
+      span {
+        min-width: 60px;
+      }
+      .page {
+        display: none;
+      }
+    }
+  }
 }
 .pagination {
   display: inline-block;
   margin: 20px 0;
-  line-height: 29px;
+  line-height: 38px;
   text-align: center;
-  border-radius: 0;
+  border-radius: 4px;
   font-size: 12px;
+  font-weight: bold;
+  overflow: hidden;
   @include clearfix;
 
   span {
     float: left;
-    min-width: 30px;
+    min-width: 38px;
     border-left: 1px solid $paging-border;
     color: white;
     background-color: $paging-bg;
