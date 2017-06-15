@@ -1,0 +1,10 @@
+- if site.galleries.present?
+  .container
+    .slick.gallery id="slick_#{site.id}" data-slick='{"asNavFor": "#slick_nav_#{site.id}", "autoplay": false}'
+      - site.galleries.each do |item|
+        .picture-item
+          img data-lazy="#{item.image}"
+    .slick.slider-nav id="slick_nav_#{site.id}" data-slick='{"asNavFor": "#slick_#{site.id}", "slidesToShow": 6, "centerMode": true, "centerPadding": 0, "focusOnSelect": true}'
+      - site.galleries.each do |item|
+        .picture-item
+          = image_tag item.image.thumbnail

@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require jquery.mobile.custom
 //= require bootstrap
+//= require slick
 // require cable
 //= require script.min
 //= require lib/util
