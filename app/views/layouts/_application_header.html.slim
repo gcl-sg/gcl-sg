@@ -18,7 +18,7 @@ header.header
           span.arrow: i.fa.fa-angle-down
           ul
             - Linkage.visible.each do |linkage|
-              li= link_to linkage.title, linkage.url
+              li= link_to linkage.title, linkage.url, target: '_blank'
       .tiny-nav
         = render_navigation renderer: GclTinyNavRenderer, level: 1, expand_all: true
       .tiny-search
