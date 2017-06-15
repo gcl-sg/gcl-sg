@@ -8,6 +8,10 @@ zh-CN:
     title_en: 英文版标题
     title_zh_cn: 中文版标题
     title_zh_tw: 繁体版标题
+    sub_title: 副标题
+    sub_title_en: 英文版副标题
+    sub_title_zh_cn: 中文版副标题
+    sub_title_zh_tw: 繁体版副标题
     body: 内容
     body_en: 英文版内容
     body_zh_cn: 中文版内容
@@ -16,6 +20,9 @@ zh-CN:
     description_en: 英文版描述
     description_zh_cn: 中文版描述
     description_zh_tw: 繁体版描述
+    desc_en: 英文版描述
+    desc_zh_cn: 中文版描述
+    desc_zh_tw: 繁体版描述
     name: 名称
     name_en: 英文版名字
     name_zh_cn: 中文版名字
@@ -40,6 +47,7 @@ zh-CN:
     url_en: 英文版链接
     url_zh_cn: 中文版链接
     url_zh_tw: 繁体版链接
+    color: 颜色
     published_at: 发布时间
     username: 账号名字
     current_sign_in_at: 当前登录时间
@@ -64,6 +72,7 @@ zh-CN:
       company_profile: 公司简介
       gallery: 照片
       linkage: 网站链接
+      plate: 入口板块
     attributes:
       category:
       site:

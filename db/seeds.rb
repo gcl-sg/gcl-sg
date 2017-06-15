@@ -140,6 +140,29 @@ banner_data.each do |banner_hash|
 end
 puts "Total banner count: #{Banner.count}"
 
+puts "creating plate"
+plate_data = JSON.parse(File.read([Rails.root, '/db/fixtures/plate/plates.json'].join('')))
+plate_data.each do |plate_hash|
+  plate_hash.deep_symbolize_keys!
+  plate = Plate.find_or_initialize_by(id: plate_hash[:id])
+  plate.sort = plate_hash[:sort]
+  plate.visible = plate_hash[:visible]
+  plate.title_en = plate_hash[:title_en]
+  plate.title_zh_cn = plate_hash[:title_zh_cn]
+  plate.title_zh_tw = plate_hash[:title_zh_tw]
+  plate.sub_title_en = plate_hash[:sub_title_en]
+  plate.sub_title_zh_cn = plate_hash[:sub_title_zh_cn]
+  plate.sub_title_zh_tw = plate_hash[:sub_title_zh_tw]
+  plate.desc_en = plate_hash[:desc_en]
+  plate.desc_zh_cn = plate_hash[:desc_zh_cn]
+  plate.desc_zh_tw = plate_hash[:desc_zh_tw]
+  plate.url = plate_hash[:url]
+  plate.color = plate_hash[:color]
+  plate.image = File.open([Rails.root, '/db/fixtures/plate/', 'image_', plate_hash[:id], '.jpg'].join(''))
+  plate.save
+end
+puts "Total plate count: #{Plate.count}"
+
 puts "creating business"
 business_data = JSON.parse(File.read([Rails.root, '/db/fixtures/business/businesses.json'].join('')))
 business_data.each do |business_hash|

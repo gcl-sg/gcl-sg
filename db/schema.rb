@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170613085845) do
+ActiveRecord::Schema.define(version: 20170615032753) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -197,6 +197,27 @@ ActiveRecord::Schema.define(version: 20170613085845) do
     t.index ["enable_en"], name: "index_news_on_enable_en", using: :btree
     t.index ["enable_zh_cn"], name: "index_news_on_enable_zh_cn", using: :btree
     t.index ["enable_zh_tw"], name: "index_news_on_enable_zh_tw", using: :btree
+  end
+
+  create_table "plates", force: :cascade do |t|
+    t.boolean  "visible",         default: true
+    t.integer  "sort"
+    t.string   "title_en"
+    t.string   "title_zh_cn"
+    t.string   "title_zh_tw"
+    t.string   "sub_title_en"
+    t.string   "sub_title_zh_cn"
+    t.string   "sub_title_zh_tw"
+    t.string   "desc_en"
+    t.string   "desc_zh_cn"
+    t.string   "desc_zh_tw"
+    t.string   "image"
+    t.string   "url"
+    t.string   "color"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.index ["sort"], name: "index_plates_on_sort", using: :btree
+    t.index ["visible"], name: "index_plates_on_visible", using: :btree
   end
 
   create_table "sites", force: :cascade do |t|
