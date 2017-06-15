@@ -62,32 +62,14 @@
                     time= l news_entry.published_at.to_date, format: :long
 
     .container.entries
-      a.entry.green
-        .entry-content
-          = image_tag 'project-case.jpg', class: 'entry-bg'
-          .slogan
-            = image_tag 'circle-arrow.png', class: 'arrow'
-            .text
-              p 项目案例
-              em PROJECT
-              p: span CASE
-      a.entry.blue
-        .entry-content
-          = image_tag 'social-responsibility.jpg', class: 'entry-bg'
-          .slogan
-            = image_tag 'circle-arrow.png', class: 'arrow'
-            .text
-              p 社会责任
-              em SOCIAL
-              p: span RESPONSIBILITY
-      a.entry.orange
-        .entry-content
-          = image_tag 'elite-recruitment.jpg', class: 'entry-bg'
-          .slogan
-            = image_tag 'circle-arrow.png', class: 'arrow'
-            .text
-              p 招贤纳士
-              em ELITE
-              p: span RECRUITMENT
-
-
+      -# TODO: 1. fix the cache issue; 2. fix the color issue
+      - Plate.visible.each do |plate|
+        = link_to plate.url, class: 'entry' do
+          .entry-content
+            = image_tag plate.image.url, class: 'entry-bg'
+            .slogan style="background-color: #{plate.color}; background-color: rgba(#{plate.color}, 0.84);"
+              = image_tag 'circle-arrow.png', class: 'arrow'
+              .text
+                p= plate.title
+                em= plate.sub_title
+                p: span= plate.desc

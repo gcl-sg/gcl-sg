@@ -1,0 +1,5 @@
+[
+  {"id":1,"visible":true,"sort":1,"title_en":"Project Case","title_zh_cn":"项目案例","title_zh_tw":"項目案例","sub_title_en":"","sub_title_zh_cn":"PROJECT","sub_title_zh_tw":"PROJECT","desc_en":"","desc_zh_cn":"CASE","desc_zh_tw":"CASE","url":"/","color":"#8bcf0a"},
+  {"id":2,"visible":true,"sort":2,"title_en":"Social Responsibility","title_zh_cn":"社会责任","title_zh_tw":"社會責任","sub_title_en":"","sub_title_zh_cn":"SOCIAL","sub_title_zh_tw":"SOCIAL","desc_en":"","desc_zh_cn":"RESPONSIBILITY","desc_zh_tw":"RESPONSIBILITY","url":"/","color":"#3374b5"},
+  {"id":3,"visible":true,"sort":3,"title_en":"Elite Recruitment","title_zh_cn":"招贤纳士","title_zh_tw":"招賢納士","sub_title_en":"","sub_title_zh_cn":"ELITE","sub_title_zh_tw":"ELITE","desc_en":"","desc_zh_cn":"RECRUITMENT","desc_zh_tw":"RECRUITMENT","url":"/","color":"#f16e52"}
+]
