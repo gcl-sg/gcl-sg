@@ -27,7 +27,7 @@ ActiveAdmin.register News do
   form do |f|
     f.inputs "News Details" do
       f.input :visible
-      f.input :category, as: :radio, collection: News.categories_i18n.invert
+      f.input :category,  collection: News.categories_i18n.invert
       f.input :published_at, as: :date_time_picker
       f.input :cover, :as => :file, :hint => f.object.cover.present? ? image_tag(f.object.cover.url(:thumbnail)) : content_tag(:span, "no cover iamge")
       f.input :cover_cache, :as => :hidden

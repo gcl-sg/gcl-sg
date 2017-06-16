@@ -5,3 +5,8 @@ zh-TW:
         company: 公司新聞
         industry: 行業資訊
         media: 媒體報導
+    site:
+      gallery_type:
+        standard: 標準
+        left_right: 左右結構
+        up_down: 上下結構

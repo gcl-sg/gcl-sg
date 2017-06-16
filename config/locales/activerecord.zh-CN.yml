@@ -48,6 +48,7 @@ zh-CN:
     url_zh_cn: 中文版链接
     url_zh_tw: 繁体版链接
     color: 颜色
+    gallery_type: 图片集类型
     published_at: 发布时间
     username: 账号名字
     current_sign_in_at: 当前登录时间
@@ -70,7 +71,7 @@ zh-CN:
       banner: 横幅
       business: 业务
       company_profile: 公司简介
-      gallery: 照片
+      gallery: 图片集
       linkage: 网站链接
       plate: 入口板块
     attributes:
