@@ -5,3 +5,8 @@ en:
         company: Company News
         industry: Industry News
         media: Media Reports
+    site:
+      gallery_type:
+        standard: Standard
+        left_right: Left Right
+        up_down: Up Down

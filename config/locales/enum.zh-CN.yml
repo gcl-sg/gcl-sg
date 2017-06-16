@@ -5,3 +5,8 @@ zh-CN:
         company: 公司新闻
         industry: 行业资讯
         media: 媒体报道
+    site:
+      gallery_type:
+        standard: 标准
+        left_right: 左右结构
+        up_down: 上下结构

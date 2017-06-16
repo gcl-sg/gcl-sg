@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170615032753) do
+ActiveRecord::Schema.define(version: 20170616021358) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -146,7 +146,7 @@ ActiveRecord::Schema.define(version: 20170615032753) do
 
   create_table "galleries", force: :cascade do |t|
     t.integer  "site_id"
-    t.boolean  "visible",     default: true
+    t.boolean  "visible",         default: true
     t.integer  "sort"
     t.string   "title_en"
     t.string   "title_zh_cn"
@@ -155,8 +155,12 @@ ActiveRecord::Schema.define(version: 20170615032753) do
     t.string   "desc_zh_cn"
     t.string   "desc_zh_tw"
     t.string   "image"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.string   "sub_title_en"
+    t.string   "sub_title_zh_cn"
+    t.string   "sub_title_zh_tw"
+    t.string   "color"
     t.index ["site_id"], name: "index_galleries_on_site_id", using: :btree
     t.index ["sort"], name: "index_galleries_on_sort", using: :btree
     t.index ["visible"], name: "index_galleries_on_visible", using: :btree
@@ -223,9 +227,9 @@ ActiveRecord::Schema.define(version: 20170615032753) do
   create_table "sites", force: :cascade do |t|
     t.integer  "category_id"
     t.integer  "sort"
-    t.boolean  "visible",     default: true
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.boolean  "visible",      default: true
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.string   "title_en"
     t.string   "title_zh_cn"
     t.string   "title_zh_tw"
@@ -234,6 +238,8 @@ ActiveRecord::Schema.define(version: 20170615032753) do
     t.text     "body_zh_tw"
     t.string   "url"
     t.string   "slug"
+    t.integer  "gallery_type"
+    t.index ["gallery_type"], name: "index_sites_on_gallery_type", using: :btree
     t.index ["slug"], name: "index_sites_on_slug", unique: true, using: :btree
     t.index ["url"], name: "index_sites_on_url", using: :btree
     t.index ["visible"], name: "index_sites_on_visible", using: :btree
