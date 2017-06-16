@@ -9,8 +9,6 @@ isTurbolinksSupported = window.Turbolinks && window.Turbolinks.supported
     $('.slick').slick({
       lazyLoad: 'ondemand'
       slidesToScroll: 1
-      prevArrow: '<a class="slick-prev"></a>'
-      nextArrow: '<a class="slick-next"></a>'
     })
 
   ready: ->

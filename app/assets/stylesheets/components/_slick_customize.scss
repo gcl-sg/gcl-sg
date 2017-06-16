@@ -1,5 +1,4 @@
 @import "slick";
-
 .slick {
   margin: 30px 0;
   .picture-item {
@@ -20,31 +19,35 @@
     }
   }
 
-  .slick-arrow{
-    width: 83px;
-    height: 83px;
-    position: absolute;
-    top: 50%;
-    margin-top: -42px;
-    z-index: 1;
-    text-decoration: none;
-    cursor: pointer;
+  .custom-arrow {
+    &.slick-arrow{
+      width: 83px;
+      height: 83px;
+      position: absolute;
+      top: 50%;
+      margin-top: -42px;
+      z-index: 1;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    &.slick-prev {
+      left: 20px;
+      background: image_url("slick-prev.png") no-repeat center center;
+      &:hover {
+        background-image: image_url("slick-prev-active.png");
+      }
+    }
+    &.slick-next {
+      right: 20px;
+      background: image_url("slick-next.png") no-repeat center center;
+      &:hover {
+        background-image: image_url("slick-next-active.png");
+      }
+    }
   }
 
-  .slick-prev {
-    left: 20px;
-    background: image_url("slick-prev.png") no-repeat center center;
-    &:hover {
-      background-image: image_url("slick-prev-active.png");
-    }
-  }
-  .slick-next {
-    right: 20px;
-    background: image_url("slick-next.png") no-repeat center center;
-    &:hover {
-      background-image: image_url("slick-next-active.png");
-    }
-  }
+
 
 
   &.gallery {
@@ -72,5 +75,84 @@
     @media (max-width: $screen-xs-max) {
       display: none;
     }
+  }
+
+  &.multi-cards {
+    .picture-item {
+      width: 384px;
+      &:before {
+        padding-top: 75.52083333%;
+      }
+      &.left {
+        .item-title, .item-subtitle {
+          text-align: left;
+        }
+      }
+      &.center {
+        .item-title, .item-subtitle {
+          text-align: center;
+        }
+      }
+      &.right {
+        .item-title, .item-subtitle {
+          text-align: right;
+        }
+      }
+      &.top {
+        .item-info {
+          top: 0;
+        }
+      }
+      &.bottom {
+        .item-info {
+          bottom: 0;
+        }
+      }
+
+      &:hover {
+        .item-info {
+          height: 100%;
+        }
+        .item-desc {
+          @include opacity(1);
+          @include transform(translateY(0));
+          @include transition-delay(0.3s);
+        }
+      }
+    }
+
+    .item-info {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 50%;
+      z-index: 2;
+      color: white;
+      padding: 0 50px 20px;
+      background: image_url('bg-multi-card.png') repeat-y left top;
+      overflow: hidden;
+      @include transition(all 0.3s);
+    }
+
+    .item-title {
+      font-size: 24px;
+      border-bottom: 1px solid white;
+      padding: 20px 0 10px;
+      font-weight: lighter;
+    }
+    .item-subtitle {
+      font-size: 24px;
+      padding-top: 10px;
+      font-weight: lighter;
+      text-transform: uppercase;
+    }
+    .item-desc {
+      font-size: 18px;
+      padding-top: 20px;
+      @include opacity(0);
+      @include transform(translateY(50%));
+      @include transition(all 0.5s);
+    }
+
   }
 }

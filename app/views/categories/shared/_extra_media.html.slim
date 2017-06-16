@@ -1,10 +1,80 @@
 - if site.galleries.present?
-  .container
-    .slick.gallery id="slick_#{site.id}" data-slick='{"asNavFor": "#slick_nav_#{site.id}", "autoplay": false}'
-      - site.galleries.each do |item|
-        .picture-item
-          img data-lazy="#{item.image}"
-    .slick.slider-nav id="slick_nav_#{site.id}" data-slick='{"asNavFor": "#slick_#{site.id}", "slidesToShow": 6, "centerMode": true, "centerPadding": 0, "focusOnSelect": true}'
-      - site.galleries.each do |item|
-        .picture-item
-          = image_tag item.image.thumbnail
+  - if site.standard?
+    .container
+      ruby:
+        can_scroll = site.galleries.size > 1
+        gallery_opts = {
+          asNavFor: (can_scroll ? "#slick_nav_#{site.id}" : null),
+          autoplay: true,
+          prevArrow: '<a class="custom-arrow slick-prev"></a>',
+          nextArrow: '<a class="custom-arrow slick-next"></a>'
+        }.to_json
+
+        gallery_nav_opts = {
+          asNavFor: "#slick_#{site.id}",
+          slidesToShow: 6,
+          centerMode: true,
+          centerPadding: 0,
+          focusOnSelect: true,
+          arrows: false
+        }.to_json
+
+      .slick.gallery id="slick_#{site.id}" data-slick=gallery_opts
+        - site.galleries.each do |item|
+          .picture-item
+            img data-lazy="#{item.image.detail}"
+      - if can_scroll
+        .slick.slider-nav id="slick_nav_#{site.id}" data-slick=gallery_nav_opts
+          - site.galleries.each do |item|
+            .picture-item
+              = image_tag item.image.thumbnail
+
+  - if site.up_down?
+    .container.text-center
+      ruby:
+        classes_horz = %w(left right center)
+        classes_vert = %w(top bottom)
+        multi_cards_opts = {
+          slidesToShow: 1,
+          variableWidth: true,
+          centerPadding: 0,
+          infinite: false,
+          arrows: false
+        }.to_json
+
+      .slick.multi-cards data-slick=multi_cards_opts
+        - site.galleries.each_with_index do |item, i|
+          .picture-item class="#{classes_horz[i%3]} #{classes_vert[i%2]}"
+            img src="#{item.image.detail}"
+            - unless item.title.blank? and item.sub_title.blank? and item.desc.blank?
+              .item-info
+                .item-title= item.title || item.sub_title
+                - unless item.title.blank? or item.sub_title.blank?
+                  .item-subtitle= item.sub_title
+                - unless item.desc.blank?
+                  .item-desc== item.desc.gsub(/\n/, '<br/>')
+
+  - if site.left_right?
+    .container
+      ruby:
+        classes_horz = %w(left right center)
+        classes_vert = %w(top bottom)
+        multi_cards_opts = {
+                slidesToShow: 1,
+                variableWidth: true,
+                centerPadding: 0,
+                infinite: false,
+                arrows: false
+        }.to_json
+
+      .slick.multi-cards data-slick=multi_cards_opts
+        -site.galleries.each_with_index do |item, i|
+          .picture-item class="#{classes_horz[i%3]} #{classes_vert[i%2]}"
+            img src="#{item.image.detail}"
+            -unless item.title.blank? and item.sub_title.blank? and item.desc.blank?
+              .item-info
+                .item-title= item.title || item.sub_title
+            -unless item.title.blank? or item.sub_title.blank?
+              .item-subtitle= item.sub_title
+            -unless item.desc.blank?
+              .item-desc== item.desc.gsub(/\n/, '<br/>')

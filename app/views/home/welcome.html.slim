@@ -62,12 +62,12 @@
                     time= l news_entry.published_at.to_date, format: :long
 
     .container.entries
-      -# TODO: 1. fix the cache issue; 2. fix the color issue
+      -# TODO: 1. fix the cache issue;
       - Plate.visible.each do |plate|
         = link_to plate.url, class: 'entry' do
           .entry-content
             = image_tag plate.image.url, class: 'entry-bg'
-            .slogan style="background-color: #{plate.color}; background-color: rgba(#{plate.color}, 0.84);"
+            .slogan style="background-color: #{plate.color}; background-color: rgba(#{Sass::Script::Value::Color.from_hex(plate.color, 0.84).rgba.join(',')});"
               = image_tag 'circle-arrow.png', class: 'arrow'
               .text
                 p= plate.title
