@@ -4,6 +4,7 @@
   .picture-item {
     overflow: hidden;
     position: relative;
+    outline: none;
     &:before {
       content: '';
       display: block;
@@ -29,6 +30,7 @@
       z-index: 1;
       text-decoration: none;
       cursor: pointer;
+      background-size: 100% 100%;
     }
 
     &.slick-prev {
@@ -47,13 +49,79 @@
     }
   }
 
-
-
-
   &.gallery {
     .picture-item {
       &:before {
         padding-top: 38.461538461538464%;
+      }
+    }
+
+    .legend {
+      position: absolute;
+      left: 25%;
+      right: 25%;
+      bottom: 0;
+      min-height: 30%;
+      z-index: 2;
+      color: white;
+      padding: 15px;
+      font-size: 14px;
+      text-align: center;
+      &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: image_url('alpha-black-0.7.png') repeat left top;
+        @include transform(translateY(100%));
+        @include transition(transform 0.4s 0.5s);
+        z-index: -1;
+      }
+
+      .title {
+        font-size: 20px;
+        margin-bottom: 10px;
+        @include transform(translateY(-20px));
+        @include opacity(0);
+        @include transition(all 0.5s 0.9s);
+      }
+
+      .desc {
+        @include transform(translateY(20px));
+        @include opacity(0);
+        @include transition(all 0.5s 0.8s);
+      }
+    }
+
+    .slick-current {
+      .legend {
+        &:before {
+          @include transform(translateY(0));
+        }
+        .title, .desc {
+          @include transform(translateY(0));
+          @include opacity(1);
+        }
+      }
+    }
+
+    @media (max-width: $screen-xs-max) {
+      .custom-arrow.slick-arrow {
+        display: none !important;
+      }
+      .legend {
+        left: 0;
+        right: 0;
+        padding: 10px;
+        .title {
+          font-size: 16px;
+          margin: 0;
+        }
+        .desc {
+          display: none;
+        }
       }
     }
 
@@ -68,8 +136,25 @@
       }
 
       &.slick-current {
-
+        .legend {
+          bottom: 0;
+        }
       }
+    }
+
+    .legend {
+      color: white;
+      position: absolute;
+      left: 0;
+      bottom: -40px;
+      width: 100%;
+      height: 30px;
+      padding: 5px 10px;
+      text-align: center;
+      background: image_url('alpha-black-0.7.png') repeat left top;
+      @include text-overflow;
+      @include transition(bottom 0.3s);
+      z-index: 2;
     }
 
     @media (max-width: $screen-xs-max) {
@@ -77,82 +162,4 @@
     }
   }
 
-  &.multi-cards {
-    .picture-item {
-      width: 384px;
-      &:before {
-        padding-top: 75.52083333%;
-      }
-      &.left {
-        .item-title, .item-subtitle {
-          text-align: left;
-        }
-      }
-      &.center {
-        .item-title, .item-subtitle {
-          text-align: center;
-        }
-      }
-      &.right {
-        .item-title, .item-subtitle {
-          text-align: right;
-        }
-      }
-      &.top {
-        .item-info {
-          top: 0;
-        }
-      }
-      &.bottom {
-        .item-info {
-          bottom: 0;
-        }
-      }
-
-      &:hover {
-        .item-info {
-          height: 100%;
-        }
-        .item-desc {
-          @include opacity(1);
-          @include transform(translateY(0));
-          @include transition-delay(0.3s);
-        }
-      }
-    }
-
-    .item-info {
-      position: absolute;
-      left: 0;
-      width: 100%;
-      height: 50%;
-      z-index: 2;
-      color: white;
-      padding: 0 50px 20px;
-      background: image_url('bg-multi-card.png') repeat-y left top;
-      overflow: hidden;
-      @include transition(all 0.3s);
-    }
-
-    .item-title {
-      font-size: 24px;
-      border-bottom: 1px solid white;
-      padding: 20px 0 10px;
-      font-weight: lighter;
-    }
-    .item-subtitle {
-      font-size: 24px;
-      padding-top: 10px;
-      font-weight: lighter;
-      text-transform: uppercase;
-    }
-    .item-desc {
-      font-size: 18px;
-      padding-top: 20px;
-      @include opacity(0);
-      @include transform(translateY(50%));
-      @include transition(all 0.5s);
-    }
-
-  }
 }

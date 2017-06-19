@@ -1,0 +1,141 @@
+// template
+//.hover-intro-cards
+//  .hover-intro-card([left|center|right][top|bottom])
+//    img
+//    .hover-intro
+//      .title
+//      .subtitle
+//      .desc
+
+.hover-intro-card {
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 5px;
+  &:before {
+    content: '';
+    display: block;
+    padding-top: 75.52083333%;
+  }
+  &.left {
+    .title, .subtitle {
+      text-align: left;
+    }
+  }
+  &.center {
+    .title, .subtitle {
+      text-align: center;
+    }
+  }
+  &.right {
+    .title, .subtitle {
+      text-align: right;
+    }
+  }
+  &.top {
+    .hover-intro {
+      top: 0;
+    }
+  }
+  &.bottom {
+    .hover-intro {
+      bottom: 0;
+    }
+  }
+
+  &:hover {
+    .hover-intro {
+      height: 100%;
+    }
+    .desc {
+      @include opacity(1);
+      @include transform(translateY(0));
+      @include transition-delay(0.3s);
+    }
+  }
+
+  img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    min-width: 100%;
+    min-height: 100%;
+    max-width: 120%;
+    max-height: 120%;
+  }
+
+  .hover-intro {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    z-index: 2;
+    color: white;
+    padding: 0 15px 15px;
+    background: image_url('bg-multi-card.png') repeat-y left top;
+    background-size: 100% auto;
+    overflow: hidden;
+    @include transition(all 0.3s);
+  }
+
+  .title {
+    font-size: 24px;
+    border-bottom: 1px solid white;
+    padding: 20px 0 10px;
+    margin-bottom: 10px;
+    font-weight: lighter;
+  }
+  .subtitle {
+    font-size: 24px;
+    font-weight: lighter;
+    text-transform: uppercase;
+  }
+  .desc {
+    font-size: 18px;
+    padding-top: 10px;
+    text-align: center;
+    @include opacity(0);
+    @include transform(translateY(50%));
+    @include transition(all 0.5s);
+  }
+}
+
+.hover-intro-cards {
+  font-size: 0;
+  text-align: center;
+  .hover-intro-card {
+    display: inline-block;
+    font-size: 16px;
+    width: 443px;
+    max-width: 20%;
+  }
+
+  @media (max-width: $screen-md-max) {
+    .title {
+      font-size: 18px;
+      padding: 10px 0 5px;
+      margin-bottom: 5px;
+    }
+    .subtitle {
+      font-size: 18px;
+    }
+    .desc {
+      font-size: 16px;
+    }
+  }
+
+  @media (max-width: $screen-sm-max) {
+    .hover-intro-card {
+      max-width: 33.3333333%;
+    }
+  }
+
+  @media (max-width: $screen-xs-max) {
+    .hover-intro-card {
+      max-width: 100%;
+    }
+    .title {
+      padding-top: 20px;
+    }
+  }
+}

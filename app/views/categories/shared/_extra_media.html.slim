@@ -5,7 +5,7 @@
         can_scroll = site.galleries.size > 1
         gallery_opts = {
           asNavFor: (can_scroll ? "#slick_nav_#{site.id}" : null),
-          autoplay: true,
+          autoplay: false,
           prevArrow: '<a class="custom-arrow slick-prev"></a>',
           nextArrow: '<a class="custom-arrow slick-next"></a>'
         }.to_json
@@ -23,58 +23,38 @@
         - site.galleries.each do |item|
           .picture-item
             img data-lazy="#{item.image.detail}"
+            .legend
+              .title= item.title
+              .desc== item.desc.gsub(/\n/, '<br/>')
       - if can_scroll
         .slick.slider-nav id="slick_nav_#{site.id}" data-slick=gallery_nav_opts
           - site.galleries.each do |item|
             .picture-item
               = image_tag item.image.thumbnail
+              - unless item.title.blank?
+                .legend= item.title
 
   - if site.up_down?
-    .container.text-center
+    .full-container
       ruby:
         classes_horz = %w(left right center)
         classes_vert = %w(top bottom)
-        multi_cards_opts = {
-          slidesToShow: 1,
-          variableWidth: true,
-          centerPadding: 0,
-          infinite: false,
-          arrows: false
-        }.to_json
-
-      .slick.multi-cards data-slick=multi_cards_opts
+      .hover-intro-cards
         - site.galleries.each_with_index do |item, i|
-          .picture-item class="#{classes_horz[i%3]} #{classes_vert[i%2]}"
-            img src="#{item.image.detail}"
-            - unless item.title.blank? and item.sub_title.blank? and item.desc.blank?
-              .item-info
-                .item-title= item.title || item.sub_title
-                - unless item.title.blank? or item.sub_title.blank?
-                  .item-subtitle= item.sub_title
-                - unless item.desc.blank?
-                  .item-desc== item.desc.gsub(/\n/, '<br/>')
+          .hover-intro-card class="#{classes_horz[i%3]} #{classes_vert[i%2]}"
+            = image_tag item.image.thumbnail
+            .hover-intro
+              .title= item.title || item.sub_title
+              - unless item.title.blank? or item.sub_title.blank?
+                .subtitle= item.sub_title
+              .desc== item.desc.gsub(/\n/, '<br/>')
 
   - if site.left_right?
     .container
-      ruby:
-        classes_horz = %w(left right center)
-        classes_vert = %w(top bottom)
-        multi_cards_opts = {
-                slidesToShow: 1,
-                variableWidth: true,
-                centerPadding: 0,
-                infinite: false,
-                arrows: false
-        }.to_json
-
-      .slick.multi-cards data-slick=multi_cards_opts
+      .side-intro-cards
         -site.galleries.each_with_index do |item, i|
-          .picture-item class="#{classes_horz[i%3]} #{classes_vert[i%2]}"
-            img src="#{item.image.detail}"
-            -unless item.title.blank? and item.sub_title.blank? and item.desc.blank?
-              .item-info
-                .item-title= item.title || item.sub_title
-            -unless item.title.blank? or item.sub_title.blank?
-              .item-subtitle= item.sub_title
-            -unless item.desc.blank?
-              .item-desc== item.desc.gsub(/\n/, '<br/>')
+          .side-intro-card
+            = image_tag item.image.thumbnail
+            .side-intro style="background-color: #{item.color}; background-color: rgba(#{Sass::Script::Value::Color.from_hex(item.color, 0.88).rgba.join(',')})"
+              .title= item.title
+              .subtitle= item.sub_title

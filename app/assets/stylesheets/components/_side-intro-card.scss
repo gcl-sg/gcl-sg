@@ -1,0 +1,92 @@
+// template
+//  .side-intro-cards
+//    .side-intro-card
+//      img
+//      .side-intro
+//        .title
+//        .subtitle
+
+.side-intro-card {
+  font-size: 16px;
+  position: relative;
+  color: white;
+  overflow: hidden;
+  margin-bottom: 5px;
+  text-align: left;
+  &:before {
+    content: '';
+    display: block;
+    padding-top: 80.13544018%;
+  }
+  img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    min-width: 100%;
+    min-height: 100%;
+    max-width: 120%;
+    max-height: 120%;
+  }
+  .side-intro {
+    position: absolute;
+    left: 0;
+    top: 0;
+    min-width: 217px;
+    height: 100%;
+    overflow: hidden;
+    background-color: #8bcf0a;
+    background-color: rgba(#8bcf0a, 0.88);
+    padding: 30px 25px;
+    @include display-flex();
+    @include justify-content(center);
+    @include flex-direction(column);
+  }
+
+  .title {
+    font-size: 36px;
+    max-width: 5em;
+    font-weight: bold;
+  }
+
+  .subtitle {
+    font-size: 26px;
+  }
+}
+
+.side-intro-cards {
+  font-size: 0;
+  text-align: center;
+  .side-intro-card {
+    display: inline-block;
+    width: 433px;
+    max-width: 33.3333333%;
+  }
+
+  @media (max-width: $screen-md-max) {
+    .title {
+      font-size: 26px;
+    }
+    .subtitle {
+      font-size: 20px;
+    }
+  }
+
+  @media (max-width: $screen-sm-max) {
+    .title {
+      font-size: 20px;
+    }
+    .subtitle {
+      font-size: 16px;
+    }
+  }
+
+  @media (max-width: $screen-xs-max) {
+    .side-intro-card {
+      max-width: 100%;
+    }
+    .side-intro {
+      padding: 15px;
+      min-width: 50%;
+    }
+  }
+}
