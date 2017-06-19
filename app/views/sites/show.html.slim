@@ -2,14 +2,12 @@
 - content_for :banner do
   .banner-image
     = image_tag @site.category.cover.detail.url
-
-= cache [I18n.locale, @site] do
-  section.main-section
-    .section-heading
-      .section-title= @site.title
-      .breadcrumbs
-        = render_navigation renderer: GclBreadcrumbsRenderer
-    .section-content
-      article.article
-        .site-content
+- content_for :full_content
+  = cache [I18n.locale, @site] do
+    .container
+      article.article.article-overview
+        header
+          h2.title: span= @site.title
+        .article-content
           = @site.body.html_safe
+    = render :partial => 'categories/shared/extra_media', locals: {site: @site}

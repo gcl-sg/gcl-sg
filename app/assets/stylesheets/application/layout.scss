@@ -52,6 +52,7 @@ body {
 // main
 .main {
   @include clearfix;
+  margin-bottom: 40px;
 }
 
 .main-container {

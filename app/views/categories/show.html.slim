@@ -15,3 +15,40 @@
           .article-content
             = site.body.html_safe
       = render :partial => 'categories/shared/extra_media', locals: {site: site}
+    - if @category.code == 'about_us'
+      .company-culture
+        .container
+          .title 企业文化
+          .subtitle 发展愿景：成为清洁、高效、国际化的综合能源服务商
+          .row
+            .col-sm-3
+              .culture.value
+                .culture-point 核心价值观
+                .culture-content
+                  | 价值引领
+                  br
+                  | 竞争驱动
+                  br
+                  | 协同一家
+            .col-sm-3
+              .culture.bossmanship
+                .culture-point 企业精神
+                .culture-content
+                  | 创业、创新
+                  br
+                  | 争先、领先
+
+            .col-sm-3
+              .culture.idea
+                .culture-point 经营理念
+                .culture-content
+                  | 简单、成本、速度
+                  br
+                  | 协同、人才
+            .col-sm-3
+              .culture.mission
+                .culture-point 我们的使命
+                .culture-content
+                  | 提供高效的清洁能源和服务
+                  br
+                  | 持续改善人类生存环境

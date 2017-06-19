@@ -1,0 +1,81 @@
+$company-culture-bg: #f4f4f4;
+$company-culture-title-color: #3374b5;
+$company-culture-text-color: #6e6e71;
+
+.company-culture {
+  background-color: $company-culture-bg;
+  margin-top: 40px;
+  padding: 40px 0;
+  text-align: center;
+  .title {
+    font-size: 30px;
+    color: $company-culture-title-color;
+    margin: 44px 0 34px;
+  }
+  .subtitle {
+    font-size: 30px;
+    font-style: italic;
+    color: $company-culture-title-color;
+    margin: 34px 0 71px;
+  }
+
+  .culture {
+    font-size: 18px;
+    padding-top: 100px;
+    padding-bottom: 30px;
+    background-size: auto auto;
+    line-height: 30px;
+    &:hover {
+      .culture-point {
+        background: image_url('culture-highlight.png') no-repeat center bottom;
+      }
+    }
+
+    &.value {
+      background: image_url('value.png') no-repeat center top;
+
+      &:hover {
+        background-image: image_url('value-active.png');
+      }
+    }
+
+    &.bossmanship {
+      background: image_url('bossmanship.png') no-repeat center top;
+
+      &:hover {
+        background-image: image_url('bossmanship-active.png');
+      }
+    }
+
+    &.idea {
+      background: image_url('idea.png') no-repeat center top;
+
+      &:hover {
+        background-image: image_url('idea-active.png');
+      }
+    }
+
+    &.mission {
+      background: image_url('mission.png') no-repeat center top;
+
+      &:hover {
+        background-image: image_url('mission-active.png');
+      }
+    }
+  }
+
+  .culture-point {
+    color: $company-culture-title-color;
+    margin-bottom: 15px;
+  }
+
+  .culture-content {
+    color: $company-culture-text-color;
+  }
+
+  @media (max-width: $screen-xs-max) {
+    .subtitle {
+      font-size: 20px;
+    }
+  }
+}
