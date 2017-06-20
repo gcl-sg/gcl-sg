@@ -7,7 +7,8 @@ ul.smart-tabs
 .media-items
   - @videos.each do |video|
     .media-item.video-item
-      = link_to image_tag(video.cover.detail.url), video_path(video), class: 'cover'
+      = link_to video_path(video), class: 'cover' do
+        img.lazy data-lazy=video.cover.detail.url
       = link_to video.title, video_path(video), class: 'title'
       .info
         time= l video.published_at.to_date, format: :long

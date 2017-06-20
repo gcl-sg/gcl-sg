@@ -17,6 +17,8 @@
 //= require underscore
 //= require bootstrap
 //= require store.legacy.min
+//= require lib/lazysizes-config
+//= require lazysizes
 //= require slick
 // require cable
 //= require script.min

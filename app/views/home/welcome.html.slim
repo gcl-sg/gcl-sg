@@ -37,7 +37,7 @@
         - businesses.each do |business|
           .rich-card
             .card-content
-              = image_tag business.cover.detail.url
+              img.lazy data-lazy=business.cover.detail.url
               .card-desc
                 h4.card-title= business.title
                 .card-text= business.description
@@ -47,7 +47,8 @@
     - if news.present?
       .company-news
         .container
-          .top-image= image_tag top_news.cover.detail.url
+          .top-image
+            img.lazy data-lazy=top_news.cover.detail.url
           .events
             .top-event
               = link_to top_news.title, resolve_news_path(top_news), class: 'title'
@@ -66,7 +67,7 @@
       - Plate.visible.each do |plate|
         = link_to plate.url, class: 'entry' do
           .entry-content
-            = image_tag plate.image.url, class: 'entry-bg'
+            img.lazy.entry-bg data-lazy= plate.image.url
             .slogan style="background-color: #{plate.color}; background-color: rgba(#{Sass::Script::Value::Color.from_hex(plate.color, 0.84).rgba.join(',')});"
               = image_tag 'circle-arrow.png', class: 'arrow'
               .text

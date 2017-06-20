@@ -7,7 +7,8 @@ ul.smart-tabs
 .media-items
   - @albums.each do |album|
     .media-item
-      = link_to image_tag(album.cover.detail.url), album.file.url, class: 'cover', target: '_blank'
+      = link_to album.file.url, class: 'cover', target: '_blank' do
+        img.lazy data-lazy=album.cover.detail.url
       = link_to album.title, album.file.url, class: 'title', target: '_blank'
       .info
         time= l album.published_at.to_date, format: :long
