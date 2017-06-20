@@ -45,7 +45,7 @@
   &.video-item {
     .cover:before {
       position: relative;
-      background: image_url('video-indicator.png') no-repeat left top;
+      background: image_url('video-indicator.png') no-repeat center center;
       padding-top: 70.2325581%;
       z-index: $z-content + 1;
     }

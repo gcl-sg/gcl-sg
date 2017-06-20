@@ -49,7 +49,7 @@ isTurbolinksSupported = window.Turbolinks && window.Turbolinks.supported
   listening: ->
     self = @
     if isTurbolinksSupported
-      $(document).on 'turbolinks:before-render', ->
+      $(document).on 'turbolinks:request-end', ->
         func.apply(self) for own name, func of self when name isnt 'listening'
 
 }).listening()

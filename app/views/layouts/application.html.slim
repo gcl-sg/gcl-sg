@@ -6,6 +6,7 @@ html
     meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' name='viewport'
     = csrf_meta_tags
     = display_meta_tags(site: I18n.t('meta_tags.default_site'), description: I18n.t('meta_tags.default_description'), keywords: I18n.t('meta_tags.default_keywords'), reverse: true)
+    meta name="turbolinks-cache-control" content="no-cache"
     = stylesheet_link_tag    'application_vendors', media: 'all', 'data-turbolinks-track' => 'reload'
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track' => 'reload'

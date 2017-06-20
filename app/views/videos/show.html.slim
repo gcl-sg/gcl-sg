@@ -1,7 +1,6 @@
 - set_meta_tags(title: @video.title, keywords: [I18n.t('nav.video'), @video.title])
 = render 'news/shared/banner'
 
-
 - content_for :full_content do
   .container
     .simple-breadcrumbs
@@ -10,10 +9,7 @@
       = link_to I18n.t('nav.video'), videos_path
       | >
       span= @video.title
-    .section-content
-      .video-frame
-        .video-content
-          video#video.video-js.vjs-default-skin controls=true
-            source src="#{@video.file.url}"
-= javascript_include_tag '/vendor/video-js/video.min.js'
-= javascript_include_tag '/vendor/video-js/lang/zh-CN.js'
+    .video-frame
+      .video-content
+        video#video.video-js.vjs-default-skin controls=true
+          source src="#{@video.file.url}"
