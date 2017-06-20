@@ -27,8 +27,22 @@ addGlobalEventHandlers = ->
       $li.addClass('hover')
       _repositionSubMenu($li)
 
-  .on  'mouseleave.global', '.main-nav nav li', ->
+  .on 'mouseleave.global', '.main-nav nav li', ->
     $(this).removeClass('hover')
+
+  .on 'click.global', '#to_top', ->
+    $(document.body).animate({
+      scrollTop: 0
+    }, 500)
+    false
+
+  $(window).off('.global')
+  .on 'scroll.global', _.throttle(->
+    if $(document.body).scrollTop() > 800
+      $('#to_top').removeClass('hidden')
+    else
+      $('#to_top').addClass('hidden')
+  , 300)
 
 # 页面第一次加载完成后
 $(window).on('load', ->

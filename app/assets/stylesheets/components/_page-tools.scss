@@ -1,0 +1,20 @@
+.page-tools {
+  position: fixed;
+  bottom: 25px;
+  right: 0;
+  z-index: $z-top;
+  background-color: white;
+  font-size: 16px;
+  border: 1px solid $border-color;
+  border-radius: 4px 0 0 4px;
+  @include opacity(0.85);
+
+  a {
+    display: block;
+    padding: 5px 8px;
+    color: $text-color;
+    &:hover {
+      background-color: #e0e6e6;
+    }
+  }
+}
