@@ -1,8 +1,6 @@
 require_relative 'boot'
 
 require 'rails/all'
-require 'elasticsearch/rails/instrumentation'
-require 'elasticsearch/rails/lograge'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -38,7 +36,5 @@ module GclSg
     config.autoload_paths += %W(#{config.root}/lib)
     config.eager_load_paths += %W(#{config.root}/lib)
 
-    # lograge enabled for elasticsearch
-    config.lograge.enabled = true
   end
 end
