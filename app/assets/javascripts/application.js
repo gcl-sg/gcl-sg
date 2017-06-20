@@ -16,6 +16,7 @@
 //= require jquery.mobile.custom
 //= require underscore
 //= require bootstrap
+//= require store.legacy.min
 //= require slick
 // require cable
 //= require script.min
