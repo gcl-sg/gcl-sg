@@ -1,23 +1,15 @@
 - set_meta_tags(title: I18n.t('nav.album'), keywords: [I18n.t('nav.album'), I18n.t('meta_tags.default_keywords')])
 = render 'news/shared/banner'
 
-section.main-section
-  .section-heading
-    .section-title= I18n.t('nav.album')
-    .breadcrumbs
-      = render_navigation renderer: GclBreadcrumbsRenderer
-      | >
-      span= I18n.t('nav.album')
-  .section-content
-    ul.smart-tabs
-      li.active= link_to I18n.t('nav.album'), albums_path
-      li= link_to I18n.t('nav.video'), videos_path
-    .download-items
-      - @albums.each do |album|
-        .download-item
-          = link_to image_tag(album.cover.detail.url), album.file.url, class: 'cover', target: '_blank'
-          = link_to album.title, album.file.url, class: 'title', target: '_blank'
-          .info
-            time= l album.published_at.to_date, format: :long
-            = link_to content_tag(:i, '', class: 'fa fa-download'), album.file.url, target: '_blank'
-    .text-center= paginate @albums
+ul.smart-tabs
+  li.active= link_to I18n.t('nav.album'), albums_path
+  li= link_to I18n.t('nav.video'), videos_path
+.media-items
+  - @albums.each do |album|
+    .media-item
+      = link_to image_tag(album.cover.detail.url), album.file.url, class: 'cover', target: '_blank'
+      = link_to album.title, album.file.url, class: 'title', target: '_blank'
+      .info
+        time= l album.published_at.to_date, format: :long
+        = link_to content_tag(:i, '', class: 'fa fa-download'), album.file.url, target: '_blank'
+.paging= paginate @albums

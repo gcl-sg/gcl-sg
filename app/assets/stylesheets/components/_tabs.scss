@@ -1,23 +1,26 @@
 .smart-tabs {
+  position: relative;
   @include clearfix;
   list-style: none;
-  padding: 0 10px;
+  padding: 0;
+  margin-bottom: 20px;
   line-height: 30px;
-  border-bottom: 1px solid #DEDEDE;
+  border-bottom: 1px solid $border-color;
   text-align: center;
-  font-size: 14px;
-  font-weight: bold;
+  font-size: 16px;
 
   li {
+    position: relative;
     float: left;
     border-left: 1px solid white;
     min-width: 117px;
+    bottom: -1px;
     a {
       display: block;
       background-color: #f1f1f1;
       color: #333;
-      padding: 0 20px;
-      border-width: 2px 1px 0;
+      padding: 5px 30px;
+      border-width: 3px 1px 0;
       border-style: solid;
       border-color: transparent;
       &:hover {
@@ -25,23 +28,25 @@
       }
     }
 
-
-
     &.active {
       a {
         background-color: white;
-        border-color: #2A71B9 #DEDEDE transparent #DEDEDE;
+        border-color: $primary-color $border-color white $border-color;
 
       }
     }
   }
 
-  @media (max-width: $screen-narrow) {
+  @media (max-width: $screen-xs-max) {
+    font-size: 14px;
     li {
       display: table-cell;
       width: 1%;
       min-width: 1px;
       float: none;
+      a {
+        padding: 0 5px;
+      }
     }
   }
 }
