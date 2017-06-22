@@ -28,6 +28,7 @@
 #
 
 class News < ApplicationRecord
+  include Search::NewsIndex
   localeable :title, :body
 
   enum category: { company: 0, industry: 1, media: 2 }
@@ -56,4 +57,5 @@ class News < ApplicationRecord
   def set_published_at_if_not_exist
     self.published_at ||= DateTime.current
   end
+
 end
