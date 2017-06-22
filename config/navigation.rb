@@ -63,7 +63,7 @@ SimpleNavigation::Configuration.run do |navigation|
       item_count += 4 if category.include_news_module?
       next if item_count == 0
       if category.include_news_module?
-        primary.item category.code.to_sym, category.name, company_news_index_path do |nav|
+        primary.item category.code.to_sym, category.name, company_news_index_path, :highlights_on => %r(^/news/search) do |nav|
           nav.item :company_news, News.categories_i18n['company'], company_news_index_path, :highlights_on => :subpath
           nav.item :industry_news, News.categories_i18n['industry'], industry_news_index_path, :highlights_on => :subpath
           nav.item :media_news, News.categories_i18n['media'], media_news_index_path, :highlights_on => :subpath

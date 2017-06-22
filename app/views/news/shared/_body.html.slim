@@ -5,10 +5,10 @@
     .list-toolbar
       .toolbar-item.active data-mode="list-mode"
         i.fa.fa-list
-        span 列表模式
+        span=t('common.list_style')
       .toolbar-item data-mode="grid-mode"
         i.fa.fa-th
-        span 图片模式
+        span=t('common.gallery_style')
 
 ul.article-cards.list-mode
   - news.each do |news_entry|
@@ -23,6 +23,6 @@ ul.article-cards.list-mode
           time= l news_entry.published_at.to_date, format: :long
           span= " | #{news_entry.category_i18n}"
         = link_to resolve_news_path(news_entry), class: 'article-detail-link' do
-          | 更多详情
+          =t('common.more')
           i.fa.fa-chevron-circle-right
 .paging= paginate news

@@ -22,8 +22,8 @@ header.header
       .tiny-nav
         = render_navigation renderer: GclTinyNavRenderer, level: 1, expand_all: true
       .tiny-search
-        input.query placeholder='搜索'
-        = link_to '', root_path, class: 'fa fa-search search-btn'
+        input.query placeholder="#{params[:query] || t('common.search')}"
+        = link_to '', news_search_path, class: 'fa fa-search search-btn'
   .main-nav
     .container
       = link_to I18n.t('site.name'), root_path, class: 'logo'
