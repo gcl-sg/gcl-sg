@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   resources :media_news,    only: [:index, :show]
   resources :albums,        only: [:index]
   resources :videos,        only: [:index, :show]
+  get 'news/search' => 'news#search', as: :news_search
 
   devise_for :users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

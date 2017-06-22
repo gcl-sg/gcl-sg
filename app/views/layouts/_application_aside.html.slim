@@ -1,6 +1,6 @@
 .side-search
-  input placeholder="搜索"
-  a href="javascript:void(0)"
+  input placeholder= "#{params[:query] || t('common.search')}"
+  = link_to news_search_path do
     i.fa.fa-search.search-btn
 = render_navigation renderer: GclSideNavRenderer, class: 'side-nav'
   /li
