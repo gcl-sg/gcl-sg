@@ -14,3 +14,5 @@ zh-CN:
     list_style: 列表模式
     gallery_style: 图片模式
     news_search: 新闻搜索
+    no_news: 没有相关新闻
+    no_search_result: 没有相关搜索结果
