@@ -33,16 +33,16 @@ module Search
     module ClassMethods
 
       def fulltext_search query = "*", page = nil, locale = I18n.locale
-        query ||= "*"
+        query = '*' if query.blank?
         search "#{query}",
           where: {
           "enable_#{locale.to_s.underscore}" => true
         },
+        match: :phrase,
         fields: fulltext_search_fields(locale),
         order: {_score: :desc},
         page: page,
         per_page: 15,
-        operator: "or",
         highlight: true
       end
 
