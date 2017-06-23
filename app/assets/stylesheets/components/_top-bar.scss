@@ -151,6 +151,14 @@ $top-bar-item-border: #efefef !default;
       text-align: center;
       cursor: pointer;
       vertical-align: top;
+      border: none;
+      outline: none;
+      border-radius: 0;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      -ms-appearance: none;
+      appearance: none;
+      z-index: 1;
     }
   }
 }

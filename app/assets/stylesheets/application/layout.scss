@@ -89,7 +89,7 @@ body {
       line-height: 34px;
       padding: 0 40px 0 10px;
     }
-    a {
+    .search-btn {
       position: absolute;
       top: -1px;
       right: -1px;
@@ -99,6 +99,13 @@ body {
       line-height: 34px;
       background-color: $primary-color;
       color: white;
+      border: none;
+      outline: none;
+      border-radius: 0;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      -ms-appearance: none;
+      appearance: none;
       &:hover {
         background-color: $link-active-color;
       }

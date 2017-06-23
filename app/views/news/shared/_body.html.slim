@@ -26,3 +26,11 @@ ul.article-cards.list-mode
           =t('common.more')
           i.fa.fa-chevron-circle-right
 .paging= paginate news
+
+- if news.size == 0
+  .empty.text-center
+    - if @is_on_searching
+      p 没有相关搜索结果
+    - else
+      p 没有相关新闻
+

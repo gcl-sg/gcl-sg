@@ -21,9 +21,9 @@ header.header
               li= link_to linkage.title, linkage.url, target: '_blank'
       .tiny-nav
         = render_navigation renderer: GclTinyNavRenderer, level: 1, expand_all: true
-      .tiny-search
-        input.query placeholder="#{params[:query] || t('common.search')}"
-        = link_to '', news_search_path, class: 'fa fa-search search-btn'
+      form.tiny-search action=news_search_path
+        input.query name="query" value=params[:query] placeholder=t('common.search')
+        button.search-btn.fa.fa-search type="submit"
   .main-nav
     .container
       = link_to I18n.t('site.name'), root_path, class: 'logo'

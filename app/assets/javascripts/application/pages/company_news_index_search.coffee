@@ -1,4 +1,4 @@
-App.Page.on 'company_news_index', ->
+App.Page.on 'company_news_index, news_search', ->
   MODE = 'company_news_list_mode'
 
   setListMode = (mode) ->
