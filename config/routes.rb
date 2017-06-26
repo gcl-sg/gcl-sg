@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   end
 
   resources :categories, only: [:show], path: :site
-  resources :sites, only: [:show], path: :old_site
   resources :company_news,  only: [:index, :show]
   resources :industry_news, only: [:index, :show]
   resources :media_news,    only: [:index, :show]

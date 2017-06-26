@@ -8,7 +8,7 @@
 
   = cache [I18n.locale, @category] do
     - @category.sites.visible.each do |site|
-      .container
+      .container id="#{site.url}"
         article.article.article-overview
           header
             h2.title: span= site.title

@@ -58,7 +58,7 @@ SimpleNavigation::Configuration.run do |navigation|
     #
     primary.item :home, t('nav.home'), root_path, :highlights_on => %r(^/$)
     Category.visible.each do |category|
-      visible_sites = category.sites.merge(Site.visible)
+      visible_sites = category.sites.visible
       item_count = visible_sites.count
       item_count += 4 if category.include_news_module?
       next if item_count == 0
@@ -69,13 +69,13 @@ SimpleNavigation::Configuration.run do |navigation|
           nav.item :media_news, News.categories_i18n['media'], media_news_index_path, :highlights_on => :subpath
           nav.item :albums, t('nav.download'), albums_path, :highlights_on => /albums|videos/
           visible_sites.each do |site|
-            nav.item site.title, site.title, site_path(site), :highlights_on => :subpath
+            nav.item site.title, site.title, category_path(category, anchor: site.url), :highlights_on => :subpath
           end
         end
       else
         primary.item category.code.to_sym, category.name, category_path(category) do |nav|
           visible_sites.each do |site|
-            nav.item site.title, site.title, site_path(site), :highlights_on => :subpath
+            nav.item site.title, site.title, category_path(category, anchor: site.url), :highlights_on => :subpath
           end
         end
 
