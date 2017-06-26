@@ -1,6 +1,7 @@
 zh-CN:
   site:
     name: 协鑫南方集团官网
+    copyright: Copyright©2017 Golden Concord Southern Group Limited. All rights reserved.
   nav:
     home: 首  页
     download: 下载中心
@@ -16,3 +17,4 @@ zh-CN:
     news_search: 新闻搜索
     no_news: 没有相关新闻
     no_search_result: 没有相关搜索结果
+    follow_us: 关注我们

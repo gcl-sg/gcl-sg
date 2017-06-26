@@ -4,11 +4,11 @@ footer.footer
       = render_navigation renderer: GclFooterRenderer, level: 1..2, expand_all: true
     .hidden.extra-links
       dl
-        dt 关注我们
+        dt= t("common.follow_us")
         dd= image_tag 'wx-qrcode.png'
 
     .footer-bottom
-      .copyright Copyright©2016 协鑫南方集团. All rights reserved.
+      .copyright= t("site.copyright")
       /.share
       /  .item.weixin
       /    = image_tag 'weixin-qrcode.png'

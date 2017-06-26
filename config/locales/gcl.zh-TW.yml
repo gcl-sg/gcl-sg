@@ -1,6 +1,7 @@
 zh-TW:
   site:
     name: 協鑫南方集團官網 
+    copyright: Copyright©2017 Golden Concord Southern Group Limited. All rights reserved.
   nav:
     home: 首  頁
     download: 下載中心
@@ -16,3 +17,4 @@ zh-TW:
     news_search: 新聞搜索
     no_news: 沒有相關新聞
     no_search_result: 沒有相關搜索結果
+    follow_us: 關注我們

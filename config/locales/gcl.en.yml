@@ -1,6 +1,7 @@
 en:
   site:
     name: Golden Concord Southern Group Limited
+    copyright: Copyright©2017 Golden Concord Southern Group Limited. All rights reserved.
   nav:
     home: Home
     download: Downloads
@@ -16,3 +17,4 @@ en:
     news_search: News Searching
     no_news: No Related News
     no_search_result: No Search Result
+    follow_us: Follow Us
