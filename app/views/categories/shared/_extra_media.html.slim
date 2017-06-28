@@ -23,9 +23,10 @@
         - site.galleries.each do |item|
           .picture-item
             img data-lazy="#{item.image.detail}"
-            .legend
-              .title= item.title
-              .desc== item.desc.gsub(/\n/, '<br/>')
+            - unless item.title.blank? && item.desc.blank?
+              .legend
+                .title= item.title
+                .desc== item.desc.gsub(/\n/, '<br/>')
       - if can_scroll
         .slick.slider-nav id="slick_nav_#{site.id}" data-slick=gallery_nav_opts
           - site.galleries.each do |item|

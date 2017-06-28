@@ -8,14 +8,16 @@
 
   = cache [I18n.locale, @category] do
     - @category.sites.visible.each do |site|
-      .container id="#{site.url}"
-        article.article.article-overview
-          header
-            h2.title: span= site.title
-          .article-content
-            = site.body.html_safe
-      = render :partial => 'categories/shared/extra_media', locals: {site: site}
+      = cache [I18n.locale, site] do
+        .container id="#{site.url}"
+          article.article.article-overview
+            header
+              h2.title: span= site.title
+            .article-content
+              = site.body.html_safe
+        = render :partial => 'categories/shared/extra_media', locals: {site: site}
     - if @category.code == 'about_us'
+      / Hard code culture
       .company-culture
         .container
           .title= t('culture.title')
