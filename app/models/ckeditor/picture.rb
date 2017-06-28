@@ -22,6 +22,7 @@
 
 class Ckeditor::Picture < Ckeditor::Asset
   mount_uploader :data, CkeditorPictureUploader, mount_on: :data_file_name
+  second_level_cache version: 1.0, expires_in: 1.week
 
   def url_content
     url(:content)

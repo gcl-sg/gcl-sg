@@ -21,6 +21,7 @@
 #
 
 class Linkage < ApplicationRecord
+  second_level_cache version: 1.0, expires_in: 1.week
   localeable :title, :url
 
   default_scope -> { order('linkages.sort asc') }

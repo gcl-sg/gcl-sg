@@ -28,6 +28,7 @@
 #
 
 class Gallery < ApplicationRecord
+  second_level_cache version: 1.0, expires_in: 1.week
   belongs_to :site, touch: true
   localeable :title, :sub_title, :desc
 

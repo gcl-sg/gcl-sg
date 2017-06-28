@@ -23,6 +23,7 @@
 #
 
 class Banner < ApplicationRecord
+  second_level_cache version: 1.0, expires_in: 1.week
   localeable :title, :description
 
   mount_uploader :cover, BannerCoverUploader

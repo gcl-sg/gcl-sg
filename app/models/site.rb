@@ -27,6 +27,8 @@
 #
 
 class Site < ApplicationRecord
+  second_level_cache version: 1.0, expires_in: 1.week
+
   belongs_to :category, touch: true
   has_many :galleries, dependent: :destroy, inverse_of: :site
   accepts_nested_attributes_for :galleries, reject_if: :all_blank, allow_destroy: true

@@ -29,6 +29,7 @@
 #
 
 class Video < ApplicationRecord
+  second_level_cache version: 1.0, expires_in: 1.week
   localeable :title, :cover, :file
 
   mount_uploader :cover_en, VideoCoverUploader
