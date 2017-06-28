@@ -22,6 +22,7 @@
 
 class Ckeditor::Asset < ActiveRecord::Base
   include Ckeditor::Orm::ActiveRecord::AssetBase
+  second_level_cache version: 1.0, expires_in: 1.week
 
   delegate :url, :current_path, :content_type, to: :data
 

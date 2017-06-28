@@ -1,5 +1,5 @@
 form.side-search action=news_search_path
-  input name="query" placeholder=t('common.search')
+  input name="query" value=params[:query] placeholder=t('common.search')
   button.search-btn.fa.fa-search type="submit"
 = render_navigation renderer: GclSideNavRenderer, class: 'side-nav'
   /li

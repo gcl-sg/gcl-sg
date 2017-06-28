@@ -8,47 +8,55 @@
 
   = cache [I18n.locale, @category] do
     - @category.sites.visible.each do |site|
-      .container
-        article.article.article-overview
-          header
-            h2.title: span= site.title
-          .article-content
-            = site.body.html_safe
-      = render :partial => 'categories/shared/extra_media', locals: {site: site}
+      = cache [I18n.locale, site] do
+        .container id="#{site.url}"
+          article.article.article-overview
+            header
+              h2.title: span= site.title
+            .article-content
+              = site.body.html_safe
+        = render :partial => 'categories/shared/extra_media', locals: {site: site}
     - if @category.code == 'about_us'
+      / Hard code culture
       .company-culture
         .container
-          .title 企业文化
-          .subtitle 发展愿景：成为清洁、高效、国际化的综合能源服务商
+          .title= t('culture.title')
+          .subtitle=t('culture.subtitle')
           .row
             .col-sm-3
               .culture.value
-                .culture-point 核心价值观
+                .culture-point= t('culture.title1')
                 .culture-content
-                  | 价值引领
+                  = t('culture.t1d1')
                   br
-                  | 竞争驱动
+                  = t('culture.t1d2')
                   br
-                  | 协同一家
+                  = t('culture.t1d3')
             .col-sm-3
               .culture.bossmanship
-                .culture-point 企业精神
+                .culture-point= t('culture.title2')
                 .culture-content
-                  | 创业、创新
+                  = t('culture.t2d1')
                   br
-                  | 争先、领先
+                  = t('culture.t2d2')
+                  br
+                  = t('culture.t2d3')
 
             .col-sm-3
               .culture.idea
-                .culture-point 经营理念
+                .culture-point=t('culture.title3')
                 .culture-content
-                  | 简单、成本、速度
+                  = t('culture.t3d1')
                   br
-                  | 协同、人才
+                  = t('culture.t3d2')
+                  br
+                  = t('culture.t3d3')
             .col-sm-3
               .culture.mission
-                .culture-point 我们的使命
+                .culture-point=t('culture.title4')
                 .culture-content
-                  | 提供高效的清洁能源和服务
+                  = t('culture.t4d1')
                   br
-                  | 持续改善人类生存环境
+                  = t('culture.t4d2')
+                  br
+                  = t('culture.t4d3')

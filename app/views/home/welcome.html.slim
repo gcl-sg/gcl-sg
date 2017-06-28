@@ -24,25 +24,26 @@
 = content_for :full_content do
   .full-content
     .section.about-us
-      .container
-        h2.section-title.text-center 协鑫南方集团简介
-        .content
-          p 协鑫（集团）控股有限公司是一家以新能源、清洁能源及相关产业为主的国际化综合性能源集团，是全球领先的光伏材料制造商及新能源开发与运营商、全球太阳能理事会联合主席单位、亚洲光伏产业协会主席单位。二十多年来，协鑫秉承“把绿色能源带进生活”的理念，致力成为最受尊重的国际化清洁能源企业，已构筑起电力、光伏、油气、金融、科创等产业群，旗下现有保利协鑫能源控股有限公司（3800.HK）、协鑫新能源控股有限公司（0451.HK）、协鑫集成科技股份有限公司（002506.SZ）等多家控股上市公司，2016中国企业500强排名第176位，中国制造业企业500强排名第77位，2016全球新能源企业500强榜单列全球第2位，各项指标排名位居中国新能源行业第一。集团分支机构遍布中国大陆31个省（市、自治区）、香港、台湾地区及美国、加拿大、新加坡、印度尼西亚、埃塞俄比亚、吉布提等世界各地。
-          p 协鑫南方（集团）有限公司是协鑫集团全资注册的公司，代表协鑫集团统筹中国中南部8省区域（广东、广西、湖南、湖北、福建、海南、云南、贵州）的投资、管理和运维，重点负责开发能效管理、国际业务。旗下现有协鑫南方智慧能源控股有限公司、协鑫洲明能效科技有限公司、协鑫国际能源投资有限公司、协鑫南方售电有限公司、协鑫智能互联网有限公司、广州协鑫蓝天燃气热电有限公司及8省区域公司等多家公司，聚焦于清洁能源、国际业务、能效与小镇三大核心业务，致力于打造清洁、高效、国际化的综合能源服务商。
+      - company_profile = CompanyProfile.visible.first
+      - if company_profile.present?
+        .container
+          h2.section-title.text-center= company_profile.title
+          .content = company_profile.description.html_safe
 
     .section.our-business
-      .h2.section-title.text-center=t('.our_business')
       - businesses = Business.visible
-      .content.rich-cards
-        - businesses.each do |business|
-          .rich-card
-            .card-content
-              img.lazy data-lazy=business.cover.detail.url
-              .card-desc
-                h4.card-title= business.title
-                .card-text= business.description
+      - if businesses.present?
+        .h2.section-title.text-center=t('.our_business')
+        .content.rich-cards
+          - businesses.each do |business|
+            .rich-card
+              .card-content
+                img.lazy data-lazy=business.cover.detail.url
+                .card-desc
+                  h4.card-title= business.title
+                  .card-text= business.description
 
-    - news = News.with_locale.company.first(8)
+    - news = News.with_locale.visible.company.first(8)
     - top_news = news.shift
     - if news.present?
       .company-news

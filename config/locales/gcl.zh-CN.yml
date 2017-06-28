@@ -1,6 +1,7 @@
 zh-CN:
   site:
     name: 协鑫南方集团官网
+    copyright: Copyright©2017 Golden Concord Southern Group Limited. All rights reserved.
   nav:
     home: 首  页
     download: 下载中心
@@ -14,3 +15,25 @@ zh-CN:
     list_style: 列表模式
     gallery_style: 图片模式
     news_search: 新闻搜索
+    no_news: 没有相关新闻
+    no_search_result: 没有相关搜索结果
+    follow_us: 关注我们
+  culture:
+    title: 企业文化
+    subtitle: 发展愿景：成为清洁、高效、国际化的综合能源服务商
+    title1: 核心价值观
+    t1d1: 价值引领
+    t1d2: 竞争驱动
+    t1d3: 协同一家
+    title2: 企业精神
+    t2d1: 创业、创新
+    t2d2: 争先、领先
+    t2d3: ''
+    title3: 经营理念
+    t3d1: 简单、成本、速度
+    t3d2: 协同、人才
+    t3d3: ''
+    title4: 我们的使命
+    t4d1: 提供高效的清洁能源和服务
+    t4d2: 持续改善人类生存环境
+    t4d3: ''

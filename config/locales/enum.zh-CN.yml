@@ -8,5 +8,6 @@ zh-CN:
     site:
       gallery_type:
         standard: 标准
-        left_right: 左右结构
-        up_down: 上下结构
+        left_right: 左右结构(3图片)
+        up_down: 上下结构(5图片)
+

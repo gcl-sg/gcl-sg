@@ -22,6 +22,7 @@
 
 class Ckeditor::AttachmentFile < Ckeditor::Asset
   mount_uploader :data, CkeditorAttachmentFileUploader, mount_on: :data_file_name
+  second_level_cache version: 1.0, expires_in: 1.week
 
   def url_thumb
     @url_thumb ||= Ckeditor::Utils.filethumb(filename)

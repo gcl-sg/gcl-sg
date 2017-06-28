@@ -21,8 +21,9 @@
 #
 
 class Category < ApplicationRecord
-  has_many :sites
+  second_level_cache version: 1.0, expires_in: 1.week
 
+  has_many :sites
   default_scope -> { order('sort asc') }
   scope :visible, -> { where(visible: true) }
 

@@ -22,6 +22,7 @@
 #
 
 class User < ApplicationRecord
+  second_level_cache version: 1.0, expires_in: 1.week
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable, :registerable, :recoverable,
   devise :database_authenticatable, :rememberable, :trackable, :validatable, :authentication_keys => [:login]

@@ -29,6 +29,7 @@
 
 class News < ApplicationRecord
   include Search::NewsIndex
+  second_level_cache version: 1.0, expires_in: 1.week
   localeable :title, :body
 
   enum category: { company: 0, industry: 1, media: 2 }

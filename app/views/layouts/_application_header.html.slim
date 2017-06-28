@@ -22,7 +22,7 @@ header.header
       .tiny-nav
         = render_navigation renderer: GclTinyNavRenderer, level: 1, expand_all: true
       form.tiny-search action=news_search_path
-        input.query name="query" value=params[:query] placeholder=t('common.search')
+        input.query name="query" placeholder=t('common.search')
         button.search-btn.fa.fa-search type="submit"
   .main-nav
     .container

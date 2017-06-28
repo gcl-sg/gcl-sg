@@ -27,6 +27,7 @@
 #
 
 class Plate < ApplicationRecord
+  second_level_cache version: 1.0, expires_in: 1.week
 
   localeable :title, :sub_title, :desc
 

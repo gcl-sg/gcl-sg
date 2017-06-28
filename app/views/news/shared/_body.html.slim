@@ -30,7 +30,7 @@ ul.article-cards.list-mode
 - if news.size == 0
   .empty.text-center
     - if @is_on_searching
-      p 没有相关搜索结果
+      p=t('common.no_search_result')
     - else
-      p 没有相关新闻
+      p=t('common.no_news')
 
