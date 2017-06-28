@@ -248,6 +248,11 @@
       width: auto;
       height: auto;
       margin-bottom: 20px;
+      img {
+        max-width: 100%;
+        min-width: 1px;
+        min-height: 1px;
+      }
     }
     .events {
       margin-left: 0;
