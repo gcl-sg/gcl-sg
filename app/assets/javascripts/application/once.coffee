@@ -8,6 +8,12 @@ _repositionSubMenu = ($menu)->
 
   $menu.find('> ul').css('padding-left', offsetLeft + 'px')
 
+_checkHeaderSticky = ()->
+  if $(document).scrollTop() > $('main.main').offset().top - 76
+    $('header.header').addClass('fixed')
+  else
+    $('header.header').removeClass('fixed')
+
 # 全局页面事件绑定
 addGlobalEventHandlers = ->
   $(document).off('.global')
@@ -42,8 +48,10 @@ addGlobalEventHandlers = ->
     else
       $('#to_top').addClass('hidden')
   , 300)
+  .on 'scroll.global', _checkHeaderSticky
 
 # 页面第一次加载完成后
 $(window).on('load', ->
   addGlobalEventHandlers()
+  _checkHeaderSticky()
 )

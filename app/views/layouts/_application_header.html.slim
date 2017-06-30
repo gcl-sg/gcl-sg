@@ -1,5 +1,6 @@
 .smart-header
-  = link_to I18n.t('site.name'), root_path, class: 'logo'
+  = link_to root_path, class: 'logo' do
+    = image_tag "logo#{I18n.locale ? "_#{I18n.locale}" : ''}.png"
   .menu-icon
     span
     span
@@ -26,6 +27,8 @@ header.header
         button.search-btn.fa.fa-search type="submit"
   .main-nav
     .container
-      = link_to I18n.t('site.name'), root_path, class: 'logo'
+      = link_to root_path, class: 'logo' do
+        = image_tag "logo#{I18n.locale ? "_#{I18n.locale}" : ''}.png"
+
       nav
         = render_navigation renderer: GclNavRenderer, level: 1, expand_all: true
