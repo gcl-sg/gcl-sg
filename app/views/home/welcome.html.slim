@@ -63,15 +63,15 @@
                     = news_entry.title
                     time= l news_entry.published_at.to_date, format: :long
 
-    .container.entries
-      -# TODO: 1. fix the cache issue;
-      - Plate.visible.each do |plate|
-        = link_to plate.url, class: 'entry' do
-          .entry-content
-            img.lazy.entry-bg data-lazy= plate.image.url
-            .slogan style="background-color: #{plate.color}; background-color: rgba(#{Sass::Script::Value::Color.from_hex(plate.color, 0.84).rgba.join(',')});"
-              = image_tag 'circle-arrow.png', class: 'arrow'
-              .text
-                p= plate.title
-                em= plate.sub_title
-                p: span= plate.desc
+    = cache [I18n.locale, Plate.visible.cache_key] do 
+      .container.entries
+        - Plate.visible.each do |plate|
+          = link_to plate.url, class: 'entry' do
+            .entry-content
+              img.lazy.entry-bg data-lazy= plate.image.url
+              .slogan style="background-color: #{plate.color}; background-color: rgba(#{Sass::Script::Value::Color.from_hex(plate.color, 0.84).rgba.join(',')});"
+                = image_tag 'circle-arrow.png', class: 'arrow'
+                .text
+                  p= plate.title
+                  em= plate.sub_title
+                  p: span= plate.desc
