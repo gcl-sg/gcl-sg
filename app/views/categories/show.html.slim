@@ -1,7 +1,7 @@
 - content_for :full_content do
-  -# TODO: fix the meta info for category
-  - first_site = @category.sites.first
-  - set_meta_tags(title: first_site.title, keywords: [first_site.title, I18n.t('meta_tags.default_keywords')], description: first_site.body) if first_site.present?
+  -# TODO: should add an description for the category, for meta info
+  - sites = @category.sites.visible
+  - set_meta_tags(title: @category.name, keywords: [sites.map(&:title).join(','), I18n.t('meta_tags.default_keywords')], description: sites.map(&:title).join(','))
   - content_for :banner do
     .banner-image
       = image_tag @category.cover.detail.url
