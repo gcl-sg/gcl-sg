@@ -4,7 +4,7 @@ namespace :deploy do
     run_locally do
       execute "RAILS_ENV=#{fetch(:rails_env)} bundle exec rake assets:precompile"
     end
-    on roles(:application) do |role|
+    on roles(:app) do |role|
       run_locally do
         execute"rsync -av ./public/assets/ #{role.user}@#{role.hostname}:#{release_path}/public/assets/;"
       end
