@@ -16,19 +16,23 @@ App.Page.on 'home_welcome', ->
         this != $currentActiveItem[0] && $(this).is('.active')
       )
 
-      $items.each ->
-        $this = $ this
-        if (this isnt $prevActiveItem[0] and this isnt $currentActiveItem[0])
-          clearTimeout($this.data('timer'))
-          $this.removeClass('out active')
+      if Modernizr.csstransforms
+        $items.each ->
+          $this = $ this
+          if (this isnt $prevActiveItem[0] and this isnt $currentActiveItem[0])
+            clearTimeout($this.data('timer'))
+            $this.removeClass('out active')
+    
+        $prevActiveItem.addClass('out')
+        $prevActiveItem.data('timer', setTimeout(->
+          $prevActiveItem.removeClass('out active')
+        , 1000))
 
-      $prevActiveItem.addClass('out')
-      $prevActiveItem.data('timer', setTimeout(->
-        $prevActiveItem.removeClass('out active')
-      , 1000))
-
-      clearTimeout($currentActiveItem.data('timer'))
-      $currentActiveItem.removeClass('out').addClass('active')
+        clearTimeout($currentActiveItem.data('timer'))
+        $currentActiveItem.removeClass('out').addClass('active')
+      else
+        $currentActiveItem.addClass('active')
+        $prevActiveItem.removeClass('active')
 
       $context.find('.active-indicator').css('left', index * 84);
 

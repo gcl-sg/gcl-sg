@@ -3,7 +3,7 @@
   .full-carousel
     ul.carousel-items
       - banners.each_with_index do |banner, i|
-        li*{class: i==0 ? 'active' : nil}
+        li
           .img-container= image_tag banner.cover.detail.url
           .container
             h2.title= banner.title
