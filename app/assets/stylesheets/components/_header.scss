@@ -14,6 +14,10 @@ $active-menu-border: #8bcf09 !default;
     max-width: 60%;
     height: 100%;
     margin-left: 15px;
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
   }
   .menu-icon {
     float: right;
@@ -211,7 +215,7 @@ $active-menu-border: #8bcf09 !default;
         display: inline-block;
         > a {
           display: block;
-          padding: 0 10px 20px;
+          padding: 0 0 20px 20px;
           border-bottom: 3px solid transparent;
           &:hover {
             color: $primary-color;
@@ -287,6 +291,12 @@ $active-menu-border: #8bcf09 !default;
 }
 
 @media (min-width: $screen-md-min) {
+  @media (max-width: $screen-md-max) {
+    .header .main-nav nav > ul > li > a {
+      padding-left: 10px;
+    }
+  }
+  
   .header {
     .main-nav {
       padding-top: 40px;
@@ -295,11 +305,11 @@ $active-menu-border: #8bcf09 !default;
         display: table-cell;
         width: 99%;
         padding-bottom: 20px;
-        vertical-align: bottom;
         position: relative;
         img {
           position: absolute;
-          top: 10px;
+          top: 0;
+          @include transition(top 0.3s);
         }
       }
       nav {
@@ -323,9 +333,8 @@ $active-menu-border: #8bcf09 !default;
         z-index: 99;
         border-bottom: 1px solid $top-bar-border;
       }
-      .logo {
-        padding: 5px 0;
-        vertical-align: middle;
+      .logo img {
+        top: 10px;
       }
     }
   }

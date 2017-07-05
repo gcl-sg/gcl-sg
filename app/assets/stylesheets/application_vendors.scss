@@ -62,6 +62,12 @@
 
 /** overrides & extends **/
 /** bootstrap overrides and extends **/
+.container {
+  @media (min-width: $screen-xlg-min) {
+    width: $container-xlg;
+  }
+}
+
 .breadcrumbs {
   a, span {
     padding: 0 5px;

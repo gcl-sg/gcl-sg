@@ -21,8 +21,11 @@ $grid-gutter-width:         30px;
 //$screen-xs-min:     480px;
 //$screen-sm-min:     768px;
 //$screen-md-min:     992px;
-$screen-lg-min:     1340px;
-$container-lg:      (1300px + $grid-gutter-width);
+
+$screen-xlg-min:     1367px;
+$container-xlg:      (1300px + $grid-gutter-width);
+
+$screen-lg-max:     $screen-xlg-min - 1;
 
 @import "bootstrap/variables";
 

@@ -5,34 +5,6 @@ body {
 }
 
 
-// smart header
-.smart-header {
-  display: none;
-  height: 80px;
-  border-bottom: 1px solid #e5e5e5;
-  line-height: 80px;
-  .logo {
-    float: left;
-    max-width: 60%;
-    height: 100%;
-    margin-left: 15px;
-  }
-  .menu-icon {
-    float: right;
-    width: 30px;
-    margin: 23px 30px 0 0;
-    cursor: pointer;
-    span {
-      display: block;
-      height: 5px;
-      margin-top: 4px;
-      background: $primary-color;
-    }
-  }
-}
-
-
-
 // banner
 .banner {
   position: relative;
